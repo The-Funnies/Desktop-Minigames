@@ -29,7 +29,7 @@ namespace Desktop_Minigames
             snake.Font = new Font("Ariel", 25);
             snake.Size = new Size(150,150);
             snake.Location = new Point(Width / 7, Height / 4);
-            snake.Click += Snake;
+            snake.Click += GoToGame;
             Controls.Add(snake);
 
             Button solitaire = new Button();
@@ -37,7 +37,7 @@ namespace Desktop_Minigames
             solitaire.Font = new Font("Ariel", 25);
             solitaire.Size = new Size(150, 150);
             solitaire.Location = new Point((int)(Width / 1.8), Height / 4);
-            solitaire.Click += Solitaire;
+            solitaire.Click += GoToGame;
             Controls.Add(solitaire);
 
             Button flappy = new Button();
@@ -45,7 +45,7 @@ namespace Desktop_Minigames
             flappy.Font = new Font("Ariel", 25);
             flappy.Size = new Size(150, 150);
             flappy.Location = new Point(Width / 7, (int)(Height / 2.15));
-            flappy.Click += Flappy;
+            flappy.Click += GoToGame;
             Controls.Add(flappy);
 
             Button whist = new Button();
@@ -53,28 +53,59 @@ namespace Desktop_Minigames
             whist.Font = new Font("Ariel", 25);
             whist.Size = new Size(150, 150);
             whist.Location = new Point((int)(Width / 1.8), (int)(Height / 2.15));
-            whist.Click += Flappy;
+            whist.Click += GoToGame;
             Controls.Add(whist);
         }
-        public static void Snake(object sender,EventArgs args)
+        public void GoToGame(object sender,EventArgs args)
         {
-
+            Button but = (Button)sender;
+            if (but.Text == "Snake")
+            {
+                Snake hostForm = new Snake();
+                hostForm.StartPosition = FormStartPosition.Manual;
+                hostForm.Location = new Point(this.Location.X, 0);
+                this.Hide();
+                Controls.Clear();
+                hostForm.Show();
+            }
+            else
+            {
+                if (but.Text == "Solitaire")
+                {
+                    Solitaire hostForm = new Solitaire();
+                    hostForm.StartPosition = FormStartPosition.Manual;
+                    hostForm.Location = new Point(this.Location.X, 0);
+                    this.Hide();
+                    Controls.Clear();
+                    hostForm.Show();
+                }
+                else
+                {
+                    if (but.Text == "Flappy Bird")
+                    {
+                        Flappy hostForm = new Flappy();
+                        hostForm.StartPosition = FormStartPosition.Manual;
+                        hostForm.Location = new Point(this.Location.X, 0);
+                        this.Hide();
+                        Controls.Clear();
+                        hostForm.Show();
+                    }
+                    else
+                    {
+                        if (but.Text == "Whist")
+                        {
+                            Whist hostForm = new Whist();
+                            hostForm.StartPosition = FormStartPosition.Manual;
+                            hostForm.Location = new Point(this.Location.X, 0);
+                            this.Hide();
+                            Controls.Clear();
+                            hostForm.Show();
+                        }
+                    }
+                }
+            }
         }
 
-        public static void Whist(object sender, EventArgs args)
-        {
-
-        }
-
-        public static void Flappy(object sender, EventArgs args)
-        {
-
-        }
-
-        public static void Solitaire(object sender, EventArgs args)
-        {
-
-        }
         private void Minigames_Load(object sender, EventArgs e)
         {
 

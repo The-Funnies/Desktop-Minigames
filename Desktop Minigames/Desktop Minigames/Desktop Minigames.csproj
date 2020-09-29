@@ -46,6 +46,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Flappy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Flappy.Designer.cs">
+      <DependentUpon>Flappy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Whist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Whist.Designer.cs">
+      <DependentUpon>Whist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Solitaire.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Solitaire.Designer.cs">
+      <DependentUpon>Solitaire.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Snake.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Snake.Designer.cs">
+      <DependentUpon>Snake.cs</DependentUpon>
+    </Compile>
     <Compile Include="main.cs">
       <SubType>Form</SubType>
     </Compile>
