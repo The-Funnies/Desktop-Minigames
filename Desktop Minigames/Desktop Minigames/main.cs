@@ -73,7 +73,7 @@ namespace Desktop_Minigames
 
         public static void Solitaire(object sender, EventArgs args)
         {
-
+            MessageBox.Show("You have the biggest gay");
         }
         private void Minigames_Load(object sender, EventArgs e)
         {
