@@ -18,7 +18,7 @@ namespace Desktop_Minigames
         private Button[][] brdBoard;
         private String markingColor="Gray";
        
-        public Form1()
+        public UltimateTicTacToe()
         {
             InitializeComponent();
         }
