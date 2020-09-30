@@ -394,7 +394,7 @@ namespace Desktop_Minigames
                 playTime.Start();
             }
             PictureBox selectedC = (PictureBox)sender;
-            Console.WriteLine($"You clicked {(Card)selectedC.Tag}");
+            Console.WriteLine($"You clicked {(Card1)selectedC.Tag}");
             bool isCardFromDealer = false;
             bool Replaceable = false;
             bool moveToSlotAble = false;
@@ -441,7 +441,7 @@ namespace Desktop_Minigames
                 {
                     Controls.Remove(glowPB);
                     glowingC = null;
-                    Console.WriteLine($"You removed the glow from {(Card)selectedC.Tag}");
+                    Console.WriteLine($"You removed the glow from {(Card1)selectedC.Tag}");
                 }//Remove glow on same card
 
                 else if (deck.areDifferentcolors((Card1)selectedC.Tag, (Card1)glowingC.Tag) && (deck.areFollowingNum((Card1)glowingC.Tag, (Card1)selectedC.Tag)) && !Replaceable && !(selectedC.Location.X == 600 && selectedC.Location.Y == 50) && (!(selectedC.Equals(slotSpb) || selectedC.Equals(slotHpb) || selectedC.Equals(slotDpb) || selectedC.Equals(slotCpb))))
@@ -467,7 +467,7 @@ namespace Desktop_Minigames
                             dealer.Remove(dealer[i]);
                             break;
                         }
-                    }//Move Card from dealer
+                    }//Move Card1 from dealer
                     if ((glowingC.Equals(slotSpb) || glowingC.Equals(slotHpb) || glowingC.Equals(slotDpb) || glowingC.Equals(slotCpb)) && !isCardFromDealer)
                     {
                         removeFromSlots(selectedC);
@@ -837,7 +837,7 @@ namespace Desktop_Minigames
                     }
                     k = 0;
                     Controls.Remove(glowPB);
-                    Console.WriteLine($"You moved {(Card)glowingC.Tag} to an empty slot along with {tempCs.Length - 1} other cards");
+                    Console.WriteLine($"You moved {(Card1)glowingC.Tag} to an empty slot along with {tempCs.Length - 1} other cards");
                 }
                 for (int i = 0; i < 7; i++)
                 {
@@ -881,7 +881,7 @@ namespace Desktop_Minigames
         }
         public void removeFromSlots(PictureBox selectedC)
         {
-            Console.WriteLine($"You moved {(Card)glowingC.Tag} from the slots to under {(Card)selectedC.Tag}");
+            Console.WriteLine($"You moved {(Card1)glowingC.Tag} from the slots to under {(Card1)selectedC.Tag}");
             for (int j = 0; j < 7; j++)
             {
                 if (lines[j].Contains(selectedC))
