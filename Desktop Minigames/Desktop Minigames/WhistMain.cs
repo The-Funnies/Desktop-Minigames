@@ -52,23 +52,22 @@ namespace Desktop_Minigames
 
             if (but.Text == "Play")
             {
-                Whist hostForm = new Whist();
-                hostForm.StartPosition = FormStartPosition.Manual;
-                hostForm.Location = new Point(this.Location.X, 0);
-                this.Hide();
-                Controls.Clear();
-                hostForm.Show();
+                GoToForm<Whist>(new Whist());
             }
             else
             {
-                WhistServer hostForm = new WhistServer();
-                hostForm.StartPosition = FormStartPosition.Manual;
-                hostForm.Location = new Point(this.Location.X, 0);
-                this.Hide();
-                Controls.Clear();
-                hostForm.Show();
+                GoToForm<WhistServer>(new WhistServer());
             }
             
+        }
+        public void GoToForm<T>(T form) where T : Form
+        {
+            form.StartPosition = FormStartPosition.Manual;
+            form.Location = new Point(this.Location.X, 0);
+            form.FormClosed += (object sender, FormClosedEventArgs e) => { Environment.Exit(Environment.ExitCode); };
+            this.Hide();
+            Controls.Clear();
+            form.Show();
         }
     }
 }

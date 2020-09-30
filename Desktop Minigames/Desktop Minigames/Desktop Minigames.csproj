@@ -57,6 +57,19 @@
     <Compile Include="Flappy.Designer.cs">
       <DependentUpon>Flappy.cs</DependentUpon>
     </Compile>
+    <Compile Include="SnakeGame.cs" />
+    <Compile Include="UltimateTicTacToe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UltimateTicTacToe.Designer.cs">
+      <DependentUpon>UltimateTicTacToe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UltimateUltimateTicTacToe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UltimateUltimateTicTacToe.Designer.cs">
+      <DependentUpon>UltimateUltimateTicTacToe.cs</DependentUpon>
+    </Compile>
     <Compile Include="Whist.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +125,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UltimateTicTacToe.resx">
+      <DependentUpon>UltimateTicTacToe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UltimateUltimateTicTacToe.resx">
+      <DependentUpon>UltimateUltimateTicTacToe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Whist.resx">
       <DependentUpon>Whist.cs</DependentUpon>
     </EmbeddedResource>
