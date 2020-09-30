@@ -78,7 +78,7 @@ namespace Desktop_Minigames
                                 break;
                         }
                     }
-                    Thread.Sleep(10000000);
+                    Thread.Sleep(1000);
                 }
             });
             th.Start();
