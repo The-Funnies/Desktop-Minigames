@@ -25,44 +25,32 @@ namespace Desktop_Minigames
             minigames.Location = new Point(Width / 2 -(int)(minigames.Size.Width /2.4), Height / 10);
             Controls.Add(minigames);
 
-            Button snake = new Button();
-            snake.Text = "Snake";
-            snake.Font = new Font("Ariel", 25);
-            snake.Size = new Size(150,150);
-            snake.Location = new Point(Width / 7, Height / 4);
-            snake.Click += GoToGame;
-            Controls.Add(snake);
+            Button[] games = new Button[6];
 
-            Button solitaire = new Button();
-            solitaire.Text = "Solitaire";
-            solitaire.Font = new Font("Ariel", 25);
-            solitaire.Size = new Size(150, 150);
-            solitaire.Location = new Point((int)(Width / 1.8), Height / 4);
-            solitaire.Click += GoToGame;
-            Controls.Add(solitaire);
+            for (int i = 0; i < games.Length; i++)
+            {
+                games[i] = new Button
+                {
+                    Font = new Font("Ariel", 25),
+                    Size = new Size(150, 150),
+                    Location = new Point(i % 2 == 0 ? Width / 7 : (int)(Width / 1.8), minigames.Location.Y + minigames.Height + (Height / 4) * (i / 2))
+                };
+                games[i].Click += GoToGame;
+                Controls.Add(games[i]);
+            }
 
-            Button flappy = new Button();
-            flappy.Text = "Flappy Bird";
-            flappy.Font = new Font("Ariel", 25);
-            flappy.Size = new Size(150, 150);
-            flappy.Location = new Point(Width / 7, (int)(Height / 2.15));
-            flappy.Click += GoToGame;
-            Controls.Add(flappy);
-
-            Button whist = new Button();
-            whist.Text = "Whist";
-            whist.Font = new Font("Ariel", 25);
-            whist.Size = new Size(150, 150);
-            whist.Location = new Point((int)(Width / 1.8), (int)(Height / 2.15));
-            whist.Click += GoToGame;
-            Controls.Add(whist);
+            games[0].Text = "Snake";
+            games[1].Text = "Solitaire";
+            games[2].Text = "Flappy Bird";
+            games[3].Text = "Whist";
+            games[4].Text = "Ultimate Tic Tac Toe";
+            games[5].Text = "Ultimate Ultimate Tic Tac Toe";
         }
         public void GoToGame(object sender,EventArgs args)
         {
             Button but = (Button)sender;
             switch (but.Text)
             {
-
                 case "Snake":
                     GoToForm<Snake>(new Snake());
                     break;
@@ -81,7 +69,6 @@ namespace Desktop_Minigames
                 case "Ultimate Ultimate Tic Tac Toe":
                     GoToForm<UltimateUltimateTicTacToe>(new UltimateUltimateTicTacToe());
                     break;
-
             }
         }
 
