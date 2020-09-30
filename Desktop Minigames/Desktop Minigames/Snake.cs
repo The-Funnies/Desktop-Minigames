@@ -89,6 +89,7 @@ namespace Desktop_Minigames
                             board[i, j].BackColor = GetBlockColor(blocks[i, j]);
                         }
                     }
+                    commandQueue.Clear();
                     break;
                 }
 
@@ -112,6 +113,7 @@ namespace Desktop_Minigames
                 gameThread.Start();
             }
 
+            if (commandQueue.Count >= 6) return base.ProcessCmdKey(ref msg, keyData);
             switch (keyData)
             {
                 case Keys.Up:
