@@ -7,3 +7,4 @@ A desktop application that contains a variety of games and puzzles, varying betw
 - [x] Ultimate Tic Tac Toe
 - [x] Ultimate Ultimate Tic Tac Toe
 - [ ] Flappy Bird
+- [ ] Bullseyes
