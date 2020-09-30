@@ -59,7 +59,6 @@ namespace Desktop_Minigames
         public void GoToGame(object sender,EventArgs args)
         {
             Button but = (Button)sender;
-
             switch (but.Text)
             {
                 case "Snake":
@@ -73,6 +72,12 @@ namespace Desktop_Minigames
                     break;
                 case "Whist":
                     GoToForm<Whist>(new Whist());
+                    break;
+                case "Ultimate Tic Tac Toe":
+                    GoToForm<UltimateTicTacToe>(new UltimateTicTacToe());
+                    break;
+                case "Ultimate Ultimate Tic Tac Toe":
+                    GoToForm<UltimateUltimateTicTacToe>(new UltimateUltimateTicTacToe());
                     break;
             }
         }
