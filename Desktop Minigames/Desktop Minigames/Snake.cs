@@ -28,7 +28,6 @@ namespace Desktop_Minigames
             this.BackColor = Color.FromArgb(0, 0, 100);
             this.Size = new Size(blockSize * (width + 1), blockSize * (height + 2));
             this.Text = "Snake";
-            this.FormClosing += Snake_FormClosing;
             Block[,] blocks = game.GetBoard();
             for (int i = 0; i < height; i++)
             {
@@ -61,11 +60,6 @@ namespace Desktop_Minigames
                 else blocks[point.Item2, point.Item1]++;
                 board[point.Item2, point.Item1].BackColor = GetBlockColor(blocks[point.Item2, point.Item1]);
             }
-        }
-
-        private void Snake_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Environment.Exit(Environment.ExitCode);
         }
 
         public void ProcessGame()

@@ -59,51 +59,32 @@ namespace Desktop_Minigames
         public void GoToGame(object sender,EventArgs args)
         {
             Button but = (Button)sender;
-            if (but.Text == "Snake")
+
+            switch (but.Text)
             {
-                Snake hostForm = new Snake();
-                hostForm.StartPosition = FormStartPosition.Manual;
-                hostForm.Location = new Point(this.Location.X, 0);
-                this.Hide();
-                Controls.Clear();
-                hostForm.Show();
+                case "Snake":
+                    GoToForm<Snake>(new Snake());
+                    break;
+                case "Solitaire":
+                    GoToForm<Solitaire>(new Solitaire());
+                    break;
+                case "Flappy Bird":
+                    GoToForm<Flappy>(new Flappy());
+                    break;
+                case "Whist":
+                    GoToForm<Whist>(new Whist());
+                    break;
             }
-            else
-            {
-                if (but.Text == "Solitaire")
-                {
-                    Solitaire hostForm = new Solitaire();
-                    hostForm.StartPosition = FormStartPosition.Manual;
-                    hostForm.Location = new Point(this.Location.X, 0);
-                    this.Hide();
-                    Controls.Clear();
-                    hostForm.Show();
-                }
-                else
-                {
-                    if (but.Text == "Flappy Bird")
-                    {
-                        Flappy hostForm = new Flappy();
-                        hostForm.StartPosition = FormStartPosition.Manual;
-                        hostForm.Location = new Point(this.Location.X, 0);
-                        this.Hide();
-                        Controls.Clear();
-                        hostForm.Show();
-                    }
-                    else
-                    {
-                        if (but.Text == "Whist")
-                        {
-                            Whist hostForm = new Whist();
-                            hostForm.StartPosition = FormStartPosition.Manual;
-                            hostForm.Location = new Point(this.Location.X, 0);
-                            this.Hide();
-                            Controls.Clear();
-                            hostForm.Show();
-                        }
-                    }
-                }
-            }
+        }
+
+        public void GoToForm<T>(T form) where T : Form
+        {
+            form.StartPosition = FormStartPosition.Manual;
+            form.Location = new Point(this.Location.X, 0);
+            form.FormClosed += (object sender, FormClosedEventArgs e) => { Environment.Exit(Environment.ExitCode); };
+            this.Hide();
+            Controls.Clear();
+            form.Show();
         }
 
         private void Minigames_Load(object sender, EventArgs e)
