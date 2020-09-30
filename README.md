@@ -1,6 +1,6 @@
 # Desktop-Minigames
 A desktop application that contains a variety of single-player, local and online multiplayer minigames.
-## Planned Game(& = implemented)
+## Games(& = implemented)
 - Solitare
 - Snake
 - Whist
