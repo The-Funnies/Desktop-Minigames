@@ -54,7 +54,7 @@ namespace Desktop_Minigames
                 Random random = new Random();
                 while (true)
                 {
-                    if (/*random.Next(0, 100000) == 66699*/ true)
+                    if (random.Next(0, 100000) == 66699)
                     {
                         DialogResult response = MessageBox.Show("You have just won a free iphone 5, fresh from india. Would you like to get it now?", "Congratulations!", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
                         switch (response)
