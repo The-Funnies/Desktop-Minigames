@@ -3,7 +3,7 @@ A desktop application that contains a variety of games and puzzles, varying betw
 ## Games
 - [x] Solitare
 - [x] Snake
-- [/] Whist
+- [ ] Whist
 - [x] Ultimate Tic Tac Toe
 - [x] Ultimate Ultimate Tic Tac Toe
 - [ ] Flappy Bird
