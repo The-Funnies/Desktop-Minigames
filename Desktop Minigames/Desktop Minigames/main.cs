@@ -5,7 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Desktop_Minigames
@@ -13,6 +13,8 @@ namespace Desktop_Minigames
 
     public partial class Minigames : Form
     {
+        public static Random random = new Random();
+
         public Minigames()
         {
             Width = (int)(Screen.PrimaryScreen.WorkingArea.Size.Width / 3.5);
@@ -45,6 +47,32 @@ namespace Desktop_Minigames
             games[3].Text = "Whist";
             games[4].Text = "Ultimate Tic Tac Toe";
             games[5].Text = "Ultimate Ultimate Tic Tac Toe";
+
+            this.Shown += (object sender, EventArgs e) =>
+            {
+                Random random = new Random();
+                while (true)
+                {
+                    if (random.Next(0, 10000) == 6669)
+                    {
+                        DialogResult response = MessageBox.Show("You have just won a free iphone 5, fresh from india. Would you like to get it now?", "Congratulations!", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+                        switch (response)
+                        {
+                            case DialogResult.OK:
+                                MessageBox.Show("A freee Iphone 5 has just been sent to you by mail.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                break;
+                            case DialogResult.No:
+                                response = MessageBox.Show("What do you mean no?? Fuck you!! free punjabi phone!", "WHAT", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Warning);
+                                if (response == DialogResult.Ignore)
+                                {
+                                    GoToForm<Ohno>(new Ohno());
+                                }
+                                break;
+                        }
+                    }
+                    Thread.Sleep(1000);
+                }
+            };
         }
         public void GoToGame(object sender,EventArgs args)
         {

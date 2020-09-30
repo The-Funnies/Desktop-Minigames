@@ -15,7 +15,6 @@ namespace Desktop_Minigames
         private LinkedList<Tuple<int, int>> snake;
         private int foodX, foodY;
         private int foodDuration;
-        private Random random;
 
         public bool isEnd;
 
@@ -24,9 +23,8 @@ namespace Desktop_Minigames
             this.height = height;
             this.width = width;
             board = new Block[height, width];
-            random = new Random();
 
-            Tuple<int, int> snakeLoc = new Tuple<int, int>(random.Next(1, width - 1), random.Next(1, height - 1));
+            Tuple<int, int> snakeLoc = new Tuple<int, int>(Minigames.random.Next(1, width - 1), Minigames.random.Next(1, height - 1));
             Tuple<int, int> leftSnake = new Tuple<int, int>(snakeLoc.Item1 - 1, snakeLoc.Item2);
             board[snakeLoc.Item2, snakeLoc.Item1] = Block.Snake;
             board[leftSnake.Item2, leftSnake.Item1] = Block.Snake;
@@ -132,8 +130,8 @@ namespace Desktop_Minigames
 
         public void GenFood()
         {
-            foodX = random.Next(0, width);
-            foodY = random.Next(0, height);
+            foodX = Minigames.random.Next(0, width);
+            foodY = Minigames.random.Next(0, height);
 
             if (board[foodY, foodX] != Block.Blank)
             {
@@ -148,7 +146,7 @@ namespace Desktop_Minigames
         {
             board = new Block[height, width];
 
-            Tuple<int, int> snakeLoc = new Tuple<int, int>(random.Next(1, width - 1), random.Next(1, height - 1));
+            Tuple<int, int> snakeLoc = new Tuple<int, int>(Minigames.random.Next(1, width - 1), Minigames.random.Next(1, height - 1));
             Tuple<int, int> leftSnake = new Tuple<int, int>(snakeLoc.Item1 - 1, snakeLoc.Item2);
             board[snakeLoc.Item2, snakeLoc.Item1] = Block.Snake;
             board[leftSnake.Item2, leftSnake.Item1] = Block.Snake;

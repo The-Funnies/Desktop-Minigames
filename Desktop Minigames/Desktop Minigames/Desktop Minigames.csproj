@@ -57,6 +57,9 @@
     <Compile Include="Flappy.Designer.cs">
       <DependentUpon>Flappy.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ohno.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SnakeGame.cs" />
     <Compile Include="UltimateTicTacToe.cs">
       <SubType>Form</SubType>
