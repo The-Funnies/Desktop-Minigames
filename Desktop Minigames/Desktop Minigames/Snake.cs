@@ -13,8 +13,6 @@ namespace Desktop_Minigames
 {
     public partial class Snake : Form
     {
-        public static Random random = new Random();
-
         private const int blockSize = 25;
         private const int height = 20, width = 20;
         private bool godMode = false;

@@ -5,7 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Desktop_Minigames
@@ -13,6 +13,8 @@ namespace Desktop_Minigames
 
     public partial class Minigames : Form
     {
+        public static Random random = new Random();
+
         public Minigames()
         {
             Width = (int)(Screen.PrimaryScreen.WorkingArea.Size.Width / 3.5);
@@ -25,44 +27,58 @@ namespace Desktop_Minigames
             minigames.Location = new Point(Width / 2 -(int)(minigames.Size.Width /2.4), Height / 10);
             Controls.Add(minigames);
 
-            Button snake = new Button();
-            snake.Text = "Snake";
-            snake.Font = new Font("Ariel", 25);
-            snake.Size = new Size(150,150);
-            snake.Location = new Point(Width / 7, Height / 4);
-            snake.Click += GoToGame;
-            Controls.Add(snake);
+            Button[] games = new Button[6];
 
-            Button solitaire = new Button();
-            solitaire.Text = "Solitaire";
-            solitaire.Font = new Font("Ariel", 25);
-            solitaire.Size = new Size(150, 150);
-            solitaire.Location = new Point((int)(Width / 1.8), Height / 4);
-            solitaire.Click += GoToGame;
-            Controls.Add(solitaire);
+            for (int i = 0; i < games.Length; i++)
+            {
+                games[i] = new Button
+                {
+                    Font = new Font("Ariel", 25),
+                    Size = new Size(150, 150),
+                    Location = new Point(i % 2 == 0 ? Width / 7 : (int)(Width / 1.8), minigames.Location.Y + minigames.Height + (Height / 4) * (i / 2))
+                };
+                games[i].Click += GoToGame;
+                Controls.Add(games[i]);
+            }
 
-            Button flappy = new Button();
-            flappy.Text = "Flappy Bird";
-            flappy.Font = new Font("Ariel", 25);
-            flappy.Size = new Size(150, 150);
-            flappy.Location = new Point(Width / 7, (int)(Height / 2.15));
-            flappy.Click += GoToGame;
-            Controls.Add(flappy);
+            games[0].Text = "Snake";
+            games[1].Text = "Solitaire";
+            games[2].Text = "Flappy Bird";
+            games[3].Text = "Whist";
+            games[4].Text = "Ultimate Tic Tac Toe";
+            games[5].Text = "Ultimate Ultimate Tic Tac Toe";
 
-            Button whist = new Button();
-            whist.Text = "Whist";
-            whist.Font = new Font("Ariel", 25);
-            whist.Size = new Size(150, 150);
-            whist.Location = new Point((int)(Width / 1.8), (int)(Height / 2.15));
-            whist.Click += GoToGame;
-            Controls.Add(whist);
+            this.Shown += (object sender, EventArgs e) =>
+            {
+                Random random = new Random();
+                while (true)
+                {
+                    if (random.Next(0, 10000) == 6669)
+                    {
+                        DialogResult response = MessageBox.Show("You have just won a free iphone 5, fresh from india. Would you like to get it now?", "Congratulations!", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+                        switch (response)
+                        {
+                            case DialogResult.OK:
+                                MessageBox.Show("A freee Iphone 5 has just been sent to you by mail.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                break;
+                            case DialogResult.No:
+                                response = MessageBox.Show("What do you mean no?? Fuck you!! free punjabi phone!", "WHAT", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Warning);
+                                if (response == DialogResult.Ignore)
+                                {
+                                    GoToForm<Ohno>(new Ohno());
+                                }
+                                break;
+                        }
+                    }
+                    Thread.Sleep(1000);
+                }
+            };
         }
         public void GoToGame(object sender,EventArgs args)
         {
             Button but = (Button)sender;
             switch (but.Text)
             {
-
                 case "Snake":
                     GoToForm<Snake>(new Snake());
                     break;
@@ -81,7 +97,6 @@ namespace Desktop_Minigames
                 case "Ultimate Ultimate Tic Tac Toe":
                     GoToForm<UltimateUltimateTicTacToe>(new UltimateUltimateTicTacToe());
                     break;
-
             }
         }
 
