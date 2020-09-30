@@ -20,7 +20,7 @@ namespace Desktop_Minigames
         public WhistServer()
         {
             InitializeComponent();
-            HttpChannel chnl = new HttpChannel(6680);
+            HttpChannel chnl = new HttpChannel(8888);
             ChannelServices.RegisterChannel(chnl, false);
 
             RemotingConfiguration.RegisterWellKnownServiceType(
@@ -60,9 +60,9 @@ namespace Desktop_Minigames
             return id;
         }
 
-        public Card[] GetHand(int clientid)
+        public List<Card> GetHand(int clientid)
         {
-            return players[clientid].Getpcards().ToArray();
+            return players[clientid].Getpcards();
         }
     }
 }

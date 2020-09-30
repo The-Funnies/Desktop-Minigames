@@ -29,7 +29,7 @@ namespace Desktop_Minigames
             common = (WhistCommon)Activator.GetObject(
                 typeof(WhistCommon),
 
-                "http://localhost:6680/_Server_");
+                "http://localhost:8888/_Server_");
 
             clientid = common.GetId(name);
         }

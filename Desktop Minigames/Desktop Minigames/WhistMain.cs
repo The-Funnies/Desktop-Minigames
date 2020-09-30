@@ -58,7 +58,6 @@ namespace Desktop_Minigames
             {
                 GoToForm<WhistServer>(new WhistServer());
             }
-            
         }
         public void GoToForm<T>(T form) where T : Form
         {
