@@ -12,12 +12,13 @@ using System.Windows.Forms;
 
 namespace Desktop_Minigames
 {
-    class Card
+    public class Card1
     {
+
         private int num;
         private String type;
 
-        public Card(int num, string type)
+        public Card1(int num, string type)
         {
             this.num = num;
             this.type = type;
@@ -26,7 +27,7 @@ namespace Desktop_Minigames
         public String getType() { return type; }
         public void setNum(int num) { this.num = num; }
         public void setType(String type) { this.type = type; }
-        public Card(Card c)
+        public Card1(Card1 c)
         {
             num = c.num;
             type = c.type;
@@ -36,11 +37,11 @@ namespace Desktop_Minigames
             return $"|{type}||{num}|";
         }
     }
-    class Deck
+    public class Deck
     {
-        private Card[] cards = new Card[52];
-        private string[] slots = new string[4];
-        public Deck(Card[] cards)
+        public Card1[] cards = new Card1[52];
+        public string[] slots = new string[4];
+        public Deck(Card1[] cards)
         {
             this.cards = cards;
         }
@@ -58,9 +59,8 @@ namespace Desktop_Minigames
                 slots[i - 1] = t;
                 for (int n = 1; n <= 13; n++)
                 {
-                    Card card = new Card(n, t);
+                    Card1 card = new Card1(n, t);
                     this.cards[Counter - 1] = card;
-                    //Console.WriteLine(Counter);
                     Console.WriteLine(card.ToString());
                     Counter++;
                 }
@@ -70,7 +70,7 @@ namespace Desktop_Minigames
         {
             this.cards = d.cards;
         }
-        public void setCard(Card c , int i)
+        public void setCard(Card1 c, int i)
         {
             cards[i] = c;
         }
@@ -78,7 +78,7 @@ namespace Desktop_Minigames
         {
             return cards.ToString();
         }
-        public Card getCard(int i)
+        public Card1 getCard(int i)
         {
             return cards[i];
         }
@@ -86,7 +86,7 @@ namespace Desktop_Minigames
         {
             return slots[i];
         }
-        public bool areFollowingNum(Card c1, Card c2)
+        public bool areFollowingNum(Card1 c1, Card1 c2)
         //are the Cards one after the other
         {
             if (c1.getNum() == c2.getNum() - 1)
@@ -95,7 +95,7 @@ namespace Desktop_Minigames
             }
             return false;
         }
-        public bool areDifferentcolors(Card c1, Card c2)
+        public bool areDifferentcolors(Card1 c1, Card1 c2)
         //are the Cards diffrent colors
         {
             if ((c1.getType() == "Spade" || c1.getType() == "Club") && (c2.getType() == "Heart" || c2.getType() == "Diamond"))
@@ -138,6 +138,8 @@ namespace Desktop_Minigames
         private Button finish = new Button();
         public Solitaire()
         {
+            FormBorderStyle = FormBorderStyle.None;
+            WindowState = FormWindowState.Maximized;
             InitializeComponent();
             buildSlotim();
             buildDeck();
@@ -177,7 +179,7 @@ namespace Desktop_Minigames
             } //Add empty cards
             for (int i = 0; i < 51; i++)
             {
-                Card tempC = deck.getCard(i);
+                Card1 tempC = deck.getCard(i);
                 int tempNum = rnd.Next(i, 52);
                 deck.setCard(deck.getCard(tempNum), i);
                 deck.setCard(tempC, tempNum);
@@ -442,7 +444,7 @@ namespace Desktop_Minigames
                     Console.WriteLine($"You removed the glow from {(Card)selectedC.Tag}");
                 }//Remove glow on same card
 
-                else if (deck.areDifferentcolors((Card)selectedC.Tag, (Card)glowingC.Tag) && (deck.areFollowingNum((Card)glowingC.Tag, (Card)selectedC.Tag)) && !Replaceable && !(selectedC.Location.X == 600 && selectedC.Location.Y == 50) && (!(selectedC.Equals(slotSpb) || selectedC.Equals(slotHpb) || selectedC.Equals(slotDpb) || selectedC.Equals(slotCpb))))
+                else if (deck.areDifferentcolors((Card1)selectedC.Tag, (Card1)glowingC.Tag) && (deck.areFollowingNum((Card1)glowingC.Tag, (Card1)selectedC.Tag)) && !Replaceable && !(selectedC.Location.X == 600 && selectedC.Location.Y == 50) && (!(selectedC.Equals(slotSpb) || selectedC.Equals(slotHpb) || selectedC.Equals(slotDpb) || selectedC.Equals(slotCpb))))
                 {
                     Controls.Remove(glowPB);
                     for (int i = 0; i < dealer.Count; i++)
@@ -451,7 +453,7 @@ namespace Desktop_Minigames
                         {
                             glowingC.Location = new Point(selectedC.Location.X, selectedC.Location.Y + 20);
                             glowingC.BringToFront();
-                            Console.WriteLine($"You moved {(Card)glowingC.Tag} from the dealer to under {(Card)selectedC.Tag}");
+                            Console.WriteLine($"You moved {(Card1)glowingC.Tag} from the dealer to under {(Card1)selectedC.Tag}");
                             openCard = null;
                             isCardFromDealer = true;
                             for (int j = 0; j < 7; j++)
@@ -519,12 +521,12 @@ namespace Desktop_Minigames
                             }
                         }
                         k = 0;
-                        Console.WriteLine($"You moved {(Card)glowingC.Tag} and {tempCs.Length - 1} other Cards to under {(Card)selectedC.Tag}");
+                        Console.WriteLine($"You moved {(Card1)glowingC.Tag} and {tempCs.Length - 1} other Cards to under {(Card1)selectedC.Tag}");
                     } //Move Cards from line to line
                     movesCounter++;
                     glowingC = null;
                 }
-                else if (((Card)selectedC.Tag).getNum() == ((Card)glowingC.Tag).getNum() - 1 && (((Card)selectedC.Tag).getType() == ((Card)glowingC.Tag).getType()) && (selectedC.Equals(slotSpb) || selectedC.Equals(slotHpb) || selectedC.Equals(slotDpb) || selectedC.Equals(slotCpb)))
+                else if (((Card1)selectedC.Tag).getNum() == ((Card1)glowingC.Tag).getNum() - 1 && (((Card1)selectedC.Tag).getType() == ((Card1)glowingC.Tag).getType()) && (selectedC.Equals(slotSpb) || selectedC.Equals(slotHpb) || selectedC.Equals(slotDpb) || selectedC.Equals(slotCpb)))
                 {
                     Controls.Remove(glowPB);
                     for (int i = 0; i < dealer.Count; i++)
@@ -536,7 +538,7 @@ namespace Desktop_Minigames
                             Controls.Remove(dealer[i]);
                             dealer.Remove(dealer[i]);
                             openCard = null;
-                            Console.WriteLine($"You moved {(Card)glowingC.Tag} to slot {((Card)selectedC.Tag).getType()}");
+                            Console.WriteLine($"You moved {(Card1)glowingC.Tag} to slot {((Card1)selectedC.Tag).getType()}");
                             isCardFromDealer = true;
                             break;
                         }
@@ -563,25 +565,25 @@ namespace Desktop_Minigames
                                 }
                             }
                         }
-                        Console.WriteLine($"You moved {(Card)glowingC.Tag} to slot {((Card)selectedC.Tag).getType()}");
+                        Console.WriteLine($"You moved {(Card1)glowingC.Tag} to slot {((Card1)selectedC.Tag).getType()}");
                     }//Move from lines to slot
                     {
-                        if (((Card)selectedC.Tag).getType() == "Spade")
+                        if (((Card1)selectedC.Tag).getType() == "Spade")
                         {
                             slotSCount++;
                             slotSpb = glowingC;
                         }
-                        else if (((Card)selectedC.Tag).getType() == "Heart")
+                        else if (((Card1)selectedC.Tag).getType() == "Heart")
                         {
                             slotHCount++;
                             slotHpb = glowingC;
                         }
-                        else if (((Card)selectedC.Tag).getType() == "Diamond")
+                        else if (((Card1)selectedC.Tag).getType() == "Diamond")
                         {
                             slotDCount++;
                             slotDpb = glowingC;
                         }
-                        else if (((Card)selectedC.Tag).getType() == "Club")
+                        else if (((Card1)selectedC.Tag).getType() == "Club")
                         {
                             slotCCount++;
                             slotCpb = glowingC;
@@ -600,7 +602,7 @@ namespace Desktop_Minigames
                     glowingC = selectedC;
                 }
             }
-            if (glowingC != null) { Console.WriteLine($"GlowingC is {(Card)glowingC.Tag}"); }
+            if (glowingC != null) { Console.WriteLine($"GlowingC is {(Card1)glowingC.Tag}"); }
             checkWin();
         }
         private void timer1_Tick(object sender, EventArgs e)
@@ -614,26 +616,26 @@ namespace Desktop_Minigames
             {
                 foreach (Control PB in this.Controls)
                 {
-                    if (PB.Tag != null && ((PB.Tag).GetType() == typeof(Card)))
+                    if (PB.Tag != null && ((PB.Tag).GetType() == typeof(Card1)))
                     {
-                        if (((Card)PB.Tag).getNum() != 13)
+                        if (((Card1)PB.Tag).getNum() != 13)
                         {
                             Controls.Remove(PB);
                             Thread.Sleep(100);
                         }
-                        else if (((Card)PB.Tag).getType() == "Spade")
+                        else if (((Card1)PB.Tag).getType() == "Spade")
                         {
                             PB.Location = new Point(860, 52);
                         }
-                        else if (((Card)PB.Tag).getType() == "Heart")
+                        else if (((Card1)PB.Tag).getType() == "Heart")
                         {
                             PB.Location = new Point(860 + 130, 52);
                         }
-                        else if (((Card)PB.Tag).getType() == "Diamond")
+                        else if (((Card1)PB.Tag).getType() == "Diamond")
                         {
                             PB.Location = new Point(860 + 130 * 2, 52);
                         }
-                        else if (((Card)PB.Tag).getType() == "Club")
+                        else if (((Card1)PB.Tag).getType() == "Club")
                         {
                             PB.Location = new Point(860 + 130 * 3, 52);
                         }
@@ -647,7 +649,7 @@ namespace Desktop_Minigames
         {
             PictureBox selectedSlot = (PictureBox)sender;
             bool isCardFromDealer = false;
-            if (glowingC != null && glowingC.Tag != null && ((Card)glowingC.Tag).getNum() == 1 && ((Card)glowingC.Tag).getType() == (string)selectedSlot.Tag)
+            if (glowingC != null && glowingC.Tag != null && ((Card1)glowingC.Tag).getNum() == 1 && ((Card1)glowingC.Tag).getType() == (string)selectedSlot.Tag)
             {
                 for (int i = 0; i < dealer.Count; i++)
                 {
@@ -657,7 +659,7 @@ namespace Desktop_Minigames
                         dealer.Remove(dealer[i]);
                         glowingC.Location = new Point(selectedSlot.Location.X, selectedSlot.Location.Y);
                         glowingC.BringToFront();
-                        Console.WriteLine($"You moved {(Card)glowingC.Tag} to slot {selectedSlot.Tag}");
+                        Console.WriteLine($"You moved {(Card1)glowingC.Tag} to slot {selectedSlot.Tag}");
                         isCardFromDealer = true;
                         Controls.Remove(glowPB);
                         openCard = null;
@@ -667,7 +669,7 @@ namespace Desktop_Minigames
                 if (!isCardFromDealer)
                 {
                     Controls.Remove(glowPB);
-                    Console.WriteLine($"You moved {(Card)glowingC.Tag} to slot {selectedSlot.Tag}");
+                    Console.WriteLine($"You moved {(Card1)glowingC.Tag} to slot {selectedSlot.Tag}");
                     for (int i = 0; i < 7; i++)
                     {
                         if (lines[i].Contains(glowingC))
@@ -778,7 +780,7 @@ namespace Desktop_Minigames
         {
             PictureBox selectedEmptyCard = (PictureBox)sender;
             bool isCardFromDealer = false;
-            if (glowingC != null && glowingC.Tag != null && ((Card)glowingC.Tag).getNum() == 13)
+            if (glowingC != null && glowingC.Tag != null && ((Card1)glowingC.Tag).getNum() == 13)
             {
                 PictureBox[] tempCs = new PictureBox[0];
                 for (int i = 0; i < dealer.Count; i++)
@@ -788,7 +790,7 @@ namespace Desktop_Minigames
                         dealer.Remove(dealer[i]);
                         glowingC.Location = new Point(selectedEmptyCard.Location.X, selectedEmptyCard.Location.Y);
                         glowingC.BringToFront();
-                        Console.WriteLine($"You moved {(Card)glowingC.Tag} to an empty line in line {selectedEmptyCard.Tag}");
+                        Console.WriteLine($"You moved {(Card1)glowingC.Tag} to an empty line in line {selectedEmptyCard.Tag}");
                         //Controls.Remove(dealer[i]);
                         Controls.Remove(glowPB);
                         openCard = null;
@@ -888,33 +890,33 @@ namespace Desktop_Minigames
                 }
             }
             PictureBox tempPB = new PictureBox();
-            if (((Card)glowingC.Tag).getNum() != 1)
+            if (((Card1)glowingC.Tag).getNum() != 1)
             {
-                Card prevC = new Card(((Card)glowingC.Tag).getNum() - 1, ((Card)glowingC.Tag).getType());
+                Card1 prevC = new Card1(((Card1)glowingC.Tag).getNum() - 1, ((Card1)glowingC.Tag).getType());
                 foreach (Control PB in this.Controls)
                 {
-                    if (PB.Tag != null && ((PB.Tag).GetType() == typeof(Card)) && ((Card)PB.Tag).getType() == prevC.getType() && ((Card)PB.Tag).getNum() == prevC.getNum())
+                    if (PB.Tag != null && ((PB.Tag).GetType() == typeof(Card1)) && ((Card1)PB.Tag).getType() == prevC.getType() && ((Card1)PB.Tag).getNum() == prevC.getNum())
                     {
                         tempPB = (PictureBox)PB;
                         break;
                     }
                 }
-                if (((Card)glowingC.Tag).getType() == "Spade")
+                if (((Card1)glowingC.Tag).getType() == "Spade")
                 {
                     slotSCount--;
                     slotSpb = tempPB;
                 }
-                else if (((Card)glowingC.Tag).getType() == "Heart")
+                else if (((Card1)glowingC.Tag).getType() == "Heart")
                 {
                     slotHCount--;
                     slotHpb = tempPB;
                 }
-                else if (((Card)glowingC.Tag).getType() == "Diamond")
+                else if (((Card1)glowingC.Tag).getType() == "Diamond")
                 {
                     slotDCount--;
                     slotDpb = tempPB;
                 }
-                else if (((Card)glowingC.Tag).getType() == "Club")
+                else if (((Card1)glowingC.Tag).getType() == "Club")
                 {
                     slotCCount--;
                     slotCpb = tempPB;
@@ -922,22 +924,22 @@ namespace Desktop_Minigames
             }
             else
             {
-                if (((Card)selectedC.Tag).getType() == "Spade")
+                if (((Card1)selectedC.Tag).getType() == "Spade")
                 {
                     slotSCount--;
                     slotSpb = null;
                 }
-                else if (((Card)selectedC.Tag).getType() == "Heart")
+                else if (((Card1)selectedC.Tag).getType() == "Heart")
                 {
                     slotHCount--;
                     slotHpb = null;
                 }
-                else if (((Card)selectedC.Tag).getType() == "Diamond")
+                else if (((Card1)selectedC.Tag).getType() == "Diamond")
                 {
                     slotDCount--;
                     slotDpb = null;
                 }
-                else if (((Card)selectedC.Tag).getType() == "Club")
+                else if (((Card1)selectedC.Tag).getType() == "Club")
                 {
                     slotCCount--;
                     slotCpb = null;

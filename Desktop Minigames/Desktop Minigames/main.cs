@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace Desktop_Minigames
 {
+
     public partial class Minigames : Form
     {
         public Minigames()
@@ -94,7 +95,7 @@ namespace Desktop_Minigames
                     {
                         if (but.Text == "Whist")
                         {
-                            Whist hostForm = new Whist();
+                            WhistMain hostForm = new WhistMain();
                             hostForm.StartPosition = FormStartPosition.Manual;
                             hostForm.Location = new Point(this.Location.X, 0);
                             this.Hide();

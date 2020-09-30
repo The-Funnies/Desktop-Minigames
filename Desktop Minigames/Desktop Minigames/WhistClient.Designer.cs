@@ -1,6 +1,6 @@
 ﻿namespace Desktop_Minigames
 {
-    partial class Whist
+    partial class WhistClient
     {
         /// <summary>
         /// Required designer variable.
@@ -30,14 +30,14 @@
         {
             this.SuspendLayout();
             // 
-            // Whist
+            // WhistClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "Whist";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Whist_Load);
+            this.Name = "WhistClient";
+            this.Text = "WhistClient";
+            this.Load += new System.EventHandler(this.WhistClient_Load);
             this.ResumeLayout(false);
 
         }
