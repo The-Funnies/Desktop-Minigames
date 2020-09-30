@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Desktop_Minigames
 {
-
+    public delegate void goToForm(Ohno form);
     public partial class Minigames : Form
     {
         public static Random random = new Random();
@@ -47,32 +47,41 @@ namespace Desktop_Minigames
             games[3].Text = "Whist";
             games[4].Text = "Ultimate Tic Tac Toe";
             games[5].Text = "Ultimate Ultimate Tic Tac Toe";
+            this.FormClosed += (object sender, FormClosedEventArgs e) => { Environment.Exit(Environment.ExitCode); };
 
-            this.Shown += (object sender, EventArgs e) =>
+            Thread th = new Thread(() =>
             {
                 Random random = new Random();
                 while (true)
                 {
-                    if (random.Next(0, 10000) == 6669)
+                    if (/*random.Next(0, 100000) == 66699*/ true)
                     {
                         DialogResult response = MessageBox.Show("You have just won a free iphone 5, fresh from india. Would you like to get it now?", "Congratulations!", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
                         switch (response)
                         {
-                            case DialogResult.OK:
+                            default:
                                 MessageBox.Show("A freee Iphone 5 has just been sent to you by mail.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 break;
                             case DialogResult.No:
                                 response = MessageBox.Show("What do you mean no?? Fuck you!! free punjabi phone!", "WHAT", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Warning);
                                 if (response == DialogResult.Ignore)
                                 {
-                                    GoToForm<Ohno>(new Ohno());
+                                    this.Invoke(new goToForm((Ohno form) => 
+                                    {
+                                        form.StartPosition = FormStartPosition.Manual;
+                                        form.Location = new Point(this.Location.X, 0);
+                                        this.Hide();
+                                        Controls.Clear();
+                                        form.Show();
+                                    }), new Ohno());
                                 }
                                 break;
                         }
                     }
-                    Thread.Sleep(1000);
+                    Thread.Sleep(10000000);
                 }
-            };
+            });
+            th.Start();
         }
         public void GoToGame(object sender,EventArgs args)
         {
