@@ -5,5 +5,5 @@ A desktop application that contains a variety of games and puzzles, varying betw
 - [x] Snake
 - [ ] Whist
 - [x] Ultimate Tic Tac Toe
-- [x] Ultimate Ultimate Tic Tac Toe
-- [ ] Flappy Bird
+[x] Ultimate Ultimate Tic Tac Toe
+[ ] Flappy Bird
