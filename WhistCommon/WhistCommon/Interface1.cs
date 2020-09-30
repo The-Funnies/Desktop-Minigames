@@ -9,7 +9,7 @@ namespace Desktop_Minigames
     public interface WhistCommon
     {
         public int GetId(string name);
-        public Card[] GetHand(int clientid);
+        public List<Card> GetHand(int clientid);
     }
 
     [Serializable]
