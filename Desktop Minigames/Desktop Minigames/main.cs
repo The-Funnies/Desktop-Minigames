@@ -13,41 +13,61 @@ namespace Desktop_Minigames
     public delegate void goToForm(Ohno form);
     public partial class Minigames : Form
     {
+        //private Button[] games;
+        private Button[] games;
+        private List<String> gamesNames;
         public static Random random = new Random();
-
+        private Label titleLabel;
+        private const int MAIN_BUTTON_SIZE = 125;
+        private const int BACKGROUND_PICS_AMOUNT = 35;//The last index of background pics in Properties.Resources
         public Minigames()
         {
             GoToForm<ChatClient>(new ChatClient());
             Width = (int)(Screen.PrimaryScreen.WorkingArea.Size.Width / 3.5);
             Height = (int)(Screen.PrimaryScreen.WorkingArea.Size.Height / 1.25);
+            this.BackgroundImage = GenerateBackground();
+            gamesNames = new List<string>();
+            gamesNames.Add("Snake");
+            gamesNames.Add("Solitaire");
+            gamesNames.Add("Flappy Bird");
+            gamesNames.Add("Ultimate Tic Tac Toe");
+            gamesNames.Add("Ultimate Ultimate Tic Tac Toe");
+            gamesNames.Add("Bullseye");
 
-            Label minigames = new Label();
-            minigames.Text = "Minigames";
-            minigames.Font = new Font("Ariel", 30);
-            minigames.Size = new Size(Width/2 , Height/9);
-            minigames.Location = new Point(Width / 2 -(int)(minigames.Size.Width /2.4), Height / 10);
-            Controls.Add(minigames);
-
-            Button[] games = new Button[6];
-
+            games = new Button[gamesNames.Count];
+            titleLabel = new Label();
+            titleLabel.Text = "Minigames";
+            titleLabel.BackColor = Color.Transparent;
+            titleLabel.Font = new Font("Ariel", 30);
+            titleLabel.Size = new Size(Width, Height/9);
+            titleLabel.Location = new Point(Width / 2 - (int)(titleLabel.Size.Width / 2.4), Height / 10);
+            Controls.Add(titleLabel);
+          
             for (int i = 0; i < games.Length; i++)
             {
                 games[i] = new Button
                 {
                     Font = new Font("Ariel", 25),
-                    Size = new Size(150, 150),
-                    Location = new Point(i % 2 == 0 ? Width / 7 : (int)(Width / 1.8), minigames.Location.Y + minigames.Height + (Height / 4) * (i / 2))
+                    Size = new Size(MAIN_BUTTON_SIZE, MAIN_BUTTON_SIZE),
+                    Location = new Point(MAIN_BUTTON_SIZE / 10 + i % 2 * (MAIN_BUTTON_SIZE + MAIN_BUTTON_SIZE / 10), titleLabel.Location.Y + titleLabel.Height + i / 2 * (MAIN_BUTTON_SIZE + MAIN_BUTTON_SIZE / 10))
                 };
                 games[i].Click += GoToGame;
+                games[i].MouseEnter += (sender, e) => ChangeMainLabelText(sender, e);
+                games[i].MouseLeave += (sender, e) => ChangeMainLabelText(sender, e, false);
+                games[i].Tag = gamesNames[i];
+                
                 Controls.Add(games[i]);
             }
+            foreach (Button btn in games)
+            {
+                if (btn == null) continue;
+                String logoResourceName = btn.Tag.ToString().Replace(" ", "_");
+                Image gameLogo = Properties.Resources.ResourceManager.GetObject(logoResourceName) as Image;
+                if (gameLogo == null) continue;
+                gameLogo = Resize(gameLogo, MAIN_BUTTON_SIZE, MAIN_BUTTON_SIZE);
+                btn.BackgroundImage = gameLogo;
+            }
 
-            games[0].Text = "Snake";
-            games[1].Text = "Solitaire";
-            games[2].Text = "Flappy Bird";
-            games[3].Text = "Whist";
-            games[4].Text = "Ultimate Tic Tac Toe";
-            games[5].Text = "Ultimate Ultimate Tic Tac Toe";
             this.FormClosed += (object sender, FormClosedEventArgs e) => { Environment.Exit(Environment.ExitCode); };
 
             Thread th = new Thread(() =>
@@ -67,7 +87,7 @@ namespace Desktop_Minigames
                                 response = MessageBox.Show("What do you mean no?? Fuck you!! free punjabi phone!", "WHAT", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Warning);
                                 if (response == DialogResult.Ignore)
                                 {
-                                    this.Invoke(new goToForm((Ohno form) => 
+                                    this.Invoke(new goToForm((Ohno form) =>
                                     {
                                         form.StartPosition = FormStartPosition.Manual;
                                         form.Location = new Point(this.Location.X, 0);
@@ -84,10 +104,10 @@ namespace Desktop_Minigames
             });
             th.Start();
         }
-        public void GoToGame(object sender,EventArgs args)
+        public void GoToGame(object sender, EventArgs args)
         {
-            Button but = (Button)sender;
-            switch (but.Text)
+            Button btn = (Button)sender;
+            switch (btn.Tag.ToString())
             {
                 case "Snake":
                     GoToForm<Snake>(new Snake());
@@ -109,7 +129,16 @@ namespace Desktop_Minigames
                     break;
             }
         }
-
+        private void ChangeMainLabelText(object sender, EventArgs e, bool onSenderEntry = true)
+        {
+            if (!onSenderEntry)
+            {
+                titleLabel.Text = "Minigames";
+                return;
+            }
+            Control ctrl = sender as Control;
+            titleLabel.Text = ctrl.Tag.ToString();
+        }
         public void GoToForm<T>(T form) where T : Form
         {
             form.StartPosition = FormStartPosition.Manual;
@@ -117,12 +146,27 @@ namespace Desktop_Minigames
             form.FormClosed += (object sender, FormClosedEventArgs e) => { Environment.Exit(Environment.ExitCode); };
             this.Hide();
             Controls.Clear();
+            form.BackgroundImage = GenerateBackground();
             form.Show();
-        }
+            form.WindowState = FormWindowState.Maximized;
 
+        }
+        public static Image Resize(Image image, int w, int h)
+        {
+            Bitmap bmp = new Bitmap(w, h);
+            Graphics grp = Graphics.FromImage(bmp);
+            grp.DrawImage(image, 0, 0, w, h);
+            grp.Dispose();
+
+            return bmp;
+        }
         private void Minigames_Load(object sender, EventArgs e)
         {
 
+        }
+        public Image GenerateBackground()
+        {
+            return Properties.Resources.ResourceManager.GetObject("_" + random.Next(0, BACKGROUND_PICS_AMOUNT)) as Image;
         }
     }
 }
