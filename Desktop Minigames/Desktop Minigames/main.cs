@@ -22,6 +22,7 @@ namespace Desktop_Minigames
         private const int BACKGROUND_PICS_AMOUNT = 35;//The last index of background pics in Properties.Resources
         public Minigames()
         {
+            InitializeComponent();
             Width = (int)(Screen.PrimaryScreen.WorkingArea.Size.Width / 3.5);
             Height = (int)(Screen.PrimaryScreen.WorkingArea.Size.Height / 1.25);
             this.BackgroundImage = GenerateBackground();
@@ -66,7 +67,6 @@ namespace Desktop_Minigames
                 gameLogo = Resize(gameLogo, MAIN_BUTTON_SIZE, MAIN_BUTTON_SIZE);
                 btn.BackgroundImage = gameLogo;
             }
-
             this.FormClosed += (object sender, FormClosedEventArgs e) => { Environment.Exit(Environment.ExitCode); };
 
             Thread th = new Thread(() =>
@@ -126,6 +126,9 @@ namespace Desktop_Minigames
                 case "Ultimate Ultimate Tic Tac Toe":
                     GoToForm<UltimateUltimateTicTacToe>(new UltimateUltimateTicTacToe());
                     break;
+                case "Bullseye":
+                    GoToForm<Bullseye>(new Bullseye());
+                    break;
             }
         }
         private void ChangeMainLabelText(object sender, EventArgs e, bool onSenderEntry = true)
@@ -161,7 +164,13 @@ namespace Desktop_Minigames
         }
         private void Minigames_Load(object sender, EventArgs e)
         {
+            BackgroundWorker backgroundWorker= new BackgroundWorker();
+            backgroundWorker.RunWorkerAsync();
 
+        }
+        private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            MessageBox.Show("hello");
         }
         public Image GenerateBackground()
         {

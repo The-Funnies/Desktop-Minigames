@@ -51,11 +51,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bullseye.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Bullseye.Designer.cs">
+      <DependentUpon>Bullseye.cs</DependentUpon>
+    </Compile>
     <Compile Include="Flappy.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Flappy.Designer.cs">
       <DependentUpon>Flappy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoryCheck.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HistoryCheck.Designer.cs">
+      <DependentUpon>HistoryCheck.cs</DependentUpon>
     </Compile>
     <Compile Include="Ohno.cs">
       <SubType>Form</SubType>
@@ -120,6 +132,12 @@
     <Compile Include="WhistMain.Designer.cs">
       <DependentUpon>WhistMain.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Bullseye.resx">
+      <DependentUpon>Bullseye.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoryCheck.resx">
+      <DependentUpon>HistoryCheck.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="main.resx">
       <DependentUpon>main.cs</DependentUpon>
     </EmbeddedResource>
@@ -158,177 +176,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\12C.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\12D.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\12H.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\12S.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\13C.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\13D.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\13H.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\13S.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\emptyCard.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\glow.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\slotClub.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\slotDiamond.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\slotHeart.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\slotSpade.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\1C.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\1D.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\1H.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\1S.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\2D.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\2H.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\2S.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\3C.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\3D.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\3H.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\3S.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\4C.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\4D.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\4H.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\4S.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\5C.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\5D.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\5H.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\5S.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\6C.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\6D.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\6H.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\6S.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\7C.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\7D.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\7H.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\7S.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\8C.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\8D.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\8H.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\8S.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\9C.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\9D.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\9H.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\9S.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\10C.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\10D.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\10H.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\10S.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\11C.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\11D.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\11H.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\11S.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PNG\11S.png" />
@@ -728,6 +575,48 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Solitaire.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bPNG\Empty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bPNG\Bull1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bPNG\Bull2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bPNG\Bull3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bPNG\Bull4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bPNG\Bull5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bPNG\Bull6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bPNG\Bull7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bPNG\Bull8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bPNG\Bull9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bPNG\Bull0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bPNG\check1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bPNG\check2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bPNG\check0.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
