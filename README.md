@@ -1,6 +1,7 @@
-# Desktop-Minigames
+
 ## Note for everyone
 Run WhistCommon.sln in order for the whist changes to apply on the .dll file
+# Desktop-Minigames
 A desktop application that contains a variety of games and puzzles, varying between single-player, local multiplayer and online multiplayer.
 ## Games
 - [x] Solitare
