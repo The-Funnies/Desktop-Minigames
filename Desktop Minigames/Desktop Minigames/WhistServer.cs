@@ -50,7 +50,6 @@ namespace Desktop_Minigames
         }
         public int GetId(string name)
         {
-            
             id++;
             players[id] = new Player(pcards[id], id, name);
             if (id == 3)
