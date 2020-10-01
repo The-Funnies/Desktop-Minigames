@@ -60,9 +60,9 @@ namespace Desktop_Minigames
             return id;
         }
 
-        public List<Card> GetHand(int clientid)
+        public Card[] GetHand(int clientid)
         {
-            return players[clientid].Getpcards();
+            return players[clientid].Getpcards().ToArray();
         }
     }
 }

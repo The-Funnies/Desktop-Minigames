@@ -16,13 +16,15 @@ namespace Desktop_Minigames
     public partial class WhistClient : Form
     {
         private WhistCommon common;
-        private int clientid;
+        private Player player;
+        private int width;
+        private int height;
         public WhistClient(string name, string ip)
         {
             FormBorderStyle = FormBorderStyle.None;
             WindowState = FormWindowState.Maximized;
-            int width = this.Width;
-            int height = this.Height;
+            width = this.Width;
+            height = this.Height;
 
             HttpChannel channel = new HttpChannel();
             ChannelServices.RegisterChannel(channel, false);
@@ -31,9 +33,26 @@ namespace Desktop_Minigames
 
                 "http://localhost:8888/_Server_");
 
-            clientid = common.GetId(name);
+            int clientid = common.GetId(name);
+            player = new Player(common.GetHand(clientid).ToList(), clientid, name);
         }
-
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.F11)
+            {
+                if (FormBorderStyle == FormBorderStyle.Sizable)
+                {
+                    FormBorderStyle = FormBorderStyle.None;
+                    WindowState = FormWindowState.Maximized;
+                }
+                else
+                {
+                    FormBorderStyle = FormBorderStyle.Sizable;
+                    WindowState = FormWindowState.Normal;
+                }
+            }
+            return false;
+        }
         private void WhistClient_Load(object sender, EventArgs e)
         {
 

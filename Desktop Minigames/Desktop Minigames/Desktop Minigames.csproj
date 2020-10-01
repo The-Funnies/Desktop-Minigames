@@ -202,9 +202,6 @@
     <None Include="Resources\slotSpade.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\yellow_back.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\1C.png" />
   </ItemGroup>
   <ItemGroup>
@@ -215,9 +212,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\1S.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\2C.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\2D.png" />
@@ -335,6 +329,180 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\11S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\11S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\12C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\12D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\12H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\12S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\13C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\13D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\13H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\13S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\1C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\1D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\1H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\1S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\2C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\2D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\2H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\2S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\3C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\3D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\3H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\3S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\4C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\4D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\4H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\4S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\5C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\5D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\5H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\5S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\6C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\6D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\6H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\6S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\7C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\7D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\7H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\7S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\8C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\8D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\8H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\8S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\9C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\9D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\9H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\9S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\10C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\10D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\10H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\10S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\11C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\11D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\11H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\blue_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\gray_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\green_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\purple_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\red_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\yellow_back.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
