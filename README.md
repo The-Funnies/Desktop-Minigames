@@ -8,3 +8,4 @@ A desktop application that contains a variety of games and puzzles, varying betw
 - [x] Ultimate Ultimate Tic Tac Toe
 - [ ] Flappy Bird
 - [ ] Bullseyes
+- [ ] BullshitWtf
