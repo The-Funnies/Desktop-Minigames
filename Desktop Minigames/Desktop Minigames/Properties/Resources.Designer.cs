@@ -983,9 +983,39 @@ namespace Desktop_Minigames.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Snake {
+            get {
+                object obj = ResourceManager.GetObject("Snake", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Solitaire {
+            get {
+                object obj = ResourceManager.GetObject("Solitaire", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Ultimate_Tic_Tac_Toe {
             get {
                 object obj = ResourceManager.GetObject("Ultimate_Tic_Tac_Toe", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Ultimate_Ultimate_Tic_Tac_Toe {
+            get {
+                object obj = ResourceManager.GetObject("Ultimate_Ultimate_Tic_Tac_Toe", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -720,5 +720,14 @@
   <ItemGroup>
     <None Include="Resources\14.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ultimate Ultimate Tic Tac Toe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Snake.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Solitaire.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -17,18 +17,18 @@ namespace Desktop_Minigames
         public static Random random = new Random();
         private Label titleLabel;
         private const int MAIN_BUTTON_SIZE = 125;
+        private const int BACKGROUND_PICS_AMOUNT = 35;//The last index of background pics in Properties.Resources
         public Minigames()
         {
             Width = (int)(Screen.PrimaryScreen.WorkingArea.Size.Width / 3.5);
             Height = (int)(Screen.PrimaryScreen.WorkingArea.Size.Height / 1.25);
-
-            this.BackgroundImage = Properties.Resources.ResourceManager.GetObject("_" + random.Next(0, 36)) as Image;
+            this.BackgroundImage = GenerateBackground();
             games = new Button[7];
             titleLabel = new Label();
             titleLabel.Text = "Minigames";
             titleLabel.BackColor = Color.Transparent;
             titleLabel.Font = new Font("Ariel", 30);
-            titleLabel.Size = new Size(Width / 2, Height / 9);
+            titleLabel.Size = new Size(Width, Height/9);
             titleLabel.Location = new Point(Width / 2 - (int)(titleLabel.Size.Width / 2.4), Height / 10);
             Controls.Add(titleLabel);
 
@@ -142,7 +142,10 @@ namespace Desktop_Minigames
             form.FormClosed += (object sender, FormClosedEventArgs e) => { Environment.Exit(Environment.ExitCode); };
             this.Hide();
             Controls.Clear();
+            form.BackgroundImage = GenerateBackground();
             form.Show();
+            form.WindowState = FormWindowState.Maximized;
+
         }
         public static Image Resize(Image image, int w, int h)
         {
@@ -156,6 +159,10 @@ namespace Desktop_Minigames
         private void Minigames_Load(object sender, EventArgs e)
         {
 
+        }
+        public Image GenerateBackground()
+        {
+            return Properties.Resources.ResourceManager.GetObject("_" + random.Next(0, BACKGROUND_PICS_AMOUNT)) as Image;
         }
     }
 }
