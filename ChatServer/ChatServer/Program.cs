@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Desktop_Minigames
+namespace ChatServer
 {
     static class Program
     {
@@ -16,8 +16,7 @@ namespace Desktop_Minigames
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Minigames());
-            
+            Application.Run(new Server());
         }
     }
 }

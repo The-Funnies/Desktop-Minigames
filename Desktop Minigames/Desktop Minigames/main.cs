@@ -17,6 +17,7 @@ namespace Desktop_Minigames
 
         public Minigames()
         {
+            GoToForm<ChatClient>(new ChatClient());
             Width = (int)(Screen.PrimaryScreen.WorkingArea.Size.Width / 3.5);
             Height = (int)(Screen.PrimaryScreen.WorkingArea.Size.Height / 1.25);
 

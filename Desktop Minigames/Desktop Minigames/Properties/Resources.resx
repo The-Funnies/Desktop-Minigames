@@ -133,6 +133,9 @@
   <data name="red_back" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\PNG\red_back.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="the_funnies_club_chat" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\PNG\the_funnies_club_chat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="yellow_back" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\PNG\yellow_back.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

@@ -51,6 +51,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChatClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChatClient.Designer.cs">
+      <DependentUpon>ChatClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="Flappy.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -503,6 +509,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="PNG\yellow_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PNG\the_funnies_club_chat.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

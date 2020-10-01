@@ -16,7 +16,6 @@ namespace Desktop_Minigames
     public partial class WhistClient : Form
     {
         private WhistCommon common;
-        private Player player;
         private int width;
         private int height;
         public WhistClient(string name, string ip)
@@ -28,13 +27,12 @@ namespace Desktop_Minigames
 
             HttpChannel channel = new HttpChannel();
             ChannelServices.RegisterChannel(channel, false);
+
             common = (WhistCommon)Activator.GetObject(
                 typeof(WhistCommon),
-
-                "http://localhost:8888/_Server_");
+                "http://localhost:1234/_Server_");
 
             int clientid = common.GetId(name);
-            player = new Player(common.GetHand(clientid).ToList(), clientid, name);
         }
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
