@@ -13,7 +13,9 @@ namespace Desktop_Minigames
     public delegate void goToForm(Ohno form);
     public partial class Minigames : Form
     {
+        //private Button[] games;
         private Button[] games;
+        private List<String> gamesNames;
         public static Random random = new Random();
         private Label titleLabel;
         private const int MAIN_BUTTON_SIZE = 125;
@@ -23,7 +25,15 @@ namespace Desktop_Minigames
             Width = (int)(Screen.PrimaryScreen.WorkingArea.Size.Width / 3.5);
             Height = (int)(Screen.PrimaryScreen.WorkingArea.Size.Height / 1.25);
             this.BackgroundImage = GenerateBackground();
-            games = new Button[7];
+            gamesNames = new List<string>();
+            gamesNames.Add("Snake");
+            gamesNames.Add("Solitaire");
+            gamesNames.Add("Flappy Bird");
+            gamesNames.Add("Ultimate Tic Tac Toe");
+            gamesNames.Add("Ultimate Ultimate Tic Tac Toe");
+            gamesNames.Add("Bullseye");
+
+            games = new Button[gamesNames.Count];
             titleLabel = new Label();
             titleLabel.Text = "Minigames";
             titleLabel.BackColor = Color.Transparent;
@@ -31,7 +41,7 @@ namespace Desktop_Minigames
             titleLabel.Size = new Size(Width, Height/9);
             titleLabel.Location = new Point(Width / 2 - (int)(titleLabel.Size.Width / 2.4), Height / 10);
             Controls.Add(titleLabel);
-
+          
             for (int i = 0; i < games.Length; i++)
             {
                 games[i] = new Button
@@ -43,17 +53,10 @@ namespace Desktop_Minigames
                 games[i].Click += GoToGame;
                 games[i].MouseEnter += (sender, e) => ChangeMainLabelText(sender, e);
                 games[i].MouseLeave += (sender, e) => ChangeMainLabelText(sender, e, false);
-
+                games[i].Tag = gamesNames[i];
+                
                 Controls.Add(games[i]);
             }
-            games[0].Tag = "Snake";
-            games[1].Tag = "Solitaire";
-            games[2].Tag = "Flappy Bird";
-            games[3].Tag = "Whist";
-            games[4].Tag = "Ultimate Tic Tac Toe";
-            games[5].Tag = "Ultimate Ultimate Tic Tac Toe";
-            games[6].Tag = "Bullseye";
-
             foreach (Button btn in games)
             {
                 if (btn == null) continue;
