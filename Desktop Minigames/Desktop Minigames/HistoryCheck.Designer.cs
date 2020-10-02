@@ -1,12 +1,6 @@
-
 ﻿namespace WindowsFormsApp1
 {
     partial class UserControl1
-
-﻿namespace Desktop_Minigames
-{
-    partial class HistoryCheck
-
     {
         /// <summary> 
         /// Required designer variable.
@@ -36,21 +30,12 @@
         {
             this.SuspendLayout();
             // 
-
             // UserControl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Cyan;
             this.Name = "UserControl1";
-
-            // HistoryCheck
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.Name = "HistoryCheck";
             this.Size = new System.Drawing.Size(300, 250);
             this.Load += new System.EventHandler(this.UserControl1_Load);
             this.ResumeLayout(false);

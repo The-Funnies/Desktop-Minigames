@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-
 namespace WindowsFormsApp1
-
-namespace Desktop_Minigames
 {
     partial class Bullseye
     {
@@ -45,9 +42,7 @@ namespace Desktop_Minigames
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-
             this.BackColor = System.Drawing.Color.Olive;
-
             this.ClientSize = new System.Drawing.Size(284, 461);
             this.MaximumSize = new System.Drawing.Size(300, 500);
             this.MinimumSize = new System.Drawing.Size(300, 500);
@@ -67,6 +62,7 @@ namespace Desktop_Minigames
         private System.Windows.Forms.RadioButton radioB2;
         private System.Windows.Forms.RadioButton radioB3;
         private System.Windows.Forms.RadioButton radioB4;
+        
     }
 }
 

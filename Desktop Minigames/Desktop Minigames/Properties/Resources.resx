@@ -121,51 +121,6 @@
   <data name="blue_back" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\PNG\blue_back.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Bull0" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Bull0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Bull1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Bull1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Bull2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Bull2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Bull3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Bull3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Bull4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Bull4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Bull5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Bull5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Bull6" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Bull6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Bull7" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Bull7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Bull8" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Bull8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Bull9" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Bull9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Bull_empty" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Empty.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="check0" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\check0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="check1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\check1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="check2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\check2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Glow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Glow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="gray_back" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\PNG\gray_back.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -178,9 +133,12 @@
   <data name="red_back" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\PNG\red_back.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+<<<<<<< HEAD
  <data name="the_funnies_club_chat" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\PNG\the_funnies_club_chat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
 
+=======
+>>>>>>> 1fd49ad013590b9995b0123d2ac8ddb68b9f0705
   <data name="Snake" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Snake.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -192,6 +150,10 @@
   </data>
   <data name="Ultimate_Ultimate_Tic_Tac_Toe" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Ultimate Ultimate Tic Tac Toe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+<<<<<<< HEAD
+
+=======
+>>>>>>> 1fd49ad013590b9995b0123d2ac8ddb68b9f0705
   </data>
   <data name="yellow_back" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\PNG\yellow_back.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

@@ -23,8 +23,6 @@ namespace Desktop_Minigames
         public Minigames()
         {
             GoToForm<ChatClient>(new ChatClient());
-
-            InitializeComponent();
             Width = (int)(Screen.PrimaryScreen.WorkingArea.Size.Width / 3.5);
             Height = (int)(Screen.PrimaryScreen.WorkingArea.Size.Height / 1.25);
             this.BackgroundImage = GenerateBackground();
@@ -41,10 +39,10 @@ namespace Desktop_Minigames
             titleLabel.Text = "Minigames";
             titleLabel.BackColor = Color.Transparent;
             titleLabel.Font = new Font("Ariel", 30);
-            titleLabel.Size = new Size(Width, Height / 9);
+            titleLabel.Size = new Size(Width, Height/9);
             titleLabel.Location = new Point(Width / 2 - (int)(titleLabel.Size.Width / 2.4), Height / 10);
             Controls.Add(titleLabel);
-
+          
             for (int i = 0; i < games.Length; i++)
             {
                 games[i] = new Button
@@ -57,7 +55,7 @@ namespace Desktop_Minigames
                 games[i].MouseEnter += (sender, e) => ChangeMainLabelText(sender, e);
                 games[i].MouseLeave += (sender, e) => ChangeMainLabelText(sender, e, false);
                 games[i].Tag = gamesNames[i];
-
+                
                 Controls.Add(games[i]);
             }
             foreach (Button btn in games)
@@ -69,6 +67,7 @@ namespace Desktop_Minigames
                 gameLogo = Resize(gameLogo, MAIN_BUTTON_SIZE, MAIN_BUTTON_SIZE);
                 btn.BackgroundImage = gameLogo;
             }
+
             this.FormClosed += (object sender, FormClosedEventArgs e) => { Environment.Exit(Environment.ExitCode); };
 
             Thread th = new Thread(() =>
@@ -128,9 +127,6 @@ namespace Desktop_Minigames
                 case "Ultimate Ultimate Tic Tac Toe":
                     GoToForm<UltimateUltimateTicTacToe>(new UltimateUltimateTicTacToe());
                     break;
-                case "Bullseye":
-                    GoToForm<Bullseye>(new Bullseye());
-                    break;
             }
         }
         private void ChangeMainLabelText(object sender, EventArgs e, bool onSenderEntry = true)
@@ -166,13 +162,7 @@ namespace Desktop_Minigames
         }
         private void Minigames_Load(object sender, EventArgs e)
         {
-            BackgroundWorker backgroundWorker = new BackgroundWorker();
-            backgroundWorker.RunWorkerAsync();
 
-        }
-        private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
-        {
-            MessageBox.Show("hello");
         }
         public Image GenerateBackground()
         {
