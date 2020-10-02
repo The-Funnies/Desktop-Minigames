@@ -138,7 +138,7 @@ namespace Desktop_Minigames
         private Button finish = new Button();
         public Solitaire()
         {
-            FormBorderStyle = FormBorderStyle.None;
+            
             WindowState = FormWindowState.Maximized;
             InitializeComponent();
             buildSlotim();
@@ -168,7 +168,7 @@ namespace Desktop_Minigames
             for (int i = 0; i < 7; i++)
             {
                 emptyCards[i] = new PictureBox();
-                Image img = Image.FromFile("..\\..\\PNG\\emptyCard.png");
+                Image img = Properties.Resources.emptyCard as Image;
                 img = Resize(img, 86, 132);
                 emptyCards[i].Size = img.Size;
                 emptyCards[i].Image = img;
@@ -191,7 +191,7 @@ namespace Desktop_Minigames
             for (int i = 0; i < 52; i++)
             {
                 cards[i] = new PictureBox();
-                Image img = Image.FromFile("..\\..\\PNG\\" + deck.getCard(i).getNum().ToString() + deck.getCard(i).getType()[0] + ".png");
+                Image img = Properties.Resources.ResourceManager.GetObject("_"+deck.getCard(i).getNum().ToString() + deck.getCard(i).getType()[0]) as Image;
                 img = Resize(img, 86, 132);
                 cards[i].Size = img.Size;
                 cards[i].Image = img;
@@ -211,7 +211,7 @@ namespace Desktop_Minigames
                 else if (i < 27 && i != 0 && i != 2 && i != 5 && i != 9 && i != 14 && i != 20)
                 {
                     hidCards[i] = new PictureBox();
-                    Image img2 = Image.FromFile("..\\..\\PNG\\yellow_back.png");
+                    Image img2 = Properties.Resources.yellow_back;
                     img2 = Resize(img2, 86, 132);
                     hidCards[i].Size = img2.Size;
                     hidCards[i].Image = img2;
@@ -325,7 +325,7 @@ namespace Desktop_Minigames
                 slotsPB[i] = new PictureBox();
                 slotsPB[i].Tag = deck.getSlot(i);
                 slotsPB[i].Location = new Point(860 + 130 * i, 52);
-                Image img = Image.FromFile($"..\\..\\PNG\\slot{slotsPB[i].Tag}.png");
+                Image img = Properties.Resources.ResourceManager.GetObject($"slot{ slotsPB[i].Tag}") as Image;
                 img = Resize(img, 86, 132);
                 slotsPB[i].Size = img.Size;
                 slotsPB[i].Image = img;
@@ -351,7 +351,7 @@ namespace Desktop_Minigames
             this.BackColor = SystemColors.Control;
             movesCounterL.ForeColor = Color.FromName("Black");
             dealerCounterLabel.ForeColor = Color.FromName("Black");
-            glowImg = Image.FromFile("..\\..\\PNG\\glow.png");
+            glowImg = Properties.Resources.glow;
             emptyDealerLabel.ForeColor = Color.FromName("Black");
             toggleTheme.ForeColor = Color.FromName("Black");
             toggleTheme.BackColor = SystemColors.Control;
