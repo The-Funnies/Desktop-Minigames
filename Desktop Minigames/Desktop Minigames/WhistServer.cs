@@ -19,10 +19,8 @@ namespace Desktop_Minigames
         
         public WhistServer()
         {
-
             InitializeComponent();
-
-            HttpChannel chnl = new HttpChannel(1234);
+            HttpChannel chnl = new HttpChannel(8888);
             ChannelServices.RegisterChannel(chnl, false);
 
             RemotingConfiguration.RegisterWellKnownServiceType(
@@ -30,7 +28,8 @@ namespace Desktop_Minigames
                 "_Server_",
                 WellKnownObjectMode.Singleton);
         }
-    
+      
+
         private void WhistServer_Load(object sender, EventArgs e)
         {
 
@@ -38,34 +37,31 @@ namespace Desktop_Minigames
     }
     class ServerPart : MarshalByRefObject, WhistCommon
     {
+        private Player[] players = new Player[4];
         private List<Card>[] pcards = new List<Card>[4];
-        private int id;
+        int id = -1;
         public ServerPart()
         {
-            id = -1;
-
             //split cards
             Packet packet = new Packet();
             packet.Shuffle();
-            Card[,] pcards1 = packet.GetPcards();
-            for (int i = 0; i < 13; i++)
-            {
-                pcards[0].Add(pcards1[0, i]);
-                pcards[1].Add(pcards1[1, i]);
-                pcards[2].Add(pcards1[2, i]);
-                pcards[3].Add(pcards1[3, i]);
-            }
+            pcards = packet.GetPcards();
 
         }
         public int GetId(string name)
         {
             id++;
+            players[id] = new Player(pcards[id], id, name);
+            if (id == 3)
+            {
+                pcards = null;
+            }
             return id;
         }
 
         public Card[] GetHand(int clientid)
         {
-            return pcards[clientid].ToArray();
+            return players[clientid].Getpcards().ToArray();
         }
     }
 }

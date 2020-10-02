@@ -57,7 +57,6 @@ namespace Desktop_Minigames
 
 
     }
-    [Serializable]
     public class Packet
     {
         private Card[] cards;
@@ -90,20 +89,48 @@ namespace Desktop_Minigames
                 cards[ind] = temp;
             }
         }
-        public Card[,] GetPcards()
+
+        public List<Card>[] GetPcards()
         {
-            Card[,] pcards = new Card[4,13];
+            List<Card>[] pcards = new List<Card>[4];
             for (int i = 0; i < 13; i++)
             {
-                pcards[0,i]=cards[i];
-                pcards[1,i]=cards[i + 13];
-                pcards[2,i]=(cards[i + 26]);
-                pcards[3,i]=(cards[i + 39]);
+                pcards[0].Add(cards[i]);
+                pcards[1].Add(cards[i + 13]);
+                pcards[2].Add(cards[i + 26]);
+                pcards[3].Add(cards[i + 39]);
             }
 
             return pcards;
         }
     }
-   
+    public class Player
+    {
+        private List<Card> pcards;
+        private int id;
+        private string name;
+
+        public Player(List<Card> pcards, int id, string name)
+        {
+            this.pcards = pcards;
+            this.id = id;
+            this.name = name;
+        }
+        
+        public List<Card> Getpcards()
+        {
+            return pcards;
+        }
+
+        int Getid()
+        {
+            return id;
+        }
+
+        string Getname()
+        {
+            return name;
+        }
+    }
 }
 
