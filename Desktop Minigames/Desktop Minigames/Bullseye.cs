@@ -11,7 +11,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace WindowsFormsApp1
+
+namespace Desktop_Minigames
 {
     public class TransparentPictureBox : Control
     {
@@ -100,8 +103,15 @@ namespace WindowsFormsApp1
         private int maxT;
         public Bullseye()
         {
+
             InitializeComponent();
             startMenu();
+
+
+            InitializeComponent();
+            startMenu();
+            
+           
         }
 
         public void BuildGame(object sender, EventArgs e)
@@ -109,7 +119,12 @@ namespace WindowsFormsApp1
             Controls.Remove(startB);
             for (int i = 0; i < 10; i++)
             {
+
                 numImage[i] = Image.FromFile($"..\\..\\bPNG\\{i}.png");
+
+                
+                numImage[i] = Properties.Resources.ResourceManager.GetObject($"Bull{i}") as Image;
+
                 numImage[i] = Resize(numImage[i], 50, 50);
             }
             for (int i = 0; i < 4; i++)
@@ -142,7 +157,11 @@ namespace WindowsFormsApp1
             {
                 slots[i] = new PictureBox();
                 slots[i].Location = new Point(10 + 50 * i, 400);
+
                 Image img = Image.FromFile($"..\\..\\bPNG\\Empty.png");
+
+                Image img = Properties.Resources.Bull_empty as Image;
+
                 img = Resize(img, 50, 50);
                 slots[i].Size = img.Size;
                 slots[i].Image = img;
@@ -155,12 +174,24 @@ namespace WindowsFormsApp1
             movesCounterL.Text = $"moves played: {movesCounter}/{maxT}";
             Controls.Add(movesCounterL);
 
+
             Image img1 = Image.FromFile($"..\\..\\bPNG\\Glow.png");
+
+            Image img1 = Properties.Resources.Glow;
+
             img1 = Resize(img1, 50, 50);
             selectedGlow.Size = img1.Size;
             selectedGlow.Image = img1;
             selectedGlow.Tag = 0;
             selectedGlow.Location = slots[0].Location;
+
+            
+            for (int i = 0; i < this.Controls.Count; i++)
+            {
+                if(  Controls[i] is Label || Controls[i] is PictureBox)
+                    this.Controls[i].BackColor = Color.Transparent;
+            }
+
             Controls.Add(selectedGlow);
             selectedGlow.BringToFront();
         }
@@ -189,6 +220,11 @@ namespace WindowsFormsApp1
                 Controls.Add(rdoB[i]);
                 rdoB[i].Location = new Point(120, 210 + i * 20);
             }
+            for (int i = 0; i < this.Controls.Count; i++)
+            {
+                this.Controls[i].BackColor = Color.Transparent;
+            }
+
         }
 
         public void NextMove()
@@ -204,7 +240,6 @@ namespace WindowsFormsApp1
 
             for (int i = memos.Count() - 1; i > 0; i--)
             {
-
                 if (i == 1)
                 {
                     memos[i - 1].Location = new Point(memos[i - 1].Location.X, memos[i - 1].Location.Y - 50);
@@ -219,6 +254,7 @@ namespace WindowsFormsApp1
             //Reset the slots
             for (int i = 0; i < 4; i++)
             {
+
                 Controls.Remove(slots[i]);
                 slots[i] = new PictureBox();
                 //slots[i].Tag = deck.getSlot(i);
@@ -227,6 +263,11 @@ namespace WindowsFormsApp1
                 img = Resize(img, 50, 50);
                 slots[i].Size = img.Size;
                 slots[i].Image = img;
+
+                slots[i].Location = new Point(10 + 50 * i, 400);
+                slots[i].Size = new Size(50,50);
+                slots[i].Image = Resize(Properties.Resources.Bull_empty as Image,50,50);
+
                 Controls.Add(slots[i]);
             }
             //Add glow
@@ -431,7 +472,6 @@ namespace WindowsFormsApp1
                 case DialogResult.No:
                     Environment.Exit(Environment.ExitCode);
                     break;
-                    
             }
         }
         private void timer1_Tick(object sender, EventArgs e)
