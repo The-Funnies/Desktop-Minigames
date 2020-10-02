@@ -90,12 +90,6 @@
     <Compile Include="UltimateUltimateTicTacToe.Designer.cs">
       <DependentUpon>UltimateUltimateTicTacToe.cs</DependentUpon>
     </Compile>
-    <Compile Include="Whist.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Whist.Designer.cs">
-      <DependentUpon>Whist.cs</DependentUpon>
-    </Compile>
     <Compile Include="Solitaire.cs" />
     <Compile Include="Solitaire.Designer.cs">
       <DependentUpon>Solitaire.cs</DependentUpon>
@@ -114,24 +108,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WhistClient.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WhistClient.Designer.cs">
-      <DependentUpon>WhistClient.cs</DependentUpon>
-    </Compile>
-    <Compile Include="WhistServer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WhistServer.Designer.cs">
-      <DependentUpon>WhistServer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="WhistMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WhistMain.Designer.cs">
-      <DependentUpon>WhistMain.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Bullseye.resx">
       <DependentUpon>Bullseye.cs</DependentUpon>
     </EmbeddedResource>
@@ -151,18 +127,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UltimateUltimateTicTacToe.resx">
       <DependentUpon>UltimateUltimateTicTacToe.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Whist.resx">
-      <DependentUpon>Whist.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="WhistClient.resx">
-      <DependentUpon>WhistClient.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="WhistServer.resx">
-      <DependentUpon>WhistServer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="WhistMain.resx">
-      <DependentUpon>WhistMain.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -358,111 +322,6 @@
     <None Include="Resources\Ultimate Tic Tac Toe.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\backgrounds\1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\backgrounds\2.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\backgrounds\3.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\backgrounds\4.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\backgrounds\5.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\backgrounds\6.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\backgrounds\7.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\backgrounds\8.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\backgrounds\9.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\backgrounds\10.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\backgrounds\11.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\backgrounds\12.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\backgrounds\13.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\backgrounds\14.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\backgrounds\15.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\backgrounds\16.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\backgrounds\17.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\backgrounds\18.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\backgrounds\19.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\backgrounds\20.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\backgrounds\21.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\backgrounds\22.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\backgrounds\23.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\backgrounds\24.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\backgrounds\25.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\backgrounds\26.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\backgrounds\27.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\backgrounds\28.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\backgrounds\29.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\backgrounds\30.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\backgrounds\31.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\backgrounds\32.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\backgrounds\33.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\backgrounds\34.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\backgrounds\35.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\15.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -577,46 +436,52 @@
     <None Include="Resources\Solitaire.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bPNG\Empty.png" />
+    <None Include="Resources\Bull4.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bPNG\Bull1.png" />
+    <None Include="Resources\Bull5.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bPNG\Bull2.png" />
+    <None Include="Resources\Bull6.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bPNG\Bull3.png" />
+    <None Include="Resources\Bull7.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bPNG\Bull4.png" />
+    <None Include="Resources\Bull8.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bPNG\Bull5.png" />
+    <None Include="Resources\Bull9.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bPNG\Bull6.png" />
+    <None Include="Resources\check0.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bPNG\Bull7.png" />
+    <None Include="Resources\check1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bPNG\Bull8.png" />
+    <None Include="Resources\check2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bPNG\Bull9.png" />
+    <None Include="Resources\Empty.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bPNG\Bull0.png" />
+    <None Include="Resources\Glow.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bPNG\check1.png" />
+    <None Include="Resources\Bull0.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bPNG\check2.png" />
+    <None Include="Resources\Bull1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bPNG\check0.png" />
+    <None Include="Resources\Bull2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bull3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\backgrounds\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

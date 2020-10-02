@@ -118,7 +118,7 @@ namespace Desktop_Minigames
                     GoToForm<Flappy>(new Flappy());
                     break;
                 case "Whist":
-                    GoToForm<WhistMain>(new WhistMain());
+                   // GoToForm<WhistMain>(new WhistMain());
                     break;
                 case "Ultimate Tic Tac Toe":
                     GoToForm<UltimateTicTacToe>(new UltimateTicTacToe());
