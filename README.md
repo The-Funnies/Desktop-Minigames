@@ -7,8 +7,11 @@ A desktop application that contains a variety of games and puzzles, varying betw
 - [x] Solitare
 - [x] Snake
 - [ ] Whist
+- [x] Tic Tac Toe
 - [x] Ultimate Tic Tac Toe
 - [x] Ultimate Ultimate Tic Tac Toe
 - [ ] Flappy Bird
 - [ ] Bullseyes
 - [ ] BullshitWtf
+- [x] Damka
+- [x] Pong
