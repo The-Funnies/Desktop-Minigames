@@ -57,6 +57,19 @@
     <Compile Include="Games\Bullseye\Bullseye.Designer.cs">
       <DependentUpon>Bullseye.cs</DependentUpon>
     </Compile>
+    <Compile Include="Games\Damka\Damka.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Games\Damka\Damka.Designer.cs">
+      <DependentUpon>Damka.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Games\Damka\DamkaGame.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Games\Damka\Evaluation.cs" />
+    <Compile Include="Games\Damka\Search.cs" />
+    <Compile Include="Games\Damka\TranspositionTable.cs" />
+    <Compile Include="Games\Damka\Utilities.cs" />
     <Compile Include="Games\Flappy_Bird\Consts.cs" />
     <Compile Include="Games\Flappy_Bird\Form1.cs">
       <SubType>Form</SubType>
@@ -65,6 +78,39 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Games\Flappy_Bird\Pipe.cs" />
+    <Compile Include="Games\Pong\Client.cs" />
+    <Compile Include="Games\Pong\ConnectToServer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Games\Pong\ConnectToServer.Designer.cs">
+      <DependentUpon>ConnectToServer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Games\Pong\HostOrConnect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Games\Pong\HostOrConnect.Designer.cs">
+      <DependentUpon>HostOrConnect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Games\Pong\PongGame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Games\Pong\PongGame.Designer.cs">
+      <DependentUpon>PongGame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Games\Pong\Server.cs" />
+    <Compile Include="Games\Pong\ServerGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Games\Pong\ServerGUI.Designer.cs">
+      <DependentUpon>ServerGUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Games\Pong\ServerOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Games\Pong\ServerOptions.Designer.cs">
+      <DependentUpon>ServerOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Games\Pong\Utilities.cs" />
     <Compile Include="Games\Snake\Snake.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +127,45 @@
     <Compile Include="Games\Solitare\Solitaire.cs" />
     <Compile Include="Games\Solitare\Solitaire.Designer.cs">
       <DependentUpon>Solitaire.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Games\Tic_Tac_Toe\ConnectToServer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Games\Tic_Tac_Toe\ConnectToServer.Designer.cs">
+      <DependentUpon>ConnectToServer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Games\Tic_Tac_Toe\FirstForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Games\Tic_Tac_Toe\FirstForm.Designer.cs">
+      <DependentUpon>FirstForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Games\Tic_Tac_Toe\HostOrConnect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Games\Tic_Tac_Toe\HostOrConnect.Designer.cs">
+      <DependentUpon>HostOrConnect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Games\Tic_Tac_Toe\MultiplayerGame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Games\Tic_Tac_Toe\MultiplayerGame.Designer.cs">
+      <DependentUpon>MultiplayerGame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Games\Tic_Tac_Toe\ServerGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Games\Tic_Tac_Toe\ServerGUI.Designer.cs">
+      <DependentUpon>ServerGUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Games\Tic_Tac_Toe\SingleplayerGame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Games\Tic_Tac_Toe\SingleplayerGame.Designer.cs">
+      <DependentUpon>SingleplayerGame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Games\Tic_Tac_Toe\TicTacToeBoard.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Games\Ultimate_Tic_Tac_Toe\UltimateTicTacToe.cs">
       <SubType>Form</SubType>
@@ -108,11 +193,44 @@
     <EmbeddedResource Include="Games\Bullseye\Bullseye.resx">
       <DependentUpon>Bullseye.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Games\Damka\Damka.resx">
+      <DependentUpon>Damka.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Games\Flappy_Bird\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Games\Pong\HostOrConnect.resx">
+      <DependentUpon>HostOrConnect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Games\Pong\PongGame.resx">
+      <DependentUpon>PongGame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Games\Pong\ServerGUI.resx">
+      <DependentUpon>ServerGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Games\Pong\ServerOptions.resx">
+      <DependentUpon>ServerOptions.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Games\Solitare\HistoryCheck.resx">
       <DependentUpon>HistoryCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Games\Tic_Tac_Toe\ConnectToServer.resx">
+      <DependentUpon>ConnectToServer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Games\Tic_Tac_Toe\FirstForm.resx">
+      <DependentUpon>FirstForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Games\Tic_Tac_Toe\HostOrConnect.resx">
+      <DependentUpon>HostOrConnect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Games\Tic_Tac_Toe\MultiplayerGame.resx">
+      <DependentUpon>MultiplayerGame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Games\Tic_Tac_Toe\ServerGUI.resx">
+      <DependentUpon>ServerGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Games\Tic_Tac_Toe\SingleplayerGame.resx">
+      <DependentUpon>SingleplayerGame.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Games\Ultimate_Tic_Tac_Toe\UltimateTicTacToe.resx">
       <DependentUpon>UltimateTicTacToe.cs</DependentUpon>
@@ -146,7 +264,18 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Games\Damka\Damka.csproj" />
+    <None Include="Resources\Tic Tac Toe.ico" />
+    <None Include="Resources\Pong.png" />
+    <None Include="Resources\Damka.ico" />
+    <None Include="Resources\TicTacToeImage.png" />
+    <None Include="Resources\Redball-remove.png" />
+    <None Include="Resources\RedQueen-remove.png" />
+    <None Include="Resources\RedPiece-remove.png" />
+    <None Include="Resources\BlackQueen-remove.png" />
+    <None Include="Resources\BlackPiece-remove.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="pictures\Cards\1C.png" />
   </ItemGroup>

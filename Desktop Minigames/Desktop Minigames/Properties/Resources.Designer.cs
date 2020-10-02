@@ -933,6 +933,26 @@ namespace Desktop_Minigames.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BlackPiece_remove {
+            get {
+                object obj = ResourceManager.GetObject("BlackPiece_remove", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BlackQueen_remove {
+            get {
+                object obj = ResourceManager.GetObject("BlackQueen_remove", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap blue_back {
             get {
                 object obj = ResourceManager.GetObject("blue_back", resourceCulture);
@@ -1091,6 +1111,16 @@ namespace Desktop_Minigames.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon Damka {
+            get {
+                object obj = ResourceManager.GetObject("Damka", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap emptyCard {
@@ -1143,6 +1173,16 @@ namespace Desktop_Minigames.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Pong {
+            get {
+                object obj = ResourceManager.GetObject("Pong", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap purple_back {
             get {
                 object obj = ResourceManager.GetObject("purple_back", resourceCulture);
@@ -1156,6 +1196,36 @@ namespace Desktop_Minigames.Properties {
         internal static System.Drawing.Bitmap red_back {
             get {
                 object obj = ResourceManager.GetObject("red_back", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Redball_remove {
+            get {
+                object obj = ResourceManager.GetObject("Redball_remove", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RedPiece_remove {
+            get {
+                object obj = ResourceManager.GetObject("RedPiece_remove", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RedQueen_remove {
+            get {
+                object obj = ResourceManager.GetObject("RedQueen_remove", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1216,6 +1286,26 @@ namespace Desktop_Minigames.Properties {
         internal static System.Drawing.Bitmap Solitaire {
             get {
                 object obj = ResourceManager.GetObject("Solitaire", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon Tic_Tac_Toe {
+            get {
+                object obj = ResourceManager.GetObject("Tic_Tac_Toe", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TicTacToeImage {
+            get {
+                object obj = ResourceManager.GetObject("TicTacToeImage", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

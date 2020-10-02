@@ -34,6 +34,10 @@ namespace Desktop_Minigames
             gamesNames.Add("Ultimate Tic Tac Toe");
             gamesNames.Add("Ultimate Ultimate Tic Tac Toe");
             gamesNames.Add("Bullseye");
+            gamesNames.Add("Damka");
+            gamesNames.Add("Tic Tac Toe");
+            gamesNames.Add("Pong");
+
 
             games = new Button[gamesNames.Count];
             titleLabel = new Label();
@@ -129,6 +133,15 @@ namespace Desktop_Minigames
                     break;
                 case "Bullseye":
                     GoToForm<Bullseye>(new Bullseye());
+                    break;
+                case "Damka":
+                    GoToForm<Damka.Damka>(new Damka.Damka());
+                    break;
+                case "Pong":
+                    GoToForm<Pong.HostOrConnect>(new Pong.HostOrConnect());
+                    break;
+                case "Tic Tac Toe":
+                    GoToForm<TicTacToe.FirstForm>(new TicTacToe.FirstForm());
                     break;
             }
         }
