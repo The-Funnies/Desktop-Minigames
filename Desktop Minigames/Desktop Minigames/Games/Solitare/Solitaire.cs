@@ -118,8 +118,8 @@ namespace Desktop_Minigames
         private List<PictureBox>[] lines = new List<PictureBox>[7];
         private bool bruh_you_found_an_easter_egg;
         private PictureBox[] hidCards = new PictureBox[27];
-        private Image hiddenCardImg = Image.FromFile("..\\..\\PNG\\yellow_back.png");
-        private Image glowImg = Image.FromFile("..\\..\\PNG\\glowDark.png");
+        private Image hiddenCardImg = Properties.Resources.yellow_back;
+        private Image glowImg = Properties.Resources.glowDark;
         private PictureBox glowingC = new PictureBox();
         private PictureBox glowPB = new PictureBox();
         private PictureBox openCard = new PictureBox();

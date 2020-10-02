@@ -134,7 +134,7 @@ namespace Desktop_Minigames
             {
                 slots[i] = new PictureBox();
                 slots[i].Location = new Point(10 + 50 * i, 400);
-                Image img = Properties.Resources.Bull_empty as Image;
+                Image img = Properties.Resources.blue_back as Image;
                 img = Resize(img, 50, 50);
                 slots[i].Size = img.Size;
                 slots[i].Image = img;
@@ -147,7 +147,7 @@ namespace Desktop_Minigames
             movesCounterL.Text = $"moves played: {movesCounter}/{maxT}";
             Controls.Add(movesCounterL);
 
-            Image img1 = Properties.Resources.Glow;
+            Image img1 = Properties.Resources.glow;
             img1 = Resize(img1, 50, 50);
             selectedGlow.Size = img1.Size;
             selectedGlow.Image = img1;
@@ -222,7 +222,7 @@ namespace Desktop_Minigames
             {
                 slots[i].Location = new Point(10 + 50 * i, 400);
                 slots[i].Size = new Size(50,50);
-                slots[i].Image = Resize(Properties.Resources.Bull_empty as Image,50,50);
+                slots[i].Image = Resize(Properties.Resources.blue_back as Image,50,50);
                 Controls.Add(slots[i]);
             }
             //Add glow

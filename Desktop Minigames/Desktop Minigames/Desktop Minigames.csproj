@@ -51,23 +51,48 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bullseye.cs">
+    <Compile Include="Games\Bullseye\Bullseye.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Bullseye.Designer.cs">
+    <Compile Include="Games\Bullseye\Bullseye.Designer.cs">
       <DependentUpon>Bullseye.cs</DependentUpon>
     </Compile>
-    <Compile Include="Flappy.cs">
+    <Compile Include="Games\Flappy_Bird\Consts.cs" />
+    <Compile Include="Games\Flappy_Bird\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Flappy.Designer.cs">
-      <DependentUpon>Flappy.cs</DependentUpon>
+    <Compile Include="Games\Flappy_Bird\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="HistoryCheck.cs">
+    <Compile Include="Games\Flappy_Bird\Pipe.cs" />
+    <Compile Include="Games\Snake\Snake.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Games\Snake\Snake.Designer.cs">
+      <DependentUpon>Snake.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Games\Snake\SnakeGame.cs" />
+    <Compile Include="Games\Solitare\HistoryCheck.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="HistoryCheck.Designer.cs">
+    <Compile Include="Games\Solitare\HistoryCheck.Designer.cs">
       <DependentUpon>HistoryCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Games\Solitare\Solitaire.cs" />
+    <Compile Include="Games\Solitare\Solitaire.Designer.cs">
+      <DependentUpon>Solitaire.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Games\Ultimate_Tic_Tac_Toe\UltimateTicTacToe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Games\Ultimate_Tic_Tac_Toe\UltimateTicTacToe.Designer.cs">
+      <DependentUpon>UltimateTicTacToe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Games\Ultimate_Tic_Tac_Toe\UltimateUltimateTicTacToe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Games\Ultimate_Tic_Tac_Toe\UltimateUltimateTicTacToe.Designer.cs">
+      <DependentUpon>UltimateUltimateTicTacToe.cs</DependentUpon>
     </Compile>
     <Compile Include="Ohno.cs">
       <SubType>Form</SubType>
@@ -77,29 +102,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="SnakeGame.cs" />
-    <Compile Include="UltimateTicTacToe.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UltimateTicTacToe.Designer.cs">
-      <DependentUpon>UltimateTicTacToe.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UltimateUltimateTicTacToe.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UltimateUltimateTicTacToe.Designer.cs">
-      <DependentUpon>UltimateUltimateTicTacToe.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Solitaire.cs" />
-    <Compile Include="Solitaire.Designer.cs">
-      <DependentUpon>Solitaire.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Snake.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Snake.Designer.cs">
-      <DependentUpon>Snake.cs</DependentUpon>
-    </Compile>
     <Compile Include="main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,11 +110,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Bullseye.resx">
+    <EmbeddedResource Include="Games\Bullseye\Bullseye.resx">
       <DependentUpon>Bullseye.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HistoryCheck.resx">
+    <EmbeddedResource Include="Games\Flappy_Bird\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Games\Solitare\HistoryCheck.resx">
       <DependentUpon>HistoryCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Games\Ultimate_Tic_Tac_Toe\UltimateTicTacToe.resx">
+      <DependentUpon>UltimateTicTacToe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Games\Ultimate_Tic_Tac_Toe\UltimateUltimateTicTacToe.resx">
+      <DependentUpon>UltimateUltimateTicTacToe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="main.resx">
       <DependentUpon>main.cs</DependentUpon>
@@ -121,12 +132,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UltimateTicTacToe.resx">
-      <DependentUpon>UltimateTicTacToe.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UltimateUltimateTicTacToe.resx">
-      <DependentUpon>UltimateUltimateTicTacToe.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -140,180 +145,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\11S.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\12C.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\12D.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\12H.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\12S.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\13C.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\13D.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\13H.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\13S.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\1C.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\1D.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\1H.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\1S.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\2C.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\2D.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\2H.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\2S.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\3C.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\3D.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\3H.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\3S.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\4C.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\4D.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\4H.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\4S.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\5C.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\5D.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\5H.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\5S.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\6C.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\6D.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\6H.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\6S.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\7C.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\7D.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\7H.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\7S.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\8C.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\8D.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\8H.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\8S.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\9C.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\9D.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\9H.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\9S.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\10C.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\10D.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\10H.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\10S.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\11C.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\11D.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\11H.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\blue_back.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\gray_back.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\green_back.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\purple_back.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\red_back.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="PNG\yellow_back.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Solitare.png" />
@@ -482,6 +313,216 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\backgrounds\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\1C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\1D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\1H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\1S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\2C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\2D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\2H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\2S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\3C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\3D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\3H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\3S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\4C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\4D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\4H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\4S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\5C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\5D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\5H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\5S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\6C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\6D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\6H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\6S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\7C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\7D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\7H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\7S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\8C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\8D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\8H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\8S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\9C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\9D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\9H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\9S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\10C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\10D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\10H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\10S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\11C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\11D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\11H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\11S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\12C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\12D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\12H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\12S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\13C.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\13D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\13H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\13S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\blue_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\emptyCard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\glow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\glowDark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\gray_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\green_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\purple_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\red_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\slotClub.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\slotDiamond.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\slotHeart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\slotSpade.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Cards\yellow_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Flappy_Bird\flappy_bird_background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Flappy_Bird\flappy_bird_bird.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Flappy_Bird\flappy_bird_pipe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Flappy_Bird\flappy_bird_pipe_rotated.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pictures\Ultimate_Tic_Tac_toe\Ultimate Tic Tac Toe.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

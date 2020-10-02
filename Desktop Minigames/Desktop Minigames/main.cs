@@ -1,4 +1,5 @@
-﻿using System;
+﻿using flappy_bird;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -115,7 +116,7 @@ namespace Desktop_Minigames
                     GoToForm<Solitaire>(new Solitaire());
                     break;
                 case "Flappy Bird":
-                    GoToForm<Flappy>(new Flappy());
+                    GoToForm<Form1>(new Form1());
                     break;
                 case "Whist":
                    // GoToForm<WhistMain>(new WhistMain());
