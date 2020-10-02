@@ -577,46 +577,49 @@
     <None Include="Resources\Solitaire.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bPNG\Empty.png" />
+    <None Include="Resources\Bull5.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bPNG\Bull1.png" />
+    <None Include="Resources\Bull6.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bPNG\Bull2.png" />
+    <None Include="Resources\Bull7.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bPNG\Bull3.png" />
+    <None Include="Resources\Bull8.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bPNG\Bull4.png" />
+    <None Include="Resources\Bull9.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bPNG\Bull5.png" />
+    <None Include="Resources\check0.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bPNG\Bull6.png" />
+    <None Include="Resources\check1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bPNG\Bull7.png" />
+    <None Include="Resources\check2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bPNG\Bull8.png" />
+    <None Include="Resources\Empty.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bPNG\Bull9.png" />
+    <None Include="Resources\Glow.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bPNG\Bull0.png" />
+    <None Include="Resources\Bull0.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bPNG\check1.png" />
+    <None Include="Resources\Bull1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bPNG\check2.png" />
+    <None Include="Resources\Bull2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bPNG\check0.png" />
+    <None Include="Resources\Bull3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bull4.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
