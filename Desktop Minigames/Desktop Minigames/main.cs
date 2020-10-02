@@ -164,13 +164,8 @@ namespace Desktop_Minigames
         }
         private void Minigames_Load(object sender, EventArgs e)
         {
-            BackgroundWorker backgroundWorker= new BackgroundWorker();
-            backgroundWorker.RunWorkerAsync();
+           
 
-        }
-        private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
-        {
-            MessageBox.Show("hello");
         }
         public Image GenerateBackground()
         {
