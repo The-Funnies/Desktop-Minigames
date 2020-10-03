@@ -164,7 +164,14 @@ namespace Desktop_Minigames
             this.Hide();
             Controls.Clear();
             form.BackgroundImage = GenerateBackground();
-            form.Show();
+            try
+            {
+                form.Show();
+            }
+            catch
+            {
+
+            }
             form.WindowState = FormWindowState.Maximized;
 
         }

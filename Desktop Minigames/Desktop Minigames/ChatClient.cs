@@ -39,12 +39,22 @@ namespace Desktop_Minigames
 
 
 
+            try
+            {
+                client = new TcpClient("localhost", 8888);
+                stream = client.GetStream();
 
-            client = new TcpClient("localhost", 8888);
-            stream = client.GetStream();
+                byte[] data = Encoding.ASCII.GetBytes(Environment.UserName);
 
-            byte[] data = Encoding.ASCII.GetBytes(Environment.UserName);
-            stream.Write(data, 0, data.Length);
+                stream.Write(data, 0, data.Length);
+            }
+            catch
+            {
+                MessageBox.Show("Chat server is off");
+                this.Close();
+                return;
+            }
+
 
             waitformessages = new Thread(WaitForMessages);
             waitformessages.Start();
@@ -57,7 +67,15 @@ namespace Desktop_Minigames
             while (true)
             {
                 byte[] data = new byte[257];
-                stream.Read(data, 0, data.Length);
+                try
+                {
+                    stream.Read(data, 0, data.Length);
+                }
+                catch
+                {
+
+                }
+               
 
                 NewMessage(Encoding.ASCII.GetString(data));
             }

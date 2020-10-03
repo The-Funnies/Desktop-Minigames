@@ -16,7 +16,7 @@ namespace Desktop_Minigames
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ChatClient());
+            Application.Run(new Minigames());
         }
     }
 }
