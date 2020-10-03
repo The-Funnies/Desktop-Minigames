@@ -28,7 +28,7 @@ namespace Desktop_Minigames
 
             Width = (int)(Screen.PrimaryScreen.WorkingArea.Size.Width / 4.8);
             Height = (int)(Screen.PrimaryScreen.WorkingArea.Size.Height / 1.87);
-
+            this.MaximumSize = new Size(this.Width, this.Height);
             text = new TextBox();
             text.Font = new Font("Ariel", 28);
             text.Size = new Size((int)(Width / 1.12), (int)(Height / 5.56));
