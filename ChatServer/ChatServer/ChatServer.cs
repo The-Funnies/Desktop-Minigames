@@ -40,11 +40,23 @@ namespace ChatServer
                 clients.Add(new Client(name, client, thread));
                 thread.Start(clients.Count - 1);
 
+                foreach (Client client1 in clients)
+                {
+                    try
+                    {
+                        client1.client.GetStream().Write(data, 0, data.Length);
+                    }
+                    catch
+                    {
+
+                    }
+                }
+
                 Thread.Sleep(50);
             }
             
         }
-
+        
         void CheckMessages(object num)
         {
             int n = (int)num;
