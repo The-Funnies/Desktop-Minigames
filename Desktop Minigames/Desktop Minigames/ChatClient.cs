@@ -41,7 +41,7 @@ namespace Desktop_Minigames
 
             try
             {
-                client = new TcpClient("localhost", 8888);
+                client = new TcpClient("213.57.202.58", 8888);
                 stream = client.GetStream();
 
                 byte[] data = Encoding.ASCII.GetBytes(Environment.UserName);
