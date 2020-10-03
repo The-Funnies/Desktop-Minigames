@@ -139,7 +139,7 @@ namespace Desktop_Minigames
             label.Font = new Font(FontFamily.GenericMonospace, 12);
             int labelwidth = (int)(Width / 2.3);
             label.Size = new Size(labelwidth, (int)Math.Ceiling(text.Text.Length * Font.Height * Font.Height * 1d / labelwidth + Font.Height * 1.03d));
-            label.Location = new Point((int)(Width / 1.95), (int)(Height / 1.28) - label.Size.Height);
+            label.Location = new Point((int)(Width / 50), (int)(Height / 1.28) - label.Size.Height);
             label.BackColor = Color.Gray; 
             label.Tag = 1;
 
