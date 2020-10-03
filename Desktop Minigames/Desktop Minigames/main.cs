@@ -28,16 +28,18 @@ namespace Desktop_Minigames
             Width = (int)(Screen.PrimaryScreen.WorkingArea.Size.Width / 3.5);
             Height = (int)(Screen.PrimaryScreen.WorkingArea.Size.Height / 1.25);
             this.BackgroundImage = GenerateBackground();
-            gamesNames = new List<string>();
-            gamesNames.Add("Snake");
-            gamesNames.Add("Solitaire");
-            gamesNames.Add("Flappy Bird");
-            gamesNames.Add("Ultimate Tic Tac Toe");
-            gamesNames.Add("Ultimate Ultimate Tic Tac Toe");
-            gamesNames.Add("Bullseye");
-            gamesNames.Add("Damka");
-            gamesNames.Add("Tic Tac Toe");
-            gamesNames.Add("Pong");
+            gamesNames = new List<string>
+            {
+                "Snake",
+                "Solitaire",
+                "Flappy Bird",
+                "Ultimate Tic Tac Toe",
+                "Ultimate Ultimate Tic Tac Toe",
+                "Bullseye",
+                "Damka",
+                "Tic Tac Toe",
+                "Pong"
+            };
 
 
             games = new Button[gamesNames.Count];
@@ -163,7 +165,6 @@ namespace Desktop_Minigames
             form.FormClosed += (object sender, FormClosedEventArgs e) => { Environment.Exit(Environment.ExitCode); };
             this.Hide();
             Controls.Clear();
-            form.BackgroundImage = GenerateBackground();
             try
             {
                 form.Show();
