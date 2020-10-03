@@ -90,8 +90,9 @@ namespace Desktop_Minigames
                     {
                         foreach (Label label1 in messages)
                         {
-                            label1.Location = new Point(label1.Location.X,(int)(label1.Tag)==2? label1.Location.Y - (int)(label.Size.Height*1.03 ):(int)messages[messages.Count - 1].Tag == 0 ? label1.Location.Y - (int)(label.Size.Height * 0.8) : label1.Location.Y - (int)(label.Size.Height * 1.1)) ;
-                            if (((int)(messages[messages.Count - 1].Tag)==0 && label1.Location.Y - (int)(label.Size.Height * 0.8) < 70) || ((int)(messages[messages.Count - 1].Tag)!=0 && (label1.Location.Y - (int)(label.Size.Height * 1.1) < 70)))
+                            label1.Location = new Point(label1.Location.X, label1.Location.Y - (int)(label.Size.Height * 1.1));
+                          //  label1.Location = new Point(label1.Location.X,(int)(label1.Tag)==2? label1.Location.Y - (int)(label.Size.Height*1.03 ):(int)messages[messages.Count - 1].Tag == 0 ? label1.Location.Y - (int)(label.Size.Height * 0.6) : label1.Location.Y - (int)(label.Size.Height * 1.1)) ;
+                            if (((int)(messages[messages.Count - 1].Tag)==0 && label1.Location.Y - (int)(label.Size.Height * 0.6) < 70) || ((int)(messages[messages.Count - 1].Tag)!=0 && (label1.Location.Y - (int)(label.Size.Height * 1.1) < 70)))
                             {
                                 Controls.Remove(label1);
                             }
@@ -147,8 +148,9 @@ namespace Desktop_Minigames
         {
             Label label = new Label();
             label.Text = mes;
-            label.Size = new Size((int)(Width / 2.3), Height / 8);
-            label.Font = new Font("Ariel", 14);
+            //label.Size = new Size((int)(Width / 2.3), Height / 8);
+            label.Font = new Font("Ariel", 10);
+            label.Size = new Size((int)(Width / 2.3), (int)(label.Size.Width / (mes.Substring(0, BackSlash0(mes)).Length*label.Font.Size)));
             label.Location = new Point((int)(Width / 50), (int)(Height / 1.5));
             label.BackColor = Color.Gray; 
             label.Tag = 1;
@@ -157,8 +159,9 @@ namespace Desktop_Minigames
             {
                 foreach (Label label1 in messages)
                 {
-                    label1.Location = new Point(label1.Location.X, (int)(label1.Tag) == 2 ? label1.Location.Y - (int)(label.Size.Height* 1.03) : (int)messages[messages.Count-1].Tag==0? label1.Location.Y - (int)(label.Size.Height * 0.8): label1.Location.Y - (int)(label.Size.Height * 1.1));
-                    if (((int)(messages[messages.Count - 1].Tag)==0 && label1.Location.Y - (int)(label.Size.Height * 0.8) < 70)|| ((int)(messages[messages.Count - 1].Tag)!=0 && (label1.Location.Y - (int)(label.Size.Height * 1.1) < 70)))
+                    label1.Location = new Point(label1.Location.X, label1.Location.Y - (int)(label.Size.Height * 1.1));
+                    //label1.Location = new Point(label1.Location.X, (int)(label1.Tag) == 2 ? label1.Location.Y - (int)(label.Size.Height* 1.03) : (int)messages[messages.Count-1].Tag==0? label1.Location.Y - (int)(label.Size.Height * 0.6): label1.Location.Y - (int)(label.Size.Height * 1.1));
+                    if (((int)(messages[messages.Count - 1].Tag)==0 && label1.Location.Y - (int)(label.Size.Height * 0.6) < 70)|| ((int)(messages[messages.Count - 1].Tag)!=0 && (label1.Location.Y - (int)(label.Size.Height * 1.1) < 70)))
                     {
                         Controls.Remove(label1);
                     }
@@ -176,8 +179,8 @@ namespace Desktop_Minigames
                 {
                     Label label = new Label();
                     label.Text = text.Text;
-                    label.Size = new Size((int)(Width / 2.3), Height / 8);
-                    label.Font = new Font("Ariel", 14);
+                    label.Font = new Font("Ariel", 10);
+                    label.Size = new Size((int)(Width / 2.3), (int)(label.Size.Width / (text.Text.Substring(0, BackSlash0(text.Text)).Length * label.Font.Size)));
                     label.Location = new Point((int)(Width / 1.95), (int)(Height / 1.48));
                     label.BackColor = Color.Aquamarine;
                     label.Tag = 0;
@@ -185,8 +188,9 @@ namespace Desktop_Minigames
                     Controls.Add(label);
                     foreach (Label label1 in messages)
                     {
-                        label1.Location = new Point(label1.Location.X, (int)(label1.Tag) == 2 ? label1.Location.Y - (int)(label.Size.Height*1.03 ) : (int)messages[messages.Count - 1].Tag==0 ? label1.Location.Y - (int)(label.Size.Height * 1.1) : label1.Location.Y - (int)(label.Size.Height * 0.8));
-                        if (((int)(messages[messages.Count - 1].Tag)==0 && label1.Location.Y - (int)(label.Size.Height * 1.1) < 70) || ((int)(messages[messages.Count - 1].Tag)!=0 && (label1.Location.Y - (int)(label.Size.Height * 0.8) < 70)))
+                        label1.Location = new Point(label1.Location.X, label1.Location.Y - (int)(label.Size.Height * 1.1));
+                      //  label1.Location = new Point(label1.Location.X, (int)(label1.Tag) == 2 ? label1.Location.Y - (int)(label.Size.Height*1.03 ) : (int)messages[messages.Count - 1].Tag==0 ? label1.Location.Y - (int)(label.Size.Height * 1.1) : label1.Location.Y - (int)(label.Size.Height * 0.6));
+                        if (((int)(messages[messages.Count - 1].Tag)==0 && label1.Location.Y - (int)(label.Size.Height * 1.1) < 70) || ((int)(messages[messages.Count - 1].Tag)!=0 && (label1.Location.Y - (int)(label.Size.Height * 0.6) < 70)))
                         {
                             Controls.Remove(label1);
                         }
