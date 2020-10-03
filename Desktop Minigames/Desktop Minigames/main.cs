@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -23,8 +24,23 @@ namespace Desktop_Minigames
         private const int BACKGROUND_PICS_AMOUNT = 35;//The last index of background pics in Properties.Resources
         public Minigames()
         {
-            GoToForm<ChatClient>(new ChatClient());
-            InitializeComponent();
+            Shown += (object sender, EventArgs e) =>
+            {
+                ChatClient form;
+                try
+                {
+                    form = new ChatClient();
+                } catch
+                {
+                    MessageBox.Show("Failed to connect to server.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    form = null;
+                    return;   
+                }
+                form.StartPosition = FormStartPosition.Manual;
+                form.Location = new Point(this.Location.X, 0);
+                form.Show();
+                form.WindowState = FormWindowState.Maximized;
+            };
             Width = (int)(Screen.PrimaryScreen.WorkingArea.Size.Width / 3.5);
             Height = (int)(Screen.PrimaryScreen.WorkingArea.Size.Height / 1.25);
             gamesNames = new List<string>
