@@ -27,7 +27,6 @@ namespace Desktop_Minigames
             InitializeComponent();
             Width = (int)(Screen.PrimaryScreen.WorkingArea.Size.Width / 3.5);
             Height = (int)(Screen.PrimaryScreen.WorkingArea.Size.Height / 1.25);
-            this.BackgroundImage = GenerateBackground();
             gamesNames = new List<string>
             {
                 "Snake",
