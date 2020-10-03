@@ -44,7 +44,7 @@ namespace Desktop_Minigames
                 client = new TcpClient("213.57.202.58", 8888);
                 stream = client.GetStream();
 
-                byte[] data = Encoding.ASCII.GetBytes(Environment.UserName);
+                byte[] data = Encoding.UTF8.GetBytes(Environment.UserName);
 
                 stream.Write(data, 0, data.Length);
             }
@@ -77,7 +77,7 @@ namespace Desktop_Minigames
                 }
                
 
-                NewMessage(Encoding.ASCII.GetString(data));
+                NewMessage(Encoding.UTF8.GetString(data));
             }
         }
         void CloseWindow(object sender, EventArgs args)
@@ -144,7 +144,7 @@ namespace Desktop_Minigames
                     messages.Add(label);
 
 
-                    byte[] data = Encoding.ASCII.GetBytes(text.Text);
+                    byte[] data = Encoding.UTF8.GetBytes(text.Text);
                     stream.Write(data, 0, data.Length);
 
                     text.Text = null;

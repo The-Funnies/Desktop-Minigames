@@ -22,7 +22,7 @@ namespace ChatServer
         {
             listener = new TcpListener(IPAddress.Any, 8888);
             listener.Start();
-
+            FormClosed += (object sender, FormClosedEventArgs e) => { Environment.Exit(Environment.ExitCode); };
             waitforclients = new Thread(WaitForClient);
             waitforclients.Start();
         }
@@ -34,7 +34,7 @@ namespace ChatServer
                 byte[] data = new byte[257];
                 client.GetStream().Read(data, 0, data.Length);
 
-                string name = Encoding.ASCII.GetString(data);
+                string name = Encoding.UTF8.GetString(data);
                 Thread thread = new Thread(CheckMessages);
 
                 clients.Add(new Client(name, client, thread));
@@ -61,7 +61,7 @@ namespace ChatServer
                 }
 
                 
-                string message = Encoding.ASCII.GetString(data).Substring(0, BackSlash0(Encoding.ASCII.GetString(data)));
+                string message = Encoding.UTF8.GetString(data).Substring(0, BackSlash0(Encoding.UTF8.GetString(data)));
 
                 if (message == "")
                 {
@@ -71,7 +71,7 @@ namespace ChatServer
 
                 string mes = clients[n].name.Substring(0, BackSlash0(clients[n].name)) + "\n" + message;
                 
-                byte[] data1 = Encoding.ASCII.GetBytes(mes);
+                byte[] data1 = Encoding.UTF8.GetBytes(mes);
 
 
                 for (int i=0;i<clients.Count; i++)
