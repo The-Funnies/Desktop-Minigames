@@ -20,7 +20,6 @@ namespace Desktop_Minigames
         private NetworkStream stream;
         private TextBox text;
         private Thread waitformessages;
-        private Thread language;
         private List<Label> messages = new List<Label>();
         public ChatClient()
         {
@@ -36,31 +35,26 @@ namespace Desktop_Minigames
             Controls.Add(text);
 
 
-
-
-
-            try
+            this.FormClosed += (object sender, FormClosedEventArgs e) =>
             {
-                client = new TcpClient("213.57.202.58", 8888);
-                stream = client.GetStream();
+                Controls.Clear();
+                client.Close();
+                stream.Close();
+                waitformessages.Abort();
+            };
 
-                byte[] data = Encoding.UTF8.GetBytes(Environment.UserName);
+            client = new TcpClient("213.57.202.58", 8888);
+            stream = client.GetStream();
 
-                stream.Write(data, 0, data.Length);
-            }
-            catch
-            {
-                MessageBox.Show("Chat server is off");
-                this.Close();
-                return;
-            }
+            byte[] data = Encoding.UTF8.GetBytes(Environment.UserName);
+
+            stream.Write(data, 0, data.Length);
 
 
             waitformessages = new Thread(WaitForMessages);
             waitformessages.Start();
 
             this.FormClosed += CloseWindow;
-            this.Shown += StartThread;
         }
         void WaitForMessages()
         {
@@ -136,13 +130,6 @@ namespace Desktop_Minigames
 
             stream.Close();
             client.Close();
-        }
-        void StartThread(object sender, EventArgs args)
-        {
-            language = new Thread(Language);
-           // language.Start();
-
-
         }
         void NewMessage(string mes)
         {
