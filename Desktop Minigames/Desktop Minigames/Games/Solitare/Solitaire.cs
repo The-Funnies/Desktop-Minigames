@@ -158,12 +158,12 @@ namespace Desktop_Minigames
                 movesCounterL.Text = $"moves: {movesCounter}";
                 Controls.Add(movesCounterL);
 
-                /*GoDark();
+                GoDark();
                 toggleTheme.Text = "Go Light";
                 toggleTheme.Location = new Point(700, 120);
                 toggleTheme.Size = new Size(80, 40);
                 toggleTheme.Click += ToggleTheme_Click;
-                Controls.Add(toggleTheme);*/
+                Controls.Add(toggleTheme);
             } //Add Counters
             for (int i = 0; i < 7; i++)
             {
@@ -333,11 +333,11 @@ namespace Desktop_Minigames
                 Controls.Add(slotsPB[i]);
             }
         }
-        /*public void GoDark()
+        public void GoDark()
         {
             this.BackColor = Color.FromName("Black");
             movesCounterL.ForeColor = Color.FromName("White");
-            glowImg = Image.FromFile("..\\..\\PNG\\glowDark.png");
+            glowImg = Properties.Resources.glowDark;
             dealerCounterLabel.ForeColor = Color.FromName("White");
             emptyDealerLabel.ForeColor = Color.FromName("White");
             toggleTheme.ForeColor = Color.FromName("White");
@@ -345,7 +345,7 @@ namespace Desktop_Minigames
             finish.ForeColor = Color.FromName("White");
             finish.BackColor = Color.FromArgb(30, 30, 30);
             toggleTheme.Text = "Go Light";
-        }*/
+        }
         public void GoLight()
         {
             this.BackColor = SystemColors.Control;
@@ -376,7 +376,7 @@ namespace Desktop_Minigames
             }
             return false;
         }
-       /* private void ToggleTheme_Click(object sender, EventArgs e)
+       private void ToggleTheme_Click(object sender, EventArgs e)
         {
             if (this.BackColor == Color.FromName("Black"))
             {
@@ -384,7 +384,7 @@ namespace Desktop_Minigames
                 return;
             }
             GoDark();
-        }*/
+        }
         public void cardClick(object sender, EventArgs e)
         {
             bool isfirstT = true;
