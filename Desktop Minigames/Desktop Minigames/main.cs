@@ -23,6 +23,7 @@ namespace Desktop_Minigames
         private const int BACKGROUND_PICS_AMOUNT = 35;//The last index of background pics in Properties.Resources
         public Minigames()
         {
+            GoToForm<ChatClient>(new ChatClient());
             InitializeComponent();
             Width = (int)(Screen.PrimaryScreen.WorkingArea.Size.Width / 3.5);
             Height = (int)(Screen.PrimaryScreen.WorkingArea.Size.Height / 1.25);
