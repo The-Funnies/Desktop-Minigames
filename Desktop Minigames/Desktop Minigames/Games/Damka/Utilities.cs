@@ -60,7 +60,7 @@ namespace Damka
                 while (reader.PeekChar() != -1)
                 {
                     couter++;
-                    byte[] key = reader.ReadBytes(18);
+                    byte[] key = reader.ReadBytes(17);
                     int[] value = new int[2];
                     for (int i = 0; i < 2; i++)
                     {
