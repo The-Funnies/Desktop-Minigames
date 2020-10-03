@@ -90,7 +90,7 @@ namespace Desktop_Minigames
                     {
                         foreach (Label label1 in messages)
                         {
-                            label1.Location = new Point(label1.Location.X,(int)(label1.Tag)==2? label1.Location.Y - (int)(label.Size.Height * 1.1):(int)messages[messages.Count - 1].Tag == 0 ? label1.Location.Y - (int)(label.Size.Height * 0.8) : label1.Location.Y - (int)(label.Size.Height * 1.1)) ;
+                            label1.Location = new Point(label1.Location.X,(int)(label1.Tag)==2? label1.Location.Y - (int)(label.Size.Height*1.03 ):(int)messages[messages.Count - 1].Tag == 0 ? label1.Location.Y - (int)(label.Size.Height * 0.8) : label1.Location.Y - (int)(label.Size.Height * 1.1)) ;
                             if (((int)(messages[messages.Count - 1].Tag)==0 && label1.Location.Y - (int)(label.Size.Height * 0.8) < 70) || ((int)(messages[messages.Count - 1].Tag)!=0 && (label1.Location.Y - (int)(label.Size.Height * 1.1) < 70)))
                             {
                                 Controls.Remove(label1);
@@ -157,7 +157,7 @@ namespace Desktop_Minigames
             {
                 foreach (Label label1 in messages)
                 {
-                    label1.Location = new Point(label1.Location.X, (int)(label1.Tag) == 2 ? label1.Location.Y - (int)(label.Size.Height * 1.1) : (int)messages[messages.Count-1].Tag==0? label1.Location.Y - (int)(label.Size.Height * 0.8): label1.Location.Y - (int)(label.Size.Height * 1.1));
+                    label1.Location = new Point(label1.Location.X, (int)(label1.Tag) == 2 ? label1.Location.Y - (int)(label.Size.Height* 1.03) : (int)messages[messages.Count-1].Tag==0? label1.Location.Y - (int)(label.Size.Height * 0.8): label1.Location.Y - (int)(label.Size.Height * 1.1));
                     if (((int)(messages[messages.Count - 1].Tag)==0 && label1.Location.Y - (int)(label.Size.Height * 0.8) < 70)|| ((int)(messages[messages.Count - 1].Tag)!=0 && (label1.Location.Y - (int)(label.Size.Height * 1.1) < 70)))
                     {
                         Controls.Remove(label1);
@@ -185,7 +185,7 @@ namespace Desktop_Minigames
                     Controls.Add(label);
                     foreach (Label label1 in messages)
                     {
-                        label1.Location = new Point(label1.Location.X, (int)(label1.Tag) == 2 ? label1.Location.Y - (int)(label.Size.Height * 1.1) : (int)messages[messages.Count - 1].Tag==0 ? label1.Location.Y - (int)(label.Size.Height * 1.1) : label1.Location.Y - (int)(label.Size.Height * 0.8));
+                        label1.Location = new Point(label1.Location.X, (int)(label1.Tag) == 2 ? label1.Location.Y - (int)(label.Size.Height*1.03 ) : (int)messages[messages.Count - 1].Tag==0 ? label1.Location.Y - (int)(label.Size.Height * 1.1) : label1.Location.Y - (int)(label.Size.Height * 0.8));
                         if (((int)(messages[messages.Count - 1].Tag)==0 && label1.Location.Y - (int)(label.Size.Height * 1.1) < 70) || ((int)(messages[messages.Count - 1].Tag)!=0 && (label1.Location.Y - (int)(label.Size.Height * 0.8) < 70)))
                         {
                             Controls.Remove(label1);
