@@ -220,6 +220,8 @@ namespace Desktop_Minigames
             //Reset the slots
             for (int i = 0; i < 4; i++)
             {
+
+                slots[i].Tag = null;
                 slots[i].Location = new Point(10 + 50 * i, 400);
                 slots[i].Size = new Size(50,50);
                 slots[i].Image = Resize(Properties.Resources.Bull_empty as Image,50,50);
@@ -422,7 +424,8 @@ namespace Desktop_Minigames
             switch (response)
             {
                 default:
-                    Application.Restart();
+                    Controls.Clear();
+                    startMenu();
                     break;
                 case DialogResult.No:
                     Environment.Exit(Environment.ExitCode);
