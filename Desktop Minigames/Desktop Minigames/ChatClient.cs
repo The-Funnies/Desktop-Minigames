@@ -29,7 +29,7 @@ namespace Desktop_Minigames
             Height = (int)(Screen.PrimaryScreen.WorkingArea.Size.Height / 1.87);
             this.MaximumSize = new Size(this.Width, this.Height);
             text = new TextBox();
-            text.Font = new Font("Ariel", 28);
+            text.Font = new Font(FontFamily.GenericMonospace, 28);
             text.Size = new Size((int)(Width / 1.12), (int)(Height / 5.56));
             text.Location = new Point((int)(Width / 26.666667), (int)(Height / 1.21));
             Controls.Add(text);
@@ -76,7 +76,7 @@ namespace Desktop_Minigames
                     label.Text = mes.Substring(0,BackSlash0(mes)) +" is inda chat boys";
                     label.Size = new Size((int)(Width / 2.5), Height / 40);
                     label.Font = new Font("Ariel", 8);
-                    label.Location = new Point((int)(Width /3.5), (int)(Height / 1.3));
+                    label.Location = new Point((int)(Width /3.5), (int)(Height / 1.33));
                     label.Tag = 2;
                     label.BackColor = Color.Transparent;
 
@@ -136,9 +136,10 @@ namespace Desktop_Minigames
             Label label = new Label();
             label.Text = mes;
             //label.Size = new Size((int)(Width / 2.3), Height / 8);
-            label.Font = new Font("Ariel", 10);
-            label.Size = new Size((int)(Width / 2.3), (int)(label.Size.Width / (mes.Substring(0, BackSlash0(mes)).Length*label.Font.Size)));
-            label.Location = new Point((int)(Width / 50), (int)(Height / 1.5));
+            label.Font = new Font(FontFamily.GenericMonospace, 12);
+            int labelwidth = (int)(Width / 2.3);
+            label.Size = new Size(labelwidth, (int)Math.Ceiling(text.Text.Length * Font.Height * Font.Height * 1d / labelwidth + Font.Height * 1.03d));
+            label.Location = new Point((int)(Width / 50), (int)(Height / 1.2)+label.Size.Height);
             label.BackColor = Color.Gray; 
             label.Tag = 1;
 
@@ -166,9 +167,10 @@ namespace Desktop_Minigames
                 {
                     Label label = new Label();
                     label.Text = text.Text;
-                    label.Font = new Font("Ariel", 10);
-                    label.Size = new Size((int)(Width / 2.3), (int)(label.Size.Width / (text.Text.Substring(0, BackSlash0(text.Text)).Length * label.Font.Size)));
-                    label.Location = new Point((int)(Width / 1.95), (int)(Height / 1.48));
+                    label.Font = new Font(FontFamily.GenericMonospace, 12);
+                    int labelwidth = (int)(Width / 2.3);
+                    label.Size = new Size(labelwidth, (int)Math.Ceiling(text.Text.Length * Font.Height * Font.Height * 1d / labelwidth + Font.Height * 1.03d));
+                    label.Location = new Point((int)(Width / 1.95), (int)(Height / 1.28) - label.Size.Height);
                     label.BackColor = Color.Aquamarine;
                     label.Tag = 0;
                     
