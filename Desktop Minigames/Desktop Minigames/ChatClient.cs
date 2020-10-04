@@ -114,6 +114,17 @@ namespace Desktop_Minigames
             }
             return mes.Length;
         }
+        int BackSlashn(string mes)
+        {
+            for (int i = 0; i < mes.Length; i++)
+            {
+                if (mes[i] == '\n')
+                {
+                    return i;
+                }
+            }
+            return mes.Length;
+        }
         bool IsNewClient(string mes)
         {
             for (int i = 0; i < mes.Length; i++)
@@ -138,7 +149,11 @@ namespace Desktop_Minigames
             //label.Size = new Size((int)(Width / 2.3), Height / 8);
             label.Font = new Font(FontFamily.GenericMonospace, 12);
             int labelwidth = (int)(Width / 2.3);
-            label.Size = new Size(labelwidth, (int)(text.Text.Length * Font.Height * Font.Height * 1d / labelwidth + Font.Height * 2.8d));
+            int rows=1;
+            int index = BackSlashn(mes)+1;
+            int length = mes.Substring(0, BackSlash0(mes)).Length - index + 1;
+            rows += (int)Math.Ceiling((length * label.Font.Size) / (2*label.Width));
+            label.Size = new Size(labelwidth, rows*label.Font.Height);
             label.Location = new Point((int)(Width / 50), (int)(Height / 1.28) - label.Size.Height);
             label.BackColor = Color.Gray; 
             label.Tag = 1;
@@ -169,7 +184,11 @@ namespace Desktop_Minigames
                     label.Text = text.Text;
                     label.Font = new Font(FontFamily.GenericMonospace, 12);
                     int labelwidth = (int)(Width / 2.3);
-                    label.Size = new Size(labelwidth, (int)(text.Text.Length * Font.Height * Font.Height * 1d / labelwidth + Font.Height * 1.03d));
+                    int length = text.Text.Substring(0, BackSlash0(text.Text)).Length +1;
+                    int rows = (int)Math.Ceiling((length * label.Font.Size) / (2 * label.Width));
+
+                    label.Size = new Size(labelwidth, rows * label.Font.Height);
+                    //label.Size = new Size(labelwidth, (int)(text.Text.Length * Font.Height * Font.Height * 1d / labelwidth + Font.Height * 1.03d));
                     label.Location = new Point((int)(Width / 1.95), (int)(Height / 1.28) - label.Size.Height);
                     label.BackColor = Color.Aquamarine;
                     label.Tag = 0;
