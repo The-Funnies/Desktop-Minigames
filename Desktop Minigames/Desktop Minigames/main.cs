@@ -45,7 +45,7 @@ namespace Desktop_Minigames
             title = new PictureBox();
             Saver.Minigames = this;
             Shown += ShowChat;
-            Width = (int)(Screen.PrimaryScreen.WorkingArea.Size.Width / 3);
+            Width = (int)(Screen.PrimaryScreen.WorkingArea.Size.Width / 2.7);
             Height = (int)(Screen.PrimaryScreen.WorkingArea.Size.Height / 1.25);
             gamesNames = new List<string>
             {
@@ -293,7 +293,7 @@ namespace Desktop_Minigames
                 {
                     form = new ChatClient();
                 }
-                catch { }
+                catch {}
 
             });
             t.Start();
@@ -319,10 +319,10 @@ namespace Desktop_Minigames
             }
             else
             {
+                if (form == null) return;
                 form.StartPosition = FormStartPosition.Manual;
                 form.Location = new Point(this.Location.X, 0);
                 form.Show();
-                form.WindowState = FormWindowState.Maximized;
                 isChatShown = true;
             }
         }

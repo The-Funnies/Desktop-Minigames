@@ -20,6 +20,7 @@ namespace Desktop_Minigames
         PictureBox frame = new PictureBox();
         private NetworkStream stream;
         private TextBox text;
+        private static bool changed= false;
         private Thread waitformessages;
         private List<Label> messages = new List<Label>();
         public ChatClient()
@@ -39,7 +40,16 @@ namespace Desktop_Minigames
             frame.Dock = DockStyle.Fill;
             frame.Image = img;
             Controls.Add(frame);
-
+            this.ControlAdded += (sender, e) =>
+            {
+                if (changed)
+                {
+                    Controls.Remove(frame);
+                    changed = false;
+                    Controls.Add(frame);
+                    
+                }
+            };
             this.FormClosed += (object sender, FormClosedEventArgs e) =>
             {
                 Controls.Clear();
@@ -63,6 +73,7 @@ namespace Desktop_Minigames
         }
         void WaitForMessages()
         {
+            
             while (true)
             {
                 byte[] data = new byte[257];
@@ -77,6 +88,7 @@ namespace Desktop_Minigames
                 string mes = Encoding.UTF8.GetString(data);
                 if (IsNewClient(mes))
                 {
+
                     Label label = new Label();
                     label.Text = mes.Substring(0, BackSlash0(mes)) + " is inda chat boys";
                     label.Size = new Size((int)(Width / 2.5), Height / 40);
@@ -87,6 +99,7 @@ namespace Desktop_Minigames
 
                     this.Invoke(new Delegate(() =>
                     {
+                        
                         foreach (Label label1 in messages)
                         {
                             label1.Location = new Point(label1.Location.X, label1.Location.Y - (int)(label.Size.Height * 1.1));
@@ -97,8 +110,8 @@ namespace Desktop_Minigames
                             }
                         }
                         Controls.Add(label);
-                        Controls.Remove(frame);
-                        Controls.Add(frame);
+                        changed = true;
+                        
                     }));
 
                     messages.Add(label);
@@ -180,8 +193,7 @@ namespace Desktop_Minigames
                     }
                 }
                 Controls.Add(label);
-                Controls.Remove(frame);
-                Controls.Add(frame);
+                changed = true;
             }));
 
             messages.Add(label);
@@ -206,6 +218,7 @@ namespace Desktop_Minigames
                     label.Tag = 0;
 
                     Controls.Add(label);
+                    changed = true;
                     foreach (Label label1 in messages)
                     {
                         label1.Location = new Point(label1.Location.X, label1.Location.Y - (int)(label.Size.Height * 1.1));
