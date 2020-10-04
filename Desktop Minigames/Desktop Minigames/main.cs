@@ -43,6 +43,10 @@ namespace Desktop_Minigames
         public Minigames()
         {
             title = new PictureBox();
+            title.Click += (sender, e) =>
+             {
+                 GoToGame(games[random.Next(0, games.Length)], e);
+             };
             Saver.Minigames = this;
             Shown += ShowChat;
             Width = (int)(Screen.PrimaryScreen.WorkingArea.Size.Width / 2.7);
@@ -152,10 +156,7 @@ namespace Desktop_Minigames
                 }
             }
         }
-        private void RandomGame()
-        {
-            //   GoToGame()
-        }
+
         public void GoToGame(object sender, EventArgs args)
         {
             Button btn = (Button)sender;
