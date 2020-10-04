@@ -69,7 +69,7 @@ namespace Desktop_Minigames
                 if (!connected)
                 {
                     t.Abort();
-                    MessageBox.Show("Failed to connect to server.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Failed to connect to the chat server.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     form = null;
                     return;
                 }

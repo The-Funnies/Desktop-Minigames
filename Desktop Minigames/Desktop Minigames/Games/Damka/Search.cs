@@ -180,7 +180,7 @@ namespace Damka
             }
             this.movesWithEvaluations = new List<Tuple<DamkaBoard, int>>(moves.Length);
             DamkaBoard[] shuffledMoves = moves.OrderBy(a => Guid.NewGuid()).ToArray();
-            foreach (DamkaBoard[] splittedMoves in Split(shuffledMoves, Environment.ProcessorCount/6))
+            foreach (DamkaBoard[] splittedMoves in Split(shuffledMoves, Environment.ProcessorCount/2))
             {
                 GetEvalNewThread(splittedMoves, depth, !isRed);
             }
