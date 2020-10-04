@@ -30,17 +30,21 @@ namespace Desktop_Minigames
                 try
                 {
                     form = new ChatClient();
-                } catch
+                }
+                catch
                 {
                     MessageBox.Show("Failed to connect to server.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     form = null;
-                    return;   
+                    return;
                 }
                 form.StartPosition = FormStartPosition.Manual;
                 form.Location = new Point(this.Location.X, 0);
                 form.Show();
                 form.WindowState = FormWindowState.Maximized;
             };
+            this.BackColor = Color.White;
+            this.BackgroundImage = GenerateBackground();
+            this.BackgroundImageLayout = ImageLayout.Center;
             Width = (int)(Screen.PrimaryScreen.WorkingArea.Size.Width / 3.5);
             Height = (int)(Screen.PrimaryScreen.WorkingArea.Size.Height / 1.25);
             gamesNames = new List<string>
@@ -56,16 +60,15 @@ namespace Desktop_Minigames
                 "Pong"
             };
 
-
             games = new Button[gamesNames.Count];
             titleLabel = new Label();
             titleLabel.Text = "Minigames";
             titleLabel.BackColor = Color.Transparent;
             titleLabel.Font = new Font("Ariel", 30);
-            titleLabel.Size = new Size(Width, Height/9);
+            titleLabel.Size = new Size(Width, Height / 9);
             titleLabel.Location = new Point(Width / 2 - (int)(titleLabel.Size.Width / 2.4), Height / 10);
             Controls.Add(titleLabel);
-          
+
             for (int i = 0; i < games.Length; i++)
             {
                 games[i] = new Button
@@ -78,7 +81,7 @@ namespace Desktop_Minigames
                 games[i].MouseEnter += (sender, e) => ChangeMainLabelText(sender, e);
                 games[i].MouseLeave += (sender, e) => ChangeMainLabelText(sender, e, false);
                 games[i].Tag = gamesNames[i];
-                
+
                 Controls.Add(games[i]);
             }
             foreach (Button btn in games)
@@ -141,7 +144,7 @@ namespace Desktop_Minigames
                     GoToForm<Form1>(new Form1());
                     break;
                 case "Whist":
-                   // GoToForm<WhistMain>(new WhistMain());
+                    // GoToForm<WhistMain>(new WhistMain());
                     break;
                 case "Ultimate Tic Tac Toe":
                     GoToForm<UltimateTicTacToe>(new UltimateTicTacToe());
@@ -178,6 +181,9 @@ namespace Desktop_Minigames
             form.StartPosition = FormStartPosition.Manual;
             form.Location = new Point(this.Location.X, 0);
             form.FormClosed += (object sender, FormClosedEventArgs e) => { Environment.Exit(Environment.ExitCode); };
+            form.BackColor = Color.White;
+            form.BackgroundImage = GenerateBackground();
+            form.BackgroundImageLayout = ImageLayout.Center;
             this.Hide();
             Controls.Clear();
             try
@@ -202,8 +208,8 @@ namespace Desktop_Minigames
         }
         private void Minigames_Load(object sender, EventArgs e)
         {
-           
 
+           
         }
         public Image GenerateBackground()
         {
