@@ -19,16 +19,27 @@ namespace Desktop_Minigames
         private List<String> gamesNames;
         public static Random random = new Random();
         private PictureBox title;
+        private Image background_img = GenerateBackground();
         private const int MAIN_BUTTON_SIZE = 125;
         private const int BACKGROUND_PICS_AMOUNT = 35;//The last index of background pics in Properties.Resources
         private int resizeCount = 0;
+    
+        protected override void OnSizeChanged(EventArgs e)
+        {
+            base.OnSizeChanged(e);
+            if (resizeCount++ > 1)
+            {
+                this.Controls.Clear();
+                ShowLayout();
+            }
+        }
+        protected override void OnMaximizedBoundsChanged(EventArgs e)
+        {
+            base.OnMaximizedBoundsChanged(e);this.onKey
+            OnResizeEnd(e);
+        }
         public Minigames()
         {
-            
-            Image titleimg = Properties.Resources.minigames_title;
-            titleimg = Resize(titleimg, 487, 110);
-            title = new PictureBox();
-            title.Image = titleimg;
             Shown += (object sender, EventArgs e) =>
             {
                 ChatClient form = null;
@@ -70,12 +81,8 @@ namespace Desktop_Minigames
                     form.WindowState = FormWindowState.Maximized;
                 }
             };
-            this.BackColor = Color.White;
-            this.BackgroundImage = Minigames.GenerateBackground();
-            this.BackgroundImageLayout = ImageLayout.Center;
             Width = (int)(Screen.PrimaryScreen.WorkingArea.Size.Width / 3.5);
             Height = (int)(Screen.PrimaryScreen.WorkingArea.Size.Height / 1.25);
-            WindowState = FormWindowState.Normal;
             gamesNames = new List<string>
             {
                 "Snake",
@@ -88,37 +95,9 @@ namespace Desktop_Minigames
                 "Tic Tac Toe",
                 "Pong"
             };
-
             games = new Button[gamesNames.Count];
-            title.BackColor = Color.Transparent;
-            title.Size = new Size(Width, Height / 7 );
-            title.Location = new Point(Width / 2 -title.Size.Width/2, 0);
-            Controls.Add(title);
-
-            for (int i = 0; i < games.Length; i++)
-            {
-                games[i] = new Button
-                {
-                    Font = new Font("Ariel", 25),
-                    Size = new Size(MAIN_BUTTON_SIZE, MAIN_BUTTON_SIZE),
-                    Location = new Point(MAIN_BUTTON_SIZE / 10 + i % 2 * (MAIN_BUTTON_SIZE + MAIN_BUTTON_SIZE / 10), title.Location.Y + title.Height + i / 2 * (MAIN_BUTTON_SIZE + MAIN_BUTTON_SIZE / 10))
-                };
-                games[i].Click += GoToGame;
-                games[i].MouseEnter += (sender, e) => ChangeMainLabelText(sender, e);
-                games[i].MouseLeave += (sender, e) => ChangeMainLabelText(sender, e, false);
-                games[i].Tag = gamesNames[i];
-
-                Controls.Add(games[i]);
-            }
-            foreach (Button btn in games)
-            {
-                if (btn == null) continue;
-                String logoResourceName = btn.Tag.ToString().Replace(" ", "_");
-                Image gameLogo = Properties.Resources.ResourceManager.GetObject(logoResourceName) as Image;
-                if (gameLogo == null) continue;
-                gameLogo = Resize(gameLogo, MAIN_BUTTON_SIZE, MAIN_BUTTON_SIZE);
-                btn.BackgroundImage = gameLogo;
-            }
+            ShowLayout();
+            
             this.FormClosed += (object sender, FormClosedEventArgs e) => { Environment.Exit(Environment.ExitCode); };
 
             Thread th = new Thread(() =>
@@ -155,7 +134,49 @@ namespace Desktop_Minigames
             });
             th.Start();
         }
-        private void
+        private void ShowLayout()
+        {
+            SetBackground(this,background_img);
+            Image titleimg = Properties.Resources.minigames_title;
+            int imgsize = Properties.Resources.minigames_title.Width;
+            int i = 0;
+            double multiplier = 0;
+            while ((imgsize / (1+ i++ * 0.1))> Width);
+            multiplier = (1 + i++ * 0.1);
+            titleimg = Resize(titleimg, (int)(imgsize / multiplier), (int)(titleimg.Height/ multiplier));
+  
+            title = new PictureBox();
+            title.Image = titleimg;
+            title.BackColor = Color.Transparent;
+            title.Size = new Size(titleimg.Width , titleimg.Height );
+            title.Location = new Point(Width / 2 - title.Size.Width / 2, 0);
+            Controls.Add(title);
+
+            for (i = 0; i < games.Length; i++)
+            {
+                games[i] = new Button
+                {
+                    Font = new Font("Ariel", 25),
+                    Size = new Size(MAIN_BUTTON_SIZE, MAIN_BUTTON_SIZE),
+                    Location = new Point(MAIN_BUTTON_SIZE / 10 + i % 2 * (MAIN_BUTTON_SIZE + MAIN_BUTTON_SIZE / 10), title.Location.Y + title.Height + i / 2 * (MAIN_BUTTON_SIZE + MAIN_BUTTON_SIZE / 10))
+                };
+                games[i].Click += GoToGame;
+                games[i].MouseEnter += (sender, e) => ChangeMainLabelText(sender, e);
+                games[i].MouseLeave += (sender, e) => ChangeMainLabelText(sender, e, false);
+                games[i].Tag = gamesNames[i];
+
+                Controls.Add(games[i]);
+            }
+            foreach (Button btn in games)
+            {
+                if (btn == null) continue;
+                String logoResourceName = btn.Tag.ToString().Replace(" ", "_");
+                Image gameLogo = Properties.Resources.ResourceManager.GetObject(logoResourceName) as Image;
+                if (gameLogo == null) continue;
+                gameLogo = Resize(gameLogo, MAIN_BUTTON_SIZE, MAIN_BUTTON_SIZE);
+                btn.BackgroundImage = gameLogo;
+            }
+        }
         public void GoToGame(object sender, EventArgs args)
         {
             Button btn = (Button)sender;
