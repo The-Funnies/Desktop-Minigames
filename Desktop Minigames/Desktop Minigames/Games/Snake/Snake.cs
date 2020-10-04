@@ -16,6 +16,7 @@ namespace Desktop_Minigames
         private const int blockSize = 25;
         private const int height = 20, width = 20;
         private bool godMode = false;
+        private double wait = 200;
         private Control[,] board = new Control[height, width];
         private SnakeGame game = new SnakeGame(height, width);
         private Queue<byte> commandQueue = new Queue<byte>();
@@ -75,20 +76,27 @@ namespace Desktop_Minigames
                     game.ProcessKey(commandQueue.Dequeue());
                 }
 
-                if (game.isEnd && !godMode)
+                if (game.isEnd)
                 {
-                    MessageBox.Show("You lost!\nFinal score: " + game.GetScore());
-                    game = new SnakeGame(height, width);
-                    Block[,] blocks = game.GetBoard();
-                    for (int i = 0; i < height; i++)
+                    if (godMode)
                     {
-                        for (int j = 0; j < width; j++)
-                        {
-                            board[i, j].BackColor = GetBlockColor(blocks[i, j]);
-                        }
+                        game.isEnd = false;
                     }
-                    commandQueue.Clear();
-                    break;
+                    else
+                    {
+                        MessageBox.Show("You lost!\nFinal score: " + game.GetScore());
+                        game = new SnakeGame(height, width);
+                        Block[,] blocks = game.GetBoard();
+                        for (int i = 0; i < height; i++)
+                        {
+                            for (int j = 0; j < width; j++)
+                            {
+                                board[i, j].BackColor = GetBlockColor(blocks[i, j]);
+                            }
+                        }
+                        commandQueue.Clear();
+                        break;
+                    }
                 }
 
                 Tuple<int, int>[] diffs = game.GetDiff();
@@ -98,7 +106,7 @@ namespace Desktop_Minigames
                         continue;
                     board[diff.Item2, diff.Item1].BackColor = GetBlockColor(game.GetBoard()[diff.Item2, diff.Item1]);
                 }
-                Thread.Sleep(200);
+                Thread.Sleep((int)wait);
             }
         }
 
@@ -132,6 +140,20 @@ namespace Desktop_Minigames
 
                 case Keys.OemSemicolon:
                     godMode = !godMode;
+                    break;
+
+                case Keys.F1:
+                    if (godMode)
+                    {
+                        wait *= 2;
+                    }
+                    break;
+
+                case Keys.F2:
+                    if (godMode)
+                    {
+                        wait /= 2;
+                    }
                     break;
             }
 
