@@ -143,6 +143,9 @@ namespace Desktop_Minigames
             }
             return true;
         }
+
+
+
         void CloseWindow(object sender, EventArgs args)
         {
 

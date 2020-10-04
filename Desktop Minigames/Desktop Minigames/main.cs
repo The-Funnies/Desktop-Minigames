@@ -13,75 +13,39 @@ using System.Windows.Forms;
 namespace Desktop_Minigames
 {
     public delegate void goToForm(Ohno form);
+    public class Saver
+    {
+        public static Minigames Minigames { get; set; }
+
+    }
     public partial class Minigames : Form
     {
         private Button[] games;
         private List<String> gamesNames;
         public static Random random = new Random();
-        private PictureBox title;
+        private Image titleimg = Properties.Resources.minigames_title;
+        PictureBox title = new PictureBox();
+        private static bool isChatShown = false;
         private Image background_img = GenerateBackground();
         private const int MAIN_BUTTON_SIZE = 125;
         private const int BACKGROUND_PICS_AMOUNT = 35;//The last index of background pics in Properties.Resources
         private int resizeCount = 0;
-    
-        protected override void OnSizeChanged(EventArgs e)
+
+        protected override void OnResize(EventArgs e)
         {
-            base.OnSizeChanged(e);
             if (resizeCount++ > 1)
             {
-                this.Controls.Clear();
-                ShowLayout();
+                //this.Controls.Clear();
+                ShowLayout(false);
             }
         }
-        protected override void OnMaximizedBoundsChanged(EventArgs e)
-        {
-            base.OnMaximizedBoundsChanged(e);
-            OnResizeEnd(e);
-        }
+
         public Minigames()
         {
-            Shown += (object sender, EventArgs e) =>
-            {
-                ChatClient form = null;
-                Thread t = new Thread(() =>
-                {
-                    try
-                    {
-                        form = new ChatClient();
-                    }
-                    catch { }
-
-                });
-                t.Start();
-
-                int ms = 0;
-                bool connected = false;
-                while (ms < 1000)
-                {
-                    if (t.ThreadState == ThreadState.Stopped)
-                    {
-                        connected = true;
-                        break;
-                    }
-                    Thread.Sleep(50);
-                    ms += 50;
-                }
-                if (!connected)
-                {
-                    t.Abort();
-                    MessageBox.Show("Failed to connect to the chat server.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    form = null;
-                    return;
-                }
-                else
-                {
-                    form.StartPosition = FormStartPosition.Manual;
-                    form.Location = new Point(this.Location.X, 0);
-                    form.Show();
-                    form.WindowState = FormWindowState.Maximized;
-                }
-            };
-            Width = (int)(Screen.PrimaryScreen.WorkingArea.Size.Width / 3.5);
+            title = new PictureBox();
+            Saver.Minigames = this;
+            Shown += ShowChat;
+            Width = (int)(Screen.PrimaryScreen.WorkingArea.Size.Width / 3);
             Height = (int)(Screen.PrimaryScreen.WorkingArea.Size.Height / 1.25);
             gamesNames = new List<string>
             {
@@ -96,8 +60,8 @@ namespace Desktop_Minigames
                 "Pong"
             };
             games = new Button[gamesNames.Count];
-            ShowLayout();
-            
+            ShowLayout(true);
+
             this.FormClosed += (object sender, FormClosedEventArgs e) => { Environment.Exit(Environment.ExitCode); };
 
             Thread th = new Thread(() =>
@@ -134,48 +98,63 @@ namespace Desktop_Minigames
             });
             th.Start();
         }
-        private void ShowLayout()
+
+        private void ShowLayout(bool initialization)
         {
-            SetBackground(this,background_img);
-            Image titleimg = Properties.Resources.minigames_title;
+            SetBackground(this, background_img);
+
             int imgsize = Properties.Resources.minigames_title.Width;
             int i = 0;
+            double maxsize = 1.7;
             double multiplier = 0;
-            while ((imgsize / (1+ i++ * 0.1))> Width);
-            multiplier = (1 + i++ * 0.1);
-            titleimg = Resize(titleimg, (int)(imgsize / multiplier), (int)(titleimg.Height/ multiplier));
-  
-            title = new PictureBox();
+            while ((imgsize / (maxsize + i++ * 0.1)) > Width) ;
+            multiplier = (maxsize + (i - 1) * 0.1);
+            titleimg = Resize(titleimg, (int)(imgsize / multiplier), (int)(Properties.Resources.minigames_title.Height / multiplier));
+
             title.Image = titleimg;
             title.BackColor = Color.Transparent;
-            title.Size = new Size(titleimg.Width , titleimg.Height );
+            title.Size = new Size(titleimg.Width, titleimg.Height);
             title.Location = new Point(Width / 2 - title.Size.Width / 2, 0);
             Controls.Add(title);
 
             for (i = 0; i < games.Length; i++)
             {
-                games[i] = new Button
+                if (initialization)
                 {
-                    Font = new Font("Ariel", 25),
-                    Size = new Size(MAIN_BUTTON_SIZE, MAIN_BUTTON_SIZE),
-                    Location = new Point(MAIN_BUTTON_SIZE / 10 + i % 2 * (MAIN_BUTTON_SIZE + MAIN_BUTTON_SIZE / 10), title.Location.Y + title.Height + i / 2 * (MAIN_BUTTON_SIZE + MAIN_BUTTON_SIZE / 10))
-                };
-                games[i].Click += GoToGame;
-                games[i].MouseEnter += (sender, e) => ChangeMainLabelText(sender, e);
-                games[i].MouseLeave += (sender, e) => ChangeMainLabelText(sender, e, false);
-                games[i].Tag = gamesNames[i];
+                    games[i] = new Button
+                    {
+                        Font = new Font("Ariel", 25),
+                        Size = new Size(MAIN_BUTTON_SIZE, MAIN_BUTTON_SIZE),
+                        Location = new Point(MAIN_BUTTON_SIZE / 10 + i % 2 * (MAIN_BUTTON_SIZE + MAIN_BUTTON_SIZE / 10), title.Location.Y + title.Height + i / 2 * (MAIN_BUTTON_SIZE + MAIN_BUTTON_SIZE / 10))
+                    };
+                    games[i].Click += GoToGame;
+                    games[i].MouseEnter += (sender, e) => ChangeMainLabelText(sender, e);
+                    games[i].MouseLeave += (sender, e) => ChangeMainLabelText(sender, e, false);
+                    games[i].Tag = gamesNames[i];
+                    Controls.Add(games[i]);
+                }
+                else
+                {
+                    games[i].Location = new Point(MAIN_BUTTON_SIZE / 10 + i % 2 * (MAIN_BUTTON_SIZE + MAIN_BUTTON_SIZE / 10), title.Location.Y + title.Height + i / 2 * (MAIN_BUTTON_SIZE + MAIN_BUTTON_SIZE / 10));
+                }
 
-                Controls.Add(games[i]);
             }
-            foreach (Button btn in games)
+            if (initialization)
             {
-                if (btn == null) continue;
-                String logoResourceName = btn.Tag.ToString().Replace(" ", "_");
-                Image gameLogo = Properties.Resources.ResourceManager.GetObject(logoResourceName) as Image;
-                if (gameLogo == null) continue;
-                gameLogo = Resize(gameLogo, MAIN_BUTTON_SIZE, MAIN_BUTTON_SIZE);
-                btn.BackgroundImage = gameLogo;
+                foreach (Button btn in games)
+                {
+                    //if (btn == null) continue;
+                    String logoResourceName = btn.Tag.ToString().Replace(" ", "_");
+                    Image gameLogo = Properties.Resources.ResourceManager.GetObject(logoResourceName) as Image;
+                    if (gameLogo == null) continue;
+                    gameLogo = Resize(gameLogo, MAIN_BUTTON_SIZE, MAIN_BUTTON_SIZE);
+                    btn.BackgroundImage = gameLogo;
+                }
             }
+        }
+        private void RandomGame()
+        {
+            //   GoToGame()
         }
         public void GoToGame(object sender, EventArgs args)
         {
@@ -183,10 +162,10 @@ namespace Desktop_Minigames
             switch (btn.Tag.ToString())
             {
                 case "Snake":
-                    GoToForm<Snake>(new Snake());
+                    GoToForm(new Snake());
                     break;
                 case "Solitaire":
-                    GoToForm<Solitaire>(new Solitaire());
+                    GoToForm(new Solitaire());
                     break;
                 case "Flappy Bird":
                     GoToForm<Form1>(new Form1());
@@ -195,22 +174,23 @@ namespace Desktop_Minigames
                     // GoToForm<WhistMain>(new WhistMain());
                     break;
                 case "Ultimate Tic Tac Toe":
-                    GoToForm<UltimateTicTacToe>(new UltimateTicTacToe());
+
+                    GoToForm(new UltimateTicTacToe());
                     break;
                 case "Ultimate Ultimate Tic Tac Toe":
-                    GoToForm<UltimateUltimateTicTacToe>(new UltimateUltimateTicTacToe());
+                    GoToForm(new UltimateUltimateTicTacToe());
                     break;
                 case "Bullseye":
-                    GoToForm<Bullseye>(new Bullseye());
+                    GoToForm(new Bullseye());
                     break;
                 case "Damka":
-                    GoToForm<Damka.Damka>(new Damka.Damka());
+                    GoToForm(new Damka.Damka());
                     break;
                 case "Pong":
-                    GoToForm<Pong.HostOrConnect>(new Pong.HostOrConnect());
+                    GoToForm(new Pong.HostOrConnect());
                     break;
                 case "Tic Tac Toe":
-                    GoToForm<TicTacToe.FirstForm>(new TicTacToe.FirstForm());
+                    GoToForm(new TicTacToe.FirstForm());
                     break;
             }
         }
@@ -224,14 +204,30 @@ namespace Desktop_Minigames
             Control ctrl = sender as Control;
             title.Text = ctrl.Tag.ToString();
         }
+        private List<String> noBg = new List<String>
+        {
+            "Solitaire"
+            ,"Damka"
+        };
+        private List<String> noBackButton = new List<String>
+        {
+
+        };
         public void GoToForm<T>(T form) where T : Form
         {
+            if (form.Text.Equals("Minigames")) { Saver.Minigames.Show(); return; }
             form.StartPosition = FormStartPosition.Manual;
             form.Location = new Point(this.Location.X, 0);
             form.FormClosed += (object sender, FormClosedEventArgs e) => { Environment.Exit(Environment.ExitCode); };
-            SetBackground(form);
+
             form.Text = form.GetType().Name;
+            if (!noBg.Contains(form.Text))
+            {
+                SetBackground(form);
+            }
+
             this.Hide();
+
             Controls.Clear();
             try
             {
@@ -241,6 +237,21 @@ namespace Desktop_Minigames
             {
             }
             form.WindowState = FormWindowState.Maximized;
+            if (!noBackButton.Contains(form.Text) & !form.Text.Equals("Minigames"))
+            {
+                Button backBtn = new Button();
+                backBtn.Location = new Point(0, form.Height - 100);
+                backBtn.Size = new Size(50, 50);
+                backBtn.Click += (sender, e) =>
+                {
+                    GoToForm(new Minigames());
+                    form.Hide();
+
+                };
+
+                form.Controls.Add(backBtn);
+            }
+
 
         }
         public static Image Resize(Image image, int w, int h)
@@ -255,21 +266,65 @@ namespace Desktop_Minigames
         private void Minigames_Load(object sender, EventArgs e)
         {
 
-           
+
         }
         public static void SetBackground(Form form)
         {
             SetBackground(form, GenerateBackground());
         }
-        public static void SetBackground(Form form,Image bg)
+        public static void SetBackground(Form form, Image bg)
         {
             form.BackColor = Color.White;
             form.BackgroundImage = bg;
             form.BackgroundImageLayout = ImageLayout.Center;
+            form.BackgroundImageLayout = ImageLayout.Stretch;
         }
         public static Image GenerateBackground()
         {
             return Properties.Resources.ResourceManager.GetObject("_" + random.Next(0, BACKGROUND_PICS_AMOUNT)) as Image;
+        }
+        private void ShowChat(object sender, EventArgs e)
+        {
+            if (isChatShown) return;
+            ChatClient form = null;
+            Thread t = new Thread(() =>
+            {
+                try
+                {
+                    form = new ChatClient();
+                }
+                catch { }
+
+            });
+            t.Start();
+
+            int ms = 0;
+            bool connected = false;
+            while (ms < 1000)
+            {
+                if (t.ThreadState == ThreadState.Stopped)
+                {
+                    connected = true;
+                    break;
+                }
+                Thread.Sleep(50);
+                ms += 50;
+            }
+            if (!connected)
+            {
+                t.Abort();
+                MessageBox.Show("Failed to connect to the chat server.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                form = null;
+                return;
+            }
+            else
+            {
+                form.StartPosition = FormStartPosition.Manual;
+                form.Location = new Point(this.Location.X, 0);
+                form.Show();
+                form.WindowState = FormWindowState.Maximized;
+                isChatShown = true;
+            }
         }
     }
 }
