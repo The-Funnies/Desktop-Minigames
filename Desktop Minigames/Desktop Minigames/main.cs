@@ -26,20 +26,43 @@ namespace Desktop_Minigames
         {
             Shown += (object sender, EventArgs e) =>
             {
-                ChatClient form;
-                try
+                ChatClient form = null;
+                Thread t = new Thread(() =>
                 {
-                    form = new ChatClient();
-                } catch
+                    try
+                    {
+                        form = new ChatClient();
+                    } catch {}
+                    
+                });
+                t.Start();
+
+                int ms = 0;
+                bool connected = false;
+                while (ms < 1000)
                 {
+                    if (t.ThreadState == ThreadState.Stopped)
+                    {
+                        connected = true;
+                        break;
+                    }
+                    Thread.Sleep(50);
+                    ms += 50;
+                }
+                if (!connected)
+                {
+                    t.Abort();
                     MessageBox.Show("Failed to connect to server.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     form = null;
-                    return;   
+                    return;
                 }
-                form.StartPosition = FormStartPosition.Manual;
-                form.Location = new Point(this.Location.X, 0);
-                form.Show();
-                form.WindowState = FormWindowState.Maximized;
+                else
+                {
+                    form.StartPosition = FormStartPosition.Manual;
+                    form.Location = new Point(this.Location.X, 0);
+                    form.Show();
+                    form.WindowState = FormWindowState.Maximized;
+                }
             };
             Width = (int)(Screen.PrimaryScreen.WorkingArea.Size.Width / 3.5);
             Height = (int)(Screen.PrimaryScreen.WorkingArea.Size.Height / 1.25);
