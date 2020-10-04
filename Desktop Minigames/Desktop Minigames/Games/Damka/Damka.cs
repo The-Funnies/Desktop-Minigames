@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -52,16 +53,20 @@ namespace Damka
             }
             if (!File.Exists(transpositionTablePath))
             {
+                this.tTable = new TranspositionTable();
                 var file = File.Create(transpositionTablePath);
                 file.Close();
+            }
+            else
+            {
+                this.tTable = new TranspositionTable(transpositionTablePath);
             }
             this.transpositionTablePath = transpositionTablePath;
             this.boardsDirectoryPath = boardsDirectoryPath;
             this.directoryPath = directoryPath;
 
-            this.tTable = new TranspositionTable(transpositionTablePath);
             this.search = new Search(tTable);
-            //this.board.AppendFromDamkaBoard(search.GetBestMove(7, false, board.GetDamkaBoard()));
+            //this.board.AppendFromDamkaBoard(search.GetBestMove(8, false, board.GetDamkaBoard()));
             SetEvaluation();
         }
 
@@ -73,37 +78,45 @@ namespace Damka
                 switch (this.board.GetDamkaBoard().WhoWins())
                 {
                     case Winner.Black:
-                        MessageBox.Show("Black won!");
+                        //MessageBox.Show("Black won!");
                         this.board.Reset();
                         break;
 
                     case Winner.Red:
-                        MessageBox.Show("Red won!");
+                        //MessageBox.Show("Red won!");
                         this.board.Reset();
                         break;
 
                     case Winner.Draw:
-                        MessageBox.Show("Tie");
+                        //MessageBox.Show("Tie");
                         this.board.Reset();
                         break;
+                }
+                if (this.board.GetDamkaBoard().GetNumberOfMovesWithoutSkips() > 5)
+                {
+                    this.board.Reset();
                 }
                 ShowMove(this.search.GetBestMove(secondDepth, false, this.board.GetDamkaBoard()));
                 switch (this.board.GetDamkaBoard().WhoWins())
                 {
                     case Winner.Black:
-                        MessageBox.Show("Black won!");
+                        //MessageBox.Show("Black won!");
                         this.board.Reset();
                         break;
 
                     case Winner.Red:
-                        MessageBox.Show("Red won!");
+                        //MessageBox.Show("Red won!");
                         this.board.Reset();
                         break;
 
                     case Winner.Draw:
-                        MessageBox.Show("Tie");
+                        //MessageBox.Show("Tie");
                         this.board.Reset();
                         break;
+                }
+                if (this.board.GetDamkaBoard().GetNumberOfMovesWithoutSkips() > 5)
+                {
+                    this.board.Reset();
                 }
             }
         }

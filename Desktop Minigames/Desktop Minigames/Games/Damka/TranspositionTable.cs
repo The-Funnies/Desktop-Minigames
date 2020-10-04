@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -16,6 +17,12 @@ namespace Damka
         {
             this.dictionary = Utilities.Deserialize(File.OpenRead(file));
         }
+
+        public TranspositionTable()
+        {
+            this.dictionary = Utilities.Deserialize(Assembly.GetExecutingAssembly().GetManifestResourceStream("Desktop_Minigames.Resources.TTable"));
+        }
+
         public void Add(DamkaBoard board, bool turn, int depth, int score)
         {
             byte[] key = board.GetByteArray(turn);

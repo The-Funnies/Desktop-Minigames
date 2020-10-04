@@ -266,12 +266,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Resources\TTable" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Games\Damka\Damka.csproj" />
     <None Include="Resources\minigames title.png" />
     <None Include="Resources\the_funnies_club_chat.png" />
     <None Include="Resources\Tic Tac Toe.ico" />

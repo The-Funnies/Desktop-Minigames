@@ -35,7 +35,7 @@ namespace Desktop_Minigames
         }
         protected override void OnMaximizedBoundsChanged(EventArgs e)
         {
-            base.OnMaximizedBoundsChanged(e);this.onKey
+            base.OnMaximizedBoundsChanged(e);
             OnResizeEnd(e);
         }
         public Minigames()

@@ -1331,6 +1331,16 @@ namespace Desktop_Minigames.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] TTable {
+            get {
+                object obj = ResourceManager.GetObject("TTable", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Ultimate_Tic_Tac_Toe {
