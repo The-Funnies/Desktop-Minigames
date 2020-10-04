@@ -17,23 +17,38 @@ namespace Desktop_Minigames
     public partial class ChatClient : Form
     {
         private TcpClient client;
+        PictureBox frame = new PictureBox();
         private NetworkStream stream;
         private TextBox text;
         private Thread waitformessages;
         private List<Label> messages = new List<Label>();
         public ChatClient()
         {
-            this.BackgroundImage = Properties.Resources.the_funnies_club_chat;
-
             Width = (int)(Screen.PrimaryScreen.WorkingArea.Size.Width / 4.8);
             Height = (int)(Screen.PrimaryScreen.WorkingArea.Size.Height / 1.87);
             this.MaximumSize = new Size(this.Width, this.Height);
+            this.BackColor = Color.White;
+            this.BackgroundImage = Minigames.GenerateBackground();
+            this.BackgroundImageLayout = ImageLayout.Center;
+            this.Text = this.GetType().Name;
             text = new TextBox();
             text.Font = new Font(FontFamily.GenericMonospace, 28);
             text.Size = new Size((int)(Width / 1.12), (int)(Height / 5.56));
             text.Location = new Point((int)(Width / 26.666667), (int)(Height / 1.21));
             Controls.Add(text);
-
+            Image img = Properties.Resources.the_funnies_club_chat;
+            
+            frame.BackColor = Color.Transparent;
+            frame.Dock = DockStyle.Fill;
+            frame.Image = img;
+            this.ControlAdded += new ControlEventHandler((sender, e) =>
+            {
+                if (!Controls.Contains(frame))
+                {
+                    
+                }
+            });
+            Controls.Add(frame);
 
             this.FormClosed += (object sender, FormClosedEventArgs e) =>
             {
@@ -73,10 +88,10 @@ namespace Desktop_Minigames
                 if (IsNewClient(mes))
                 {
                     Label label = new Label();
-                    label.Text = mes.Substring(0,BackSlash0(mes)) +" is inda chat boys";
+                    label.Text = mes.Substring(0, BackSlash0(mes)) + " is inda chat boys";
                     label.Size = new Size((int)(Width / 2.5), Height / 40);
                     label.Font = new Font("Ariel", 8);
-                    label.Location = new Point((int)(Width /3.5), (int)(Height / 1.33));
+                    label.Location = new Point((int)(Width / 3.5), (int)(Height / 1.33));
                     label.Tag = 2;
                     label.BackColor = Color.Transparent;
 
@@ -85,13 +100,15 @@ namespace Desktop_Minigames
                         foreach (Label label1 in messages)
                         {
                             label1.Location = new Point(label1.Location.X, label1.Location.Y - (int)(label.Size.Height * 1.1));
-                          //  label1.Location = new Point(label1.Location.X,(int)(label1.Tag)==2? label1.Location.Y - (int)(label.Size.Height*1.03 ):(int)messages[messages.Count - 1].Tag == 0 ? label1.Location.Y - (int)(label.Size.Height * 0.6) : label1.Location.Y - (int)(label.Size.Height * 1.1)) ;
-                            if (((int)(messages[messages.Count - 1].Tag)==0 && label1.Location.Y - (int)(label.Size.Height * 0.6) < 70) || ((int)(messages[messages.Count - 1].Tag)!=0 && (label1.Location.Y - (int)(label.Size.Height * 1.1) < 70)))
+                            //  label1.Location = new Point(label1.Location.X,(int)(label1.Tag)==2? label1.Location.Y - (int)(label.Size.Height*1.03 ):(int)messages[messages.Count - 1].Tag == 0 ? label1.Location.Y - (int)(label.Size.Height * 0.6) : label1.Location.Y - (int)(label.Size.Height * 1.1)) ;
+                            if (((int)(messages[messages.Count - 1].Tag) == 0 && label1.Location.Y - (int)(label.Size.Height * 0.6) < 70) || ((int)(messages[messages.Count - 1].Tag) != 0 && (label1.Location.Y - (int)(label.Size.Height * 1.1) < 70)))
                             {
                                 Controls.Remove(label1);
                             }
                         }
                         Controls.Add(label);
+                        Controls.Remove(frame);
+                        Controls.Add(frame);
                     }));
 
                     messages.Add(label);
@@ -100,7 +117,7 @@ namespace Desktop_Minigames
                 {
                     NewMessage(mes);
                 }
-                
+
             }
         }
         int BackSlash0(string mes)
@@ -149,13 +166,13 @@ namespace Desktop_Minigames
             //label.Size = new Size((int)(Width / 2.3), Height / 8);
             label.Font = new Font(FontFamily.GenericMonospace, 12);
             int labelwidth = (int)(Width / 2.3);
-            int rows=1;
-            int index = BackSlashn(mes)+1;
+            int rows = 1;
+            int index = BackSlashn(mes) + 1;
             int length = mes.Substring(0, BackSlash0(mes)).Length - index + 1;
-            rows += (int)Math.Ceiling((length * label.Font.Size) / (2*label.Width));
-            label.Size = new Size(labelwidth, rows*label.Font.Height);
+            rows += (int)Math.Ceiling((length * label.Font.Size) / (2 * label.Width));
+            label.Size = new Size(labelwidth, rows * label.Font.Height);
             label.Location = new Point((int)(Width / 50), (int)(Height / 1.28) - label.Size.Height);
-            label.BackColor = Color.Gray; 
+            label.BackColor = Color.Gray;
             label.Tag = 1;
 
             this.Invoke(new Delegate(() =>
@@ -164,14 +181,16 @@ namespace Desktop_Minigames
                 {
                     label1.Location = new Point(label1.Location.X, label1.Location.Y - (int)(label.Size.Height * 1.1));
                     //label1.Location = new Point(label1.Location.X, (int)(label1.Tag) == 2 ? label1.Location.Y - (int)(label.Size.Height* 1.03) : (int)messages[messages.Count-1].Tag==0? label1.Location.Y - (int)(label.Size.Height * 0.6): label1.Location.Y - (int)(label.Size.Height * 1.1));
-                    if (((int)(messages[messages.Count - 1].Tag)==0 && label1.Location.Y - (int)(label.Size.Height * 0.6) < 70)|| ((int)(messages[messages.Count - 1].Tag)!=0 && (label1.Location.Y - (int)(label.Size.Height * 1.1) < 70)))
+                    if (((int)(messages[messages.Count - 1].Tag) == 0 && label1.Location.Y - (int)(label.Size.Height * 0.6) < 70) || ((int)(messages[messages.Count - 1].Tag) != 0 && (label1.Location.Y - (int)(label.Size.Height * 1.1) < 70)))
                     {
                         Controls.Remove(label1);
                     }
                 }
                 Controls.Add(label);
+                Controls.Remove(frame);
+                Controls.Add(frame);
             }));
-            
+
             messages.Add(label);
         }
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
@@ -184,7 +203,7 @@ namespace Desktop_Minigames
                     label.Text = text.Text;
                     label.Font = new Font(FontFamily.GenericMonospace, 12);
                     int labelwidth = (int)(Width / 2.3);
-                    int length = text.Text.Substring(0, BackSlash0(text.Text)).Length +1;
+                    int length = text.Text.Substring(0, BackSlash0(text.Text)).Length + 1;
                     int rows = (int)Math.Ceiling((length * label.Font.Size) / (2 * label.Width));
 
                     label.Size = new Size(labelwidth, rows * label.Font.Height);
@@ -192,13 +211,13 @@ namespace Desktop_Minigames
                     label.Location = new Point((int)(Width / 1.95), (int)(Height / 1.28) - label.Size.Height);
                     label.BackColor = Color.Aquamarine;
                     label.Tag = 0;
-                    
+
                     Controls.Add(label);
                     foreach (Label label1 in messages)
                     {
                         label1.Location = new Point(label1.Location.X, label1.Location.Y - (int)(label.Size.Height * 1.1));
-                      //  label1.Location = new Point(label1.Location.X, (int)(label1.Tag) == 2 ? label1.Location.Y - (int)(label.Size.Height*1.03 ) : (int)messages[messages.Count - 1].Tag==0 ? label1.Location.Y - (int)(label.Size.Height * 1.1) : label1.Location.Y - (int)(label.Size.Height * 0.6));
-                        if (((int)(messages[messages.Count - 1].Tag)==0 && label1.Location.Y - (int)(label.Size.Height * 1.1) < 70) || ((int)(messages[messages.Count - 1].Tag)!=0 && (label1.Location.Y - (int)(label.Size.Height * 0.6) < 70)))
+                        //  label1.Location = new Point(label1.Location.X, (int)(label1.Tag) == 2 ? label1.Location.Y - (int)(label.Size.Height*1.03 ) : (int)messages[messages.Count - 1].Tag==0 ? label1.Location.Y - (int)(label.Size.Height * 1.1) : label1.Location.Y - (int)(label.Size.Height * 0.6));
+                        if (((int)(messages[messages.Count - 1].Tag) == 0 && label1.Location.Y - (int)(label.Size.Height * 1.1) < 70) || ((int)(messages[messages.Count - 1].Tag) != 0 && (label1.Location.Y - (int)(label.Size.Height * 0.6) < 70)))
                         {
                             Controls.Remove(label1);
                         }

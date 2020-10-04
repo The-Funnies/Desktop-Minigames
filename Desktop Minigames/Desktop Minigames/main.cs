@@ -65,9 +65,6 @@ namespace Desktop_Minigames
                     form.WindowState = FormWindowState.Maximized;
                 }
             };
-            this.BackColor = Color.White;
-            this.BackgroundImage = GenerateBackground();
-            this.BackgroundImageLayout = ImageLayout.Center;
             Width = (int)(Screen.PrimaryScreen.WorkingArea.Size.Width / 3.5);
             Height = (int)(Screen.PrimaryScreen.WorkingArea.Size.Height / 1.25);
             gamesNames = new List<string>
@@ -207,6 +204,7 @@ namespace Desktop_Minigames
             form.BackColor = Color.White;
             form.BackgroundImage = GenerateBackground();
             form.BackgroundImageLayout = ImageLayout.Center;
+            form.Text = form.GetType().Name;
             this.Hide();
             Controls.Clear();
             try
@@ -215,7 +213,6 @@ namespace Desktop_Minigames
             }
             catch
             {
-
             }
             form.WindowState = FormWindowState.Maximized;
 
@@ -234,7 +231,7 @@ namespace Desktop_Minigames
 
            
         }
-        public Image GenerateBackground()
+        public static Image GenerateBackground()
         {
             return Properties.Resources.ResourceManager.GetObject("_" + random.Next(0, BACKGROUND_PICS_AMOUNT)) as Image;
         }
