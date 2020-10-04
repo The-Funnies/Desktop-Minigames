@@ -190,6 +190,9 @@
   <data name="green_back" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Cards\green_back.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="minigames_title" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\minigames title.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Pong" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Pong.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

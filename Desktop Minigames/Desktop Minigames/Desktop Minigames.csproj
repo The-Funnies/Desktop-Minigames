@@ -272,6 +272,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Games\Damka\Damka.csproj" />
+    <None Include="Resources\minigames title.png" />
     <None Include="Resources\the_funnies_club_chat.png" />
     <None Include="Resources\Tic Tac Toe.ico" />
     <None Include="Resources\Pong.png" />

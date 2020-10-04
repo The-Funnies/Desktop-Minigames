@@ -27,9 +27,7 @@ namespace Desktop_Minigames
             Width = (int)(Screen.PrimaryScreen.WorkingArea.Size.Width / 4.8);
             Height = (int)(Screen.PrimaryScreen.WorkingArea.Size.Height / 1.87);
             this.MaximumSize = new Size(this.Width, this.Height);
-            this.BackColor = Color.White;
-            this.BackgroundImage = Minigames.GenerateBackground();
-            this.BackgroundImageLayout = ImageLayout.Center;
+            Minigames.SetBackground(this);
             this.Text = this.GetType().Name;
             text = new TextBox();
             text.Font = new Font(FontFamily.GenericMonospace, 28);
@@ -37,17 +35,9 @@ namespace Desktop_Minigames
             text.Location = new Point((int)(Width / 26.666667), (int)(Height / 1.21));
             Controls.Add(text);
             Image img = Properties.Resources.the_funnies_club_chat;
-            
             frame.BackColor = Color.Transparent;
             frame.Dock = DockStyle.Fill;
             frame.Image = img;
-            this.ControlAdded += new ControlEventHandler((sender, e) =>
-            {
-                if (!Controls.Contains(frame))
-                {
-                    
-                }
-            });
             Controls.Add(frame);
 
             this.FormClosed += (object sender, FormClosedEventArgs e) =>

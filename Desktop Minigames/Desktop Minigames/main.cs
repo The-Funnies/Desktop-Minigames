@@ -15,15 +15,20 @@ namespace Desktop_Minigames
     public delegate void goToForm(Ohno form);
     public partial class Minigames : Form
     {
-        //private Button[] games;
         private Button[] games;
         private List<String> gamesNames;
         public static Random random = new Random();
-        private Label titleLabel;
+        private PictureBox title;
         private const int MAIN_BUTTON_SIZE = 125;
         private const int BACKGROUND_PICS_AMOUNT = 35;//The last index of background pics in Properties.Resources
+        private int resizeCount = 0;
         public Minigames()
         {
+            
+            Image titleimg = Properties.Resources.minigames_title;
+            titleimg = Resize(titleimg, 487, 110);
+            title = new PictureBox();
+            title.Image = titleimg;
             Shown += (object sender, EventArgs e) =>
             {
                 ChatClient form = null;
@@ -65,8 +70,12 @@ namespace Desktop_Minigames
                     form.WindowState = FormWindowState.Maximized;
                 }
             };
+            this.BackColor = Color.White;
+            this.BackgroundImage = Minigames.GenerateBackground();
+            this.BackgroundImageLayout = ImageLayout.Center;
             Width = (int)(Screen.PrimaryScreen.WorkingArea.Size.Width / 3.5);
             Height = (int)(Screen.PrimaryScreen.WorkingArea.Size.Height / 1.25);
+            WindowState = FormWindowState.Normal;
             gamesNames = new List<string>
             {
                 "Snake",
@@ -81,13 +90,10 @@ namespace Desktop_Minigames
             };
 
             games = new Button[gamesNames.Count];
-            titleLabel = new Label();
-            titleLabel.Text = "Minigames";
-            titleLabel.BackColor = Color.Transparent;
-            titleLabel.Font = new Font("Ariel", 30);
-            titleLabel.Size = new Size(Width, Height / 9);
-            titleLabel.Location = new Point(Width / 2 - (int)(titleLabel.Size.Width / 2.4), Height / 10);
-            Controls.Add(titleLabel);
+            title.BackColor = Color.Transparent;
+            title.Size = new Size(Width, Height / 7 );
+            title.Location = new Point(Width / 2 -title.Size.Width/2, 0);
+            Controls.Add(title);
 
             for (int i = 0; i < games.Length; i++)
             {
@@ -95,7 +101,7 @@ namespace Desktop_Minigames
                 {
                     Font = new Font("Ariel", 25),
                     Size = new Size(MAIN_BUTTON_SIZE, MAIN_BUTTON_SIZE),
-                    Location = new Point(MAIN_BUTTON_SIZE / 10 + i % 2 * (MAIN_BUTTON_SIZE + MAIN_BUTTON_SIZE / 10), titleLabel.Location.Y + titleLabel.Height + i / 2 * (MAIN_BUTTON_SIZE + MAIN_BUTTON_SIZE / 10))
+                    Location = new Point(MAIN_BUTTON_SIZE / 10 + i % 2 * (MAIN_BUTTON_SIZE + MAIN_BUTTON_SIZE / 10), title.Location.Y + title.Height + i / 2 * (MAIN_BUTTON_SIZE + MAIN_BUTTON_SIZE / 10))
                 };
                 games[i].Click += GoToGame;
                 games[i].MouseEnter += (sender, e) => ChangeMainLabelText(sender, e);
@@ -149,6 +155,7 @@ namespace Desktop_Minigames
             });
             th.Start();
         }
+        private void
         public void GoToGame(object sender, EventArgs args)
         {
             Button btn = (Button)sender;
@@ -190,20 +197,18 @@ namespace Desktop_Minigames
         {
             if (!onSenderEntry)
             {
-                titleLabel.Text = "Minigames";
+                title.Text = "Minigames";
                 return;
             }
             Control ctrl = sender as Control;
-            titleLabel.Text = ctrl.Tag.ToString();
+            title.Text = ctrl.Tag.ToString();
         }
         public void GoToForm<T>(T form) where T : Form
         {
             form.StartPosition = FormStartPosition.Manual;
             form.Location = new Point(this.Location.X, 0);
             form.FormClosed += (object sender, FormClosedEventArgs e) => { Environment.Exit(Environment.ExitCode); };
-            form.BackColor = Color.White;
-            form.BackgroundImage = GenerateBackground();
-            form.BackgroundImageLayout = ImageLayout.Center;
+            SetBackground(form);
             form.Text = form.GetType().Name;
             this.Hide();
             Controls.Clear();
@@ -230,6 +235,16 @@ namespace Desktop_Minigames
         {
 
            
+        }
+        public static void SetBackground(Form form)
+        {
+            SetBackground(form, GenerateBackground());
+        }
+        public static void SetBackground(Form form,Image bg)
+        {
+            form.BackColor = Color.White;
+            form.BackgroundImage = bg;
+            form.BackgroundImageLayout = ImageLayout.Center;
         }
         public static Image GenerateBackground()
         {
