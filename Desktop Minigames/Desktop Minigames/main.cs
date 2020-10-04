@@ -27,7 +27,7 @@ namespace Desktop_Minigames
         PictureBox title = new PictureBox();
         private static bool isChatShown = false;
         private Image background_img = GenerateBackground();
-        private const int MAIN_BUTTON_SIZE = 125;
+        private const int MAIN_BUTTON_SIZE = 100;
         private const int BACKGROUND_PICS_AMOUNT = 35;//The last index of background pics in Properties.Resources
         private int resizeCount = 0;
 
@@ -153,6 +153,7 @@ namespace Desktop_Minigames
                     if (gameLogo == null) continue;
                     gameLogo = Resize(gameLogo, MAIN_BUTTON_SIZE, MAIN_BUTTON_SIZE);
                     btn.BackgroundImage = gameLogo;
+                    btn.BackgroundImageLayout = ImageLayout.Stretch;
                 }
             }
         }
@@ -195,15 +196,27 @@ namespace Desktop_Minigames
                     break;
             }
         }
-        private void ChangeMainLabelText(object sender, EventArgs e, bool onSenderEntry = true)
+        private Image saveimg = null;
+        private void ChangeMainLabelText(object sender, EventArgs e, bool onSenderEntry = true, Control displayOn = null)
         {
-            if (!onSenderEntry)
+
+            Control ctrl = sender as Control;
+            if (displayOn == null) displayOn = ctrl;
+            if (onSenderEntry)
             {
-                title.Text = "Minigames";
+
+                // Controls.Remove(ctrl);
+                //ctrl.Hide();
+                ctrl.Size = new Size((int)(MAIN_BUTTON_SIZE * 1.5), (int)(MAIN_BUTTON_SIZE * 1.5));
+                //ctrl.Show();
+                //Controls.Add(ctrl);
+                //ctrl.BringToFront();
+                displayOn.Text = ctrl.Tag.ToString();
+
                 return;
             }
-            Control ctrl = sender as Control;
-            title.Text = ctrl.Tag.ToString();
+            displayOn.Text = "";
+            ctrl.Size = new Size(MAIN_BUTTON_SIZE ,MAIN_BUTTON_SIZE);
         }
         private List<String> noBg = new List<String>
         {
@@ -294,7 +307,7 @@ namespace Desktop_Minigames
                 {
                     form = new ChatClient();
                 }
-                catch {}
+                catch { }
 
             });
             t.Start();
