@@ -9,9 +9,9 @@ namespace flappy_bird
 {
     public class Pipe
     {
-        private Label lowerPipe;
-        private Label higherPipe;
-        public Label LowerPipe { get => lowerPipe; set => lowerPipe = value; }
-        public Label HigherPipe { get => higherPipe; set => higherPipe = value; }
+        private PictureBox lowerPipe;
+        private PictureBox higherPipe;
+        public PictureBox LowerPipe { get => lowerPipe; set => lowerPipe = value; }
+        public PictureBox HigherPipe { get => higherPipe; set => higherPipe = value; }
     }
 }

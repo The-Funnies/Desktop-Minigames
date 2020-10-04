@@ -13,9 +13,10 @@ namespace flappy_bird
     {
         public const int BIRD_HEIGHT = 50;
         public const int BIRD_WIDTH = 30;
-        public const int PIPE_WIDTH = 75;
-        public const int BIRD_X = 200;                         
-
+        public const int PIPE_WIDTH = 140;
+        public const int BIRD_X = 200;
+        public const int BIRD_MAX_DISTANCE = 3;
+        public const int PIPE_BIRDS_SPACE = 4;
         public static Bitmap ResizeImage(Image image, int width, int height)
         {
             var destRect = new Rectangle(0, 0, width, height);

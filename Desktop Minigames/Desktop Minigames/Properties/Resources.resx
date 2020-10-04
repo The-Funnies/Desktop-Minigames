@@ -178,6 +178,21 @@
   <data name="emptyCard" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Cards\emptyCard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="flappy_bird_background" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\flappy_bird_background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="flappy_bird_bird" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\flappy_bird_bird.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="flappy_bird_pipe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\flappy_bird_pipe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="flappy_bird_pipe_rotated" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\flappy_bird_pipe_rotated (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="flappy_bird_start_button" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\flappy_bird_start_button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="glow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Cards\glow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

@@ -77,13 +77,16 @@
     <Compile Include="Games\Damka\TranspositionTable.cs" />
     <Compile Include="Games\Damka\Utilities.cs" />
     <Compile Include="Games\Flappy_Bird\Consts.cs" />
-    <Compile Include="Games\Flappy_Bird\Form1.cs">
+    <Compile Include="Games\Flappy_Bird\FlappyBird.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Games\Flappy_Bird\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Games\Flappy_Bird\FlappyBird.designer.cs">
+      <DependentUpon>FlappyBird.cs</DependentUpon>
     </Compile>
     <Compile Include="Games\Flappy_Bird\Pipe.cs" />
+    <Compile Include="Games\Flappy_Bird\TransParentPictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Games\Pong\Client.cs" />
     <Compile Include="Games\Pong\ConnectToServer.cs">
       <SubType>Form</SubType>
@@ -202,8 +205,8 @@
     <EmbeddedResource Include="Games\Damka\Damka.resx">
       <DependentUpon>Damka.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Games\Flappy_Bird\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Games\Flappy_Bird\FlappyBird.resx">
+      <DependentUpon>FlappyBird.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Games\Pong\HostOrConnect.resx">
       <DependentUpon>HostOrConnect.cs</DependentUpon>
@@ -862,6 +865,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\backgrounds\8.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flappy_bird_pipe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flappy_bird_pipe_rotated %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flappy_bird_bird.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flappy_bird_start_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flappy_bird_background.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

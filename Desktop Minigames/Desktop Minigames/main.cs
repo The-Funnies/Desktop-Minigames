@@ -170,7 +170,9 @@ namespace Desktop_Minigames
                     GoToForm(new Solitaire());
                     break;
                 case "Flappy Bird":
-                    GoToForm<Form1>(new Form1());
+                    //GoToForm<FlappyBird>(new FlappyBird());
+                    FlappyBird f = new FlappyBird();
+                    f.Show();
                     break;
                 case "Whist":
                     // GoToForm<WhistMain>(new WhistMain());
