@@ -27,7 +27,7 @@ namespace Desktop_Minigames
         PictureBox title = new PictureBox();
         private static bool isChatShown = false;
         private Image background_img = GenerateBackground();
-        private const int MAIN_BUTTON_SIZE = 150;
+        private const int MAIN_BUTTON_SIZE = 100;
         private const int BACKGROUND_PICS_AMOUNT = 35;//The last index of background pics in Properties.Resources
         private int resizeCount = 0;
 
@@ -293,8 +293,7 @@ namespace Desktop_Minigames
         {
             form.BackColor = Color.White;
             form.BackgroundImage = bg;
-            //form.BackgroundImageLayout = ImageLayout.Center;
-            form.BackgroundImageLayout = ImageLayout.Stretch;
+            form.BackgroundImageLayout = ImageLayout.Center;
         }
         public static Image GenerateBackground()
         {
