@@ -87,6 +87,12 @@
     <Compile Include="Games\Flappy_Bird\TransParentPictureBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Games\MineSweeper\MineSweeper.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Games\MineSweeper\MineSweeper.Designer.cs">
+      <DependentUpon>MineSweeper.cs</DependentUpon>
+    </Compile>
     <Compile Include="Games\Pong\Client.cs" />
     <Compile Include="Games\Pong\ConnectToServer.cs">
       <SubType>Form</SubType>
@@ -207,6 +213,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Games\Flappy_Bird\FlappyBird.resx">
       <DependentUpon>FlappyBird.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Games\MineSweeper\MineSweeper.resx">
+      <DependentUpon>MineSweeper.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Games\Pong\HostOrConnect.resx">
       <DependentUpon>HostOrConnect.cs</DependentUpon>

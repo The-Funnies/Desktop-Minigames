@@ -963,6 +963,16 @@ namespace Desktop_Minigames.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bomb {
+            get {
+                object obj = ResourceManager.GetObject("bomb", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Bull_empty {
             get {
                 object obj = ResourceManager.GetObject("Bull_empty", resourceCulture);
@@ -1126,6 +1136,16 @@ namespace Desktop_Minigames.Properties {
         internal static System.Drawing.Bitmap emptyCard {
             get {
                 object obj = ResourceManager.GetObject("emptyCard", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap filled_flag_128 {
+            get {
+                object obj = ResourceManager.GetObject("filled_flag_128", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

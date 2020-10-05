@@ -28,7 +28,7 @@ namespace Desktop_Minigames
         private static bool isChatShown = false;
         private Image background_img = GenerateBackground();
         private const int MAIN_BUTTON_SIZE = 100;
-        private const int BACKGROUND_PICS_AMOUNT = 35;//The last index of background pics in Properties.Resources
+        private const int BACKGROUND_PICS_AMOUNT = 34;//The last index of background pics in Properties.Resources
         private int resizeCount = 0;
 
         protected override void OnResize(EventArgs e)
@@ -59,7 +59,8 @@ namespace Desktop_Minigames
                 "Bullseye",
                 "Damka",
                 "Tic Tac Toe",
-                "Pong"
+                "Pong",
+                "MineSweeper"
             };
             games = new Button[gamesNames.Count];
             ShowLayout(true);
@@ -159,6 +160,9 @@ namespace Desktop_Minigames
             Button btn = (Button)sender;
             switch (btn.Tag.ToString())
             {
+                case "MineSweeper":
+                    GoToForm(new MineSweeper.MineSweeper());
+                    break;
                 case "Snake":
                     GoToForm(new Snake());
                     break;
