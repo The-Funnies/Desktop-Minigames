@@ -27,17 +27,15 @@ namespace Desktop_Minigames
         PictureBox title = new PictureBox();
         private static bool isChatShown = false;
         private Image background_img = GenerateBackground();
-        private const int MAIN_BUTTON_SIZE = 100;
+        private const int MAIN_BUTTON_SIZE = 150;
         private const int BACKGROUND_PICS_AMOUNT = 35;//The last index of background pics in Properties.Resources
         private int resizeCount = 0;
 
         protected override void OnResize(EventArgs e)
         {
             if (resizeCount++ > 1)
-            {
-                //this.Controls.Clear();
                 ShowLayout(false);
-            }
+            
         }
 
         public Minigames()
@@ -100,7 +98,7 @@ namespace Desktop_Minigames
                     Thread.Sleep(1000);
                 }
             });
-            th.Start();
+           // th.Start();
         }
 
         private void ShowLayout(bool initialization)
@@ -147,11 +145,9 @@ namespace Desktop_Minigames
             {
                 foreach (Button btn in games)
                 {
-                    //if (btn == null) continue;
                     String logoResourceName = btn.Tag.ToString().Replace(" ", "_");
                     Image gameLogo = Properties.Resources.ResourceManager.GetObject(logoResourceName) as Image;
                     if (gameLogo == null) continue;
-                    gameLogo = Resize(gameLogo, MAIN_BUTTON_SIZE, MAIN_BUTTON_SIZE);
                     btn.BackgroundImage = gameLogo;
                     btn.BackgroundImageLayout = ImageLayout.Stretch;
                 }
@@ -170,9 +166,7 @@ namespace Desktop_Minigames
                     GoToForm(new Solitaire());
                     break;
                 case "Flappy Bird":
-                    //GoToForm<FlappyBird>(new FlappyBird());
-                    FlappyBird f = new FlappyBird();
-                    f.Show();
+                    GoToForm(new FlappyBird());
                     break;
                 case "Whist":
                     // GoToForm<WhistMain>(new WhistMain());
@@ -198,40 +192,43 @@ namespace Desktop_Minigames
                     break;
             }
         }
-        private Image saveimg = null;
         private void ChangeMainLabelText(object sender, EventArgs e, bool onSenderEntry = true, Control displayOn = null)
         {
 
             Control ctrl = sender as Control;
             if (displayOn == null) displayOn = ctrl;
-            if (onSenderEntry)
+            if (onSenderEntry&&ctrl.Size.Width==MAIN_BUTTON_SIZE)
             {
-
-                // Controls.Remove(ctrl);
-                //ctrl.Hide();
+               // ctrl.Hide();
                 ctrl.Size = new Size((int)(MAIN_BUTTON_SIZE * 1.5), (int)(MAIN_BUTTON_SIZE * 1.5));
-                //ctrl.Show();
-                //Controls.Add(ctrl);
-                //ctrl.BringToFront();
+               // ctrl.Show();
+                ctrl.BringToFront();
                 displayOn.Text = ctrl.Tag.ToString();
-
                 return;
             }
+            ctrl.Hide();
             displayOn.Text = "";
             ctrl.Size = new Size(MAIN_BUTTON_SIZE ,MAIN_BUTTON_SIZE);
+            ctrl.SendToBack();
+            ctrl.Show();
         }
-        private List<String> noBg = new List<String>
+        public static List<String> noBg = new List<String>
         {
             "Solitaire"
-            ,"Damka"
+            ,"Damka",
+            "FlappyBird"
         };
-        private List<String> noBackButton = new List<String>
+        public static List<String> noBackButton = new List<String>
         {
-
+            "FlappyBird"
         };
+        public static List<String> noFullWindow = new List<String>
+        {
+            "FlappyBird"
+        };
+
         public void GoToForm<T>(T form) where T : Form
         {
-            if (form.Text.Equals("Minigames")) { Saver.Minigames.Show(); return; }
             form.StartPosition = FormStartPosition.Manual;
             form.Location = new Point(this.Location.X, 0);
             form.FormClosed += (object sender, FormClosedEventArgs e) => { Environment.Exit(Environment.ExitCode); };
@@ -252,7 +249,11 @@ namespace Desktop_Minigames
             catch
             {
             }
-            form.WindowState = FormWindowState.Maximized;
+            if (!noFullWindow.Contains(form.Text))
+            {
+                form.WindowState = FormWindowState.Maximized;
+            }
+            
             if (!noBackButton.Contains(form.Text) & !form.Text.Equals("Minigames"))
             {
                 Button backBtn = new Button();
@@ -292,7 +293,7 @@ namespace Desktop_Minigames
         {
             form.BackColor = Color.White;
             form.BackgroundImage = bg;
-            form.BackgroundImageLayout = ImageLayout.Center;
+            //form.BackgroundImageLayout = ImageLayout.Center;
             form.BackgroundImageLayout = ImageLayout.Stretch;
         }
         public static Image GenerateBackground()

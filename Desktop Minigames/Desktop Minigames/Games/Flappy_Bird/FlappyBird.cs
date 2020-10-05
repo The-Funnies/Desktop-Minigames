@@ -235,20 +235,52 @@ namespace flappy_bird
         }
         private void gameOverScreen()
         {
-            if (MessageBox.Show("Your score was " + gameCounter + "\nContinue Playing?","Game Over" , MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("Your score was " + gameCounter + "\nContinue Playing?", "Game Over", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 Invoke(new noParamsDelegate(removeAllPipes));
                 Invoke(new noParamsDelegate(createNewGame));
             }
             else
             {
-                Invoke(new noParamsDelegate(closeWindow));
+                
+                Invoke(new noParamsDelegate(GotoMain));
             }
+            
         }
-        private void closeWindow()
+        private void GotoMain()
         {
-            this.Close();
+            GoToForm(new Desktop_Minigames.Minigames());
         }
+        public void GoToForm<T>(T form) where T : Form
+        {
+            form.StartPosition = FormStartPosition.Manual;
+            form.Location = new Point(this.Location.X, 0);
+            form.FormClosed += (object sender, FormClosedEventArgs e) => { Environment.Exit(Environment.ExitCode); };
+
+            form.Text = form.GetType().Name;
+            if (!Desktop_Minigames.Minigames.noBg.Contains(form.Text))
+            {
+                Desktop_Minigames.Minigames.SetBackground(form);
+            }
+
+            this.Hide();
+
+            Controls.Clear();
+            try
+            {
+                form.Show();
+            }
+            catch
+            {
+            }
+            if (!Desktop_Minigames.Minigames.noFullWindow.Contains(form.Text))
+            {
+                form.WindowState = FormWindowState.Maximized;
+            }
+
+            
+        }
+        
         private void createNewGame()
         {
             TransparentPictureBox start_button = new TransparentPictureBox();
@@ -271,6 +303,11 @@ namespace flappy_bird
                 clickOnScreen();
                 e.Handled = true;
             }
+        }
+
+        private void FlappyBird_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
