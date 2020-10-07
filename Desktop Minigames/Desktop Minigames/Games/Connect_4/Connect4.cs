@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Lior_s_FIAR
+namespace Desktop_Minigames
 {
-    public partial class Form1 : Form
+    public partial class Connect4 : Form
     {
-        
+
         Button[][] bboard;
         int[][] board;
         bool turns;
@@ -20,10 +20,10 @@ namespace Lior_s_FIAR
         int winb;
         int plays;
         bool mode2;
-        
-        public Form1()
+
+        public Connect4()
         {
-          
+
             //setup start
             mode2 = false;
             winr = 0;
@@ -42,17 +42,18 @@ namespace Lior_s_FIAR
             // item.MenuItems.Add("Open", new EventHandler(Open_Click));
             item = new MenuItem("Mode");
             this.Menu.MenuItems.Add(item);
-           item.MenuItems.Add("2 Players", new EventHandler(Players2));
-             item.MenuItems.Add("1 Player", new EventHandler(Player));
+            item.MenuItems.Add("2 Players", new EventHandler(Players2));
+            item.MenuItems.Add("1 Player", new EventHandler(Player));
             //menu bar end
-            
-          
+
+
 
         }
 
         private void Player(object sender, EventArgs e)
         {
-            if (!(mode2)){
+            if (!(mode2))
+            {
                 MessageBox.Show("Could not change mode because you are currently in 1 Player mode");
                 return;
             }
@@ -77,11 +78,11 @@ namespace Lior_s_FIAR
             for (int i = 0; i < 8; i++)
             {
                 board[i] = new int[] { 0, 0, 0, 0, 0, 0, 0, 0 };
-                for(int j = 0; j < 8; j++)
+                for (int j = 0; j < 8; j++)
                 {
                     bboard[i][j].BackColor = Color.FromName("Yellow");
                 }
-               
+
             }
             turns = true;
             plays = 0;
@@ -107,13 +108,13 @@ namespace Lior_s_FIAR
             //rows
             for (int i = 0; i < 8; i++)
             {
-                for (int j = 7, count1 = 0, count2 = 0; j >=0; j--)
+                for (int j = 7, count1 = 0, count2 = 0; j >= 0; j--)
                 {
                     if (board[i][j] == 0)
                     {
                         count1 = 0;
                         count2 = 0;
-                    }         
+                    }
                     if (board[i][j] == 1)
                     {
                         count1++;
@@ -137,10 +138,10 @@ namespace Lior_s_FIAR
             //collumns
             for (int i = 0; i < 5; i++)
             {
-                for (int j = 0; j <8 ; j++)
+                for (int j = 0; j < 8; j++)
                 {
-                   
-                    if (board[i][j] == 1&& board[i+1][j] == 1 && board[i+2][j] == 1 && board[i+3][j] == 1 )
+
+                    if (board[i][j] == 1 && board[i + 1][j] == 1 && board[i + 2][j] == 1 && board[i + 3][j] == 1)
                     {
                         return 1;
                     }
@@ -148,7 +149,7 @@ namespace Lior_s_FIAR
                     {
                         return 2;
                     }
-                  
+
                 }
             }
             //diagonal-upper side is right
@@ -165,16 +166,16 @@ namespace Lior_s_FIAR
                         return 2;
                     }
 
-                   
-                  
+
+
                 }
             }
             //diagonal-upper side is the left side
             for (int i = 0; i < 5; i++)
             {
-                for (int j = 0; j <5; j++)
+                for (int j = 0; j < 5; j++)
                 {
-                     if (board[i][j] == 1 && board[i + 1][j + 1] == 1 && board[i + 2][j + 2] == 1 && board[i + 3][j + 3] == 1)
+                    if (board[i][j] == 1 && board[i + 1][j + 1] == 1 && board[i + 2][j + 2] == 1 && board[i + 3][j + 3] == 1)
                     {
                         return 1;
                     }
@@ -185,7 +186,7 @@ namespace Lior_s_FIAR
                     }
 
 
-                   
+
                 }
             }
 
@@ -360,7 +361,7 @@ namespace Lior_s_FIAR
             //rows
             for (int i = 0; i < 8; i++)
             {
-                for (int j =7, count1 = 0; j>0 ; j--)
+                for (int j = 7, count1 = 0; j > 0; j--)
                 {
                     if (board[i][j] == 0)
                     {
@@ -369,7 +370,7 @@ namespace Lior_s_FIAR
                     if (board[i][j] == 1)
                     {
                         count1++;
-                      
+
                     }
                     if (board[i][j] == 2)
                     {
@@ -384,7 +385,7 @@ namespace Lior_s_FIAR
                             return;
                         }
                     }
-                   
+
                 }
             }
             //collumns
@@ -393,7 +394,7 @@ namespace Lior_s_FIAR
                 for (int j = 0; j < 8; j++)
                 {
                     //right edge missing
-                    if (board[i][j] == 1 && board[i + 1][j] == 1 && board[i + 2][j] == 1 )
+                    if (board[i][j] == 1 && board[i + 1][j] == 1 && board[i + 2][j] == 1)
                     {
                         if (board[i + 3][j] == 0)
                         {
@@ -402,7 +403,7 @@ namespace Lior_s_FIAR
                         }
                     }
                     // 2 from right edge missing
-                    if (board[i][j] == 1 && board[i + 2][j] == 1&& board[i + 3][j] == 1)
+                    if (board[i][j] == 1 && board[i + 2][j] == 1 && board[i + 3][j] == 1)
                     {
                         if (board[i + 1][j] == 0)
                         {
@@ -411,16 +412,16 @@ namespace Lior_s_FIAR
                         }
                     }
                     // 1 from right edge missing
-                    if (board[i][j] == 1 && board[i + 1][j] == 1 &&  board[i + 3][j] == 1)
+                    if (board[i][j] == 1 && board[i + 1][j] == 1 && board[i + 3][j] == 1)
                     {
-                        if (board[i + 2][j] == 0 )
+                        if (board[i + 2][j] == 0)
                         {
                             put(i + 2);
                             return;
                         }
                     }
                     //left edge missing
-                    if (board[i+2][j] == 1 && board[i + 1][j] == 1 && board[i + 3][j] == 1)
+                    if (board[i + 2][j] == 1 && board[i + 1][j] == 1 && board[i + 3][j] == 1)
                     {
                         if (board[i][j] == 0)
                         {
@@ -437,17 +438,17 @@ namespace Lior_s_FIAR
             {
                 for (int j = 0; j < 5; j++)
                 {
-                    if (  board[i + 1][j + 2] == 1 && board[i + 2][j + 1] == 1 && board[i + 3][j] == 1)
+                    if (board[i + 1][j + 2] == 1 && board[i + 2][j + 1] == 1 && board[i + 3][j] == 1)
                     {
-                        if (board[i][j + 3] == 0 )
+                        if (board[i][j + 3] == 0)
                         {
                             put(i);
                             return;
                         }
                     }
-                    if (board[i][j + 3] == 1 &&  board[i + 2][j + 1] == 1 && board[i + 3][j] == 1)
+                    if (board[i][j + 3] == 1 && board[i + 2][j + 1] == 1 && board[i + 3][j] == 1)
                     {
-                        if (board[i + 1][j + 2] == 0 )
+                        if (board[i + 1][j + 2] == 0)
                         {
                             put(i + 1);
                             return;
@@ -455,7 +456,7 @@ namespace Lior_s_FIAR
                     }
                     if (board[i][j + 3] == 1 && board[i + 1][j + 2] == 1 && board[i + 3][j] == 1)
                     {
-                        if (board[i + 2][j + 1]== 0)
+                        if (board[i + 2][j + 1] == 0)
                         {
                             put(i + 2);
                             return;
@@ -463,7 +464,7 @@ namespace Lior_s_FIAR
                     }
                     if (board[i][j + 3] == 1 && board[i + 1][j + 2] == 1 && board[i + 2][j + 1] == 1)
                     {
-                        if (  board[i + 3][j]== 0)
+                        if (board[i + 3][j] == 0)
                         {
                             put(i + 3);
                             return;
@@ -480,9 +481,9 @@ namespace Lior_s_FIAR
                 for (int j = 0; j < 5; j++)
                 {
                     //first from left side is missing
-                    if ( board[i + 1][j + 1] == 1 && board[i + 2][j + 2] == 1 && board[i + 3][j + 3] == 1)
+                    if (board[i + 1][j + 1] == 1 && board[i + 2][j + 2] == 1 && board[i + 3][j + 3] == 1)
                     {
-                        if (board[i][j]== 0)
+                        if (board[i][j] == 0)
                         {
                             put(i);
                             return;
@@ -493,25 +494,25 @@ namespace Lior_s_FIAR
                     {
                         if (board[i + 1][j + 1] == 0)
                         {
-                            put(i+1);
+                            put(i + 1);
                             return;
                         }
                     }
                     //third from left side is missing
-                    if (board[i][j] == 1 && board[i + 1][j + 1] == 1 &&  board[i + 3][j + 3] == 1)
+                    if (board[i][j] == 1 && board[i + 1][j + 1] == 1 && board[i + 3][j + 3] == 1)
                     {
-                        if (board[i + 2][j + 2]== 0)
+                        if (board[i + 2][j + 2] == 0)
                         {
-                            put(i+2);
+                            put(i + 2);
                             return;
                         }
                     }
                     //right edge is missing
-                    if (board[i][j] == 1 && board[i + 1][j + 1] == 1 && board[i + 2][j + 2] == 1 )
+                    if (board[i][j] == 1 && board[i + 1][j + 1] == 1 && board[i + 2][j + 2] == 1)
                     {
-                        if ( board[i + 3][j + 3]== 0)
+                        if (board[i + 3][j + 3] == 0)
                         {
-                            put(i+3);
+                            put(i + 3);
                             return;
                         }
                     }
@@ -523,7 +524,7 @@ namespace Lior_s_FIAR
         }
         private void put(int row)
         {
-            for (int i = 7; i >=0; i--)
+            for (int i = 7; i >= 0; i--)
             {
                 if (board[row][i] == 0)
                 {
@@ -536,13 +537,13 @@ namespace Lior_s_FIAR
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
         }
         private void row(int curr)
         {
-            for (int i= 0; i < 8; i++)
+            for (int i = 0; i < 8; i++)
             {
-                if (board[curr][7-i] == 0)
+                if (board[curr][7 - i] == 0)
                 {
                     if (turns)
                     {
@@ -563,9 +564,9 @@ namespace Lior_s_FIAR
                     }
                     if (!(turns))
                     {
-                       
-                        board[curr][7-i] = 2;
-                        bboard[curr][7-i].BackColor = Color.FromName("Red");
+
+                        board[curr][7 - i] = 2;
+                        bboard[curr][7 - i].BackColor = Color.FromName("Red");
                         turns = true;
                         plays++;
                         break;
@@ -576,13 +577,13 @@ namespace Lior_s_FIAR
             if (plays == 64)
             {
                 MessageBox.Show("It's a tie!");
-                    Reset();
+                Reset();
             }
 
-            if (Check()==1)
+            if (Check() == 1)
             {
-                if(mode2)MessageBox.Show("Blue player won");
-                if(!(mode2)) MessageBox.Show("You won");
+                if (mode2) MessageBox.Show("Blue player won");
+                if (!(mode2)) MessageBox.Show("You won");
                 winb++;
                 Reset();
             }
@@ -593,8 +594,8 @@ namespace Lior_s_FIAR
                 winr++;
                 Reset();
             }
-           
-            
+
+
         }
         private void Row1(object sender, EventArgs e)
         {
@@ -606,7 +607,7 @@ namespace Lior_s_FIAR
             return;
         }
 
-       
+
         private void Row2(object sender, EventArgs e)
         {
             short temporarynum = 1;
