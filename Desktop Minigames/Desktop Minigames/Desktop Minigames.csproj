@@ -63,6 +63,8 @@
     <Compile Include="Games\Bullseye\Bullseye.Designer.cs">
       <DependentUpon>Bullseye.cs</DependentUpon>
     </Compile>
+    <Compile Include="Games\Connect_4\Connect4.cs" />
+    <Compile Include="Games\Connect_4\Connect4.Designer.cs" />
     <Compile Include="Games\Damka\Damka.cs">
       <SubType>Form</SubType>
     </Compile>

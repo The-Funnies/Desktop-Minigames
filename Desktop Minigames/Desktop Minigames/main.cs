@@ -60,7 +60,8 @@ namespace Desktop_Minigames
                 "Damka",
                 "Tic Tac Toe",
                 "Pong",
-                "MineSweeper"
+                "MineSweeper",
+                "Connect4"
             };
             games = new Button[gamesNames.Count];
             ShowLayout(true);
@@ -193,6 +194,9 @@ namespace Desktop_Minigames
                     break;
                 case "Tic Tac Toe":
                     GoToForm(new TicTacToe.FirstForm());
+                    break;
+                case "Connect4":
+                    GoToForm(new Connect4());
                     break;
             }
         }

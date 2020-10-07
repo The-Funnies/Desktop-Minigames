@@ -1,8 +1,8 @@
 ﻿using System.Windows.Forms;
 
-namespace Lior_s_FIAR
+namespace Desktop_Minigames
 {
-    partial class Form1
+    partial class Connect4
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace Lior_s_FIAR
         /// </summary>
         private Button[][] InitializeComponent()
         {
-          
+
             Size = new System.Drawing.Size(500, 550);
             Button[][] btnBoard = new Button[8][];
             Text = "Connect Four Game";
@@ -41,7 +41,7 @@ namespace Lior_s_FIAR
                 {
                     btnBoard[i][j] = new System.Windows.Forms.Button();
                     btnBoard[i][j].Location = new System.Drawing.Point(i * 60, j * 60);
-                  
+
                     btnBoard[i][j].Size = new System.Drawing.Size(60, 60);
                     btnBoard[i][j].UseVisualStyleBackColor = true;
                     Controls.Add(btnBoard[i][j]);
