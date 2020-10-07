@@ -61,7 +61,8 @@ namespace Desktop_Minigames
                 "Tic Tac Toe",
                 "Pong",
                 "MineSweeper",
-                "Connect4"
+                "Connect4",
+                "Fifteen"
             };
             games = new Button[gamesNames.Count];
             ShowLayout(true);
@@ -161,6 +162,9 @@ namespace Desktop_Minigames
             Button btn = (Button)sender;
             switch (btn.Tag.ToString())
             {
+                case "Fifteen":
+                    GoToForm(new Fifteen());
+                    break;
                 case "MineSweeper":
                     GoToForm(new MineSweeper.MineSweeper());
                     break;
