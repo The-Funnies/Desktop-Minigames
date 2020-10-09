@@ -230,26 +230,26 @@ namespace Desktop_Minigames
         {
             if (condition == Condition.Up)
             {
-                clickedButton.Location = new Point(clickedButton.Location.X, clickedButton.Location.Y - 2);
+                clickedButton.Location = new Point(clickedButton.Location.X, clickedButton.Location.Y - 10);
 
             }
             if (condition == Condition.Down)
             {
-                clickedButton.Location = new Point(clickedButton.Location.X, clickedButton.Location.Y + 2);
+                clickedButton.Location = new Point(clickedButton.Location.X, clickedButton.Location.Y + 10);
 
             }
             if (condition == Condition.Left)
             {
-                clickedButton.Location = new Point(clickedButton.Location.X - 2, clickedButton.Location.Y);
+                clickedButton.Location = new Point(clickedButton.Location.X - 10, clickedButton.Location.Y);
 
             }
             if (condition == Condition.Right)
             {
-                clickedButton.Location = new Point(clickedButton.Location.X + 2, clickedButton.Location.Y);
+                clickedButton.Location = new Point(clickedButton.Location.X + 10, clickedButton.Location.Y);
 
             }
             counter++;
-            if (counter == 50)
+            if (counter == 10)
             {
                 counter = 0;
                 timer.Stop();
