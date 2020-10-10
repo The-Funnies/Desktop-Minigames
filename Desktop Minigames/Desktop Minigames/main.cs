@@ -62,7 +62,8 @@ namespace Desktop_Minigames
                 "Pong",
                 "MineSweeper",
                 "Connect4",
-                "Fifteen"
+                "Fifteen",
+                "Whist"
             };
             games = new Button[gamesNames.Count];
             ShowLayout(true);
@@ -178,7 +179,7 @@ namespace Desktop_Minigames
                     GoToForm(new FlappyBird());
                     break;
                 case "Whist":
-                    // GoToForm<WhistMain>(new WhistMain());
+                    GoToForm(new WhistClient());
                     break;
                 case "Ultimate Tic Tac Toe":
 

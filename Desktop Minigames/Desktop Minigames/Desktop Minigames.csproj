@@ -202,6 +202,10 @@
     <Compile Include="Games\Ultimate_Tic_Tac_Toe\UltimateUltimateTicTacToe.Designer.cs">
       <DependentUpon>UltimateUltimateTicTacToe.cs</DependentUpon>
     </Compile>
+    <Compile Include="Games\Whist\Card.cs" />
+    <Compile Include="Games\Whist\WhistClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Ohno.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -897,6 +901,192 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\flappy_bird_background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MineSweeper\filled-flag-128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\23.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\33.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\41.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\42.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\43.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\51.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\52.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\53.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\60.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\61.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\62.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\63.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\70.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\71.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\73.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\80.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\81.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\82.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\83.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\90.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\91.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\92.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\93.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\101.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\102.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\103.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\110.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\111.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\112.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\113.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\120.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\121.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\122.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\123.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\130.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\131.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\132.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\133.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\140.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\141.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\142.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\143.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MineSweeper\bomb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Games\Whist\Images\13.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
