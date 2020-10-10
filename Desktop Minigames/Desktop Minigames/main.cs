@@ -57,7 +57,7 @@ namespace Desktop_Minigames
                 "Ultimate Tic Tac Toe",
                 "Ultimate Ultimate Tic Tac Toe",
                 "Bullseye",
-                "Damka",
+                "Checkers",
                 "Tic Tac Toe",
                 "Pong",
                 "MineSweeper",
@@ -182,7 +182,6 @@ namespace Desktop_Minigames
                     GoToForm(new WhistClient());
                     break;
                 case "Ultimate Tic Tac Toe":
-
                     GoToForm(new UltimateTicTacToe());
                     break;
                 case "Ultimate Ultimate Tic Tac Toe":
@@ -191,7 +190,7 @@ namespace Desktop_Minigames
                 case "Bullseye":
                     GoToForm(new Bullseye());
                     break;
-                case "Damka":
+                case "Checkers":
                     GoToForm(new Damka.Damka());
                     break;
                 case "Pong":
@@ -216,7 +215,8 @@ namespace Desktop_Minigames
                 ctrl.Size = new Size((int)(MAIN_BUTTON_SIZE * 1.5), (int)(MAIN_BUTTON_SIZE * 1.5));
                // ctrl.Show();
                 ctrl.BringToFront();
-                displayOn.Text = ctrl.Tag.ToString();
+                if (ctrl.BackgroundImage == null)
+                    displayOn.Text = ctrl.Tag.ToString();
                 return;
             }
             ctrl.Hide();

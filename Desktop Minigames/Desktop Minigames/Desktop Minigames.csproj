@@ -299,7 +299,6 @@
     <None Include="Resources\minigames title.png" />
     <None Include="Resources\the_funnies_club_chat.png" />
     <None Include="Resources\Tic Tac Toe.ico" />
-    <None Include="Resources\Pong.png" />
     <None Include="Resources\Damka.ico" />
     <None Include="Resources\TicTacToeImage.png" />
     <None Include="Resources\Redball-remove.png" />
@@ -307,216 +306,6 @@
     <None Include="Resources\RedPiece-remove.png" />
     <None Include="Resources\BlackQueen-remove.png" />
     <None Include="Resources\BlackPiece-remove.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\1C.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\1D.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\1H.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\1S.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\2C.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\2D.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\2H.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\2S.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\3C.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\3D.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\3H.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\3S.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\4C.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\4D.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\4H.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\4S.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\5C.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\5D.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\5H.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\5S.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\6C.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\6D.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\6H.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\6S.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\7C.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\7D.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\7H.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\7S.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\8C.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\8D.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\8H.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\8S.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\9C.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\9D.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\9H.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\9S.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\10C.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\10D.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\10H.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\10S.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\11C.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\11D.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\11H.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\11S.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\12C.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\12D.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\12H.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\12S.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\13C.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\13D.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\13H.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\13S.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\blue_back.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\emptyCard.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\glow.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\glowDark.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\gray_back.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\green_back.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\purple_back.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\red_back.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\slotClub.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\slotDiamond.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\slotHeart.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\slotSpade.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Cards\yellow_back.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Flappy_Bird\flappy_bird_background.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Flappy_Bird\flappy_bird_bird.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Flappy_Bird\flappy_bird_pipe.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Flappy_Bird\flappy_bird_pipe_rotated.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="pictures\Ultimate_Tic_Tac_toe\Ultimate Tic Tac Toe.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Cards\5C.png" />
@@ -1088,5 +877,27 @@
   <ItemGroup>
     <None Include="Games\Whist\Images\13.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bullseye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\damka.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Flappy Frisch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PONG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Snake.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ult TTT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ult Ult TTT.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

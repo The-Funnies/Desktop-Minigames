@@ -334,6 +334,9 @@
   <data name="Bull9" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Bullseye\Bull9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Bullseye" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bullseye.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Bull_empty" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Bullseye\Bull_empty.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -349,6 +352,9 @@
   <data name="check2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Bullseye\check2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Checkers" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\damka.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Damka" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Damka.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -357,6 +363,9 @@
   </data>
   <data name="filled_flag_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MineSweeper\filled-flag-128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Flappy_Bird" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Flappy Frisch.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="flappy_bird_background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\flappy_bird_background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -383,7 +392,7 @@
     <value>..\Resources\minigames title.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pong" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Pong.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Resources\PONG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="purple_back" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Cards\purple_back.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -413,7 +422,7 @@
     <value>..\Resources\Cards\slotSpade.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Snake" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Game Logos\Snake.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Resources\Snake.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Solitaire" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Game Logos\Solitaire.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -431,10 +440,10 @@
     <value>..\Resources\TTable;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Ultimate_Tic_Tac_Toe" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Game Logos\Ultimate Tic Tac Toe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Resources\Ult TTT.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Ultimate_Ultimate_Tic_Tac_Toe" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Game Logos\Ultimate Ultimate Tic Tac Toe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Resources\Ult Ult TTT.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="yellow_back" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Cards\yellow_back.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
