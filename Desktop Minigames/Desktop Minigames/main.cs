@@ -35,7 +35,6 @@ namespace Desktop_Minigames
         {
             if (resizeCount++ > 1)
                 ShowLayout(false);
-            
         }
 
         public Minigames()
@@ -115,13 +114,16 @@ namespace Desktop_Minigames
             double multiplier = 0;
             while ((imgsize / (maxsize + i++ * 0.1)) > Width) ;
             multiplier = (maxsize + (i - 1) * 0.1);
-            titleimg = Resize(titleimg, (int)(imgsize / multiplier), (int)(Properties.Resources.minigames_title.Height / multiplier));
+            titleimg = Resize(Properties.Resources.minigames_title, (int)(imgsize / multiplier), (int)(Properties.Resources.minigames_title.Height / multiplier));
 
             title.Image = titleimg;
             title.BackColor = Color.Transparent;
             title.Size = new Size(titleimg.Width, titleimg.Height);
             title.Location = new Point(Width / 2 - title.Size.Width / 2, 0);
             Controls.Add(title);
+
+            int offsetY = title.Location.Y + title.Height;
+            int spacePerOne = 3 * (this.Height - offsetY) / (games.Length + 3);
 
             for (i = 0; i < games.Length; i++)
             {
@@ -131,17 +133,18 @@ namespace Desktop_Minigames
                     {
                         Font = new Font("Ariel", 25),
                         Size = new Size(MAIN_BUTTON_SIZE, MAIN_BUTTON_SIZE),
-                        Location = new Point(MAIN_BUTTON_SIZE / 10 + i % 2 * (MAIN_BUTTON_SIZE + MAIN_BUTTON_SIZE / 10), title.Location.Y + title.Height + i / 2 * (MAIN_BUTTON_SIZE + MAIN_BUTTON_SIZE / 10))
+                        Location = new Point(i % 3 * (int)(1.5 * MAIN_BUTTON_SIZE) + this.Width / 2 - (int)(2.085 * MAIN_BUTTON_SIZE), offsetY + (i / 3) * spacePerOne)
                     };
                     games[i].Click += GoToGame;
                     games[i].MouseEnter += (sender, e) => ChangeMainLabelText(sender, e);
                     games[i].MouseLeave += (sender, e) => ChangeMainLabelText(sender, e, false);
                     games[i].Tag = gamesNames[i];
+                    games[i].BringToFront();
                     Controls.Add(games[i]);
                 }
                 else
                 {
-                    games[i].Location = new Point(MAIN_BUTTON_SIZE / 10 + i % 2 * (MAIN_BUTTON_SIZE + MAIN_BUTTON_SIZE / 10), title.Location.Y + title.Height + i / 2 * (MAIN_BUTTON_SIZE + MAIN_BUTTON_SIZE / 10));
+                    games[i].Location = new Point(i % 3 * (int)(1.5 * MAIN_BUTTON_SIZE) + this.Width / 2 - (int)(2.085 * MAIN_BUTTON_SIZE), offsetY + (i / 3) * spacePerOne);
                 }
 
             }
@@ -233,8 +236,7 @@ namespace Desktop_Minigames
         };
         public static List<String> noBackButton = new List<String>
         {
-            "FlappyBird",
-            "Bullseye"
+            "FlappyBird"
         };
         public static List<String> noFullWindow = new List<String>
         {
