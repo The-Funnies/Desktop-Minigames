@@ -233,7 +233,8 @@ namespace Desktop_Minigames
         };
         public static List<String> noBackButton = new List<String>
         {
-            "FlappyBird"
+            "FlappyBird",
+            "Bullseye"
         };
         public static List<String> noFullWindow = new List<String>
         {
