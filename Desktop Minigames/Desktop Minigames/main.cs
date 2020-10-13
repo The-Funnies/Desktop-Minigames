@@ -45,7 +45,6 @@ namespace Desktop_Minigames
                  GoToGame(games[random.Next(0, games.Length)], e);
              };
             Saver.Minigames = this;
-            Shown += ShowChat;
             Width = (int)(Screen.PrimaryScreen.WorkingArea.Size.Width / 2.7);
             Height = (int)(Screen.PrimaryScreen.WorkingArea.Size.Height / 1.25);
             gamesNames = new List<string>
@@ -150,6 +149,7 @@ namespace Desktop_Minigames
             }
             if (initialization)
             {
+                Shown += ShowChat;
                 foreach (Button btn in games)
                 {
                     String logoResourceName = btn.Tag.ToString().Replace(" ", "_");
