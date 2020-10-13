@@ -96,7 +96,7 @@ namespace Desktop_Minigames
                     label.Location = new Point((int)(Width / 3.5), (int)(Height / 1.33));
                     label.Tag = 2;
                     label.BackColor = Color.Transparent;
-
+                    Thread.Sleep(1500);
                     this.Invoke(new Delegate(() =>
                     {
                         
