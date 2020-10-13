@@ -96,24 +96,25 @@ namespace Desktop_Minigames
                     label.Location = new Point((int)(Width / 3.5), (int)(Height / 1.33));
                     label.Tag = 2;
                     label.BackColor = Color.Transparent;
-                    Thread.Sleep(1500);
-                    this.Invoke(new Delegate(() =>
+                    this.Load += (sender,e) =>
                     {
-                        
-                        foreach (Label label1 in messages)
+                        this.Invoke(new Delegate(() =>
                         {
-                            label1.Location = new Point(label1.Location.X, label1.Location.Y - (int)(label.Size.Height * 1.1));
-                            //  label1.Location = new Point(label1.Location.X,(int)(label1.Tag)==2? label1.Location.Y - (int)(label.Size.Height*1.03 ):(int)messages[messages.Count - 1].Tag == 0 ? label1.Location.Y - (int)(label.Size.Height * 0.6) : label1.Location.Y - (int)(label.Size.Height * 1.1)) ;
-                            if (((int)(messages[messages.Count - 1].Tag) == 0 && label1.Location.Y - (int)(label.Size.Height * 0.6) < 70) || ((int)(messages[messages.Count - 1].Tag) != 0 && (label1.Location.Y - (int)(label.Size.Height * 1.1) < 70)))
-                            {
-                                Controls.Remove(label1);
-                            }
-                        }
-                        Controls.Add(label);
-                        changed = true;
-                        
-                    }));
 
+                            foreach (Label label1 in messages)
+                            {
+                                label1.Location = new Point(label1.Location.X, label1.Location.Y - (int)(label.Size.Height * 1.1));
+                                //  label1.Location = new Point(label1.Location.X,(int)(label1.Tag)==2? label1.Location.Y - (int)(label.Size.Height*1.03 ):(int)messages[messages.Count - 1].Tag == 0 ? label1.Location.Y - (int)(label.Size.Height * 0.6) : label1.Location.Y - (int)(label.Size.Height * 1.1)) ;
+                                if (((int)(messages[messages.Count - 1].Tag) == 0 && label1.Location.Y - (int)(label.Size.Height * 0.6) < 70) || ((int)(messages[messages.Count - 1].Tag) != 0 && (label1.Location.Y - (int)(label.Size.Height * 1.1) < 70)))
+                                {
+                                    Controls.Remove(label1);
+                                }
+                            }
+                            Controls.Add(label);
+                            changed = true;
+
+                        }));
+                    };
                     messages.Add(label);
                 }
                 else
