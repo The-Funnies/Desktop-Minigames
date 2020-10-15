@@ -75,19 +75,7 @@ namespace TicTacToeServer
 
                     int howmanyentries = 0;
 
-                    for (int i = 0; i < 9; i++)
-                    {
-                        if (board[i].Length != 9)
-                        {
-                            howmanyentries++;
-                        }
-                    }
-                    if (howmanyentries == 9)
-                    {
-                        SendString("d", id);
-                        SendString("0", (id + 1) % 2);
-                        break;
-                    }
+                   
 
                     if (IsBigWinner(id))
                     {
@@ -100,7 +88,23 @@ namespace TicTacToeServer
                     }
                     else
                     {
-                        SendString("a", id);
+                        for (int i = 0; i < 9; i++)
+                        {
+                            if (board[i].Length != 9)
+                            {
+                                howmanyentries++;
+                            }
+                        }
+                        if (howmanyentries == 9)
+                        {
+                            SendString("d", id);
+                            SendString("0", (id + 1) % 2);
+                            break;
+                        }
+                        else
+                        {
+                            SendString("a", id);
+                        }
 
                         if (board[index].Length != 9)
                         {

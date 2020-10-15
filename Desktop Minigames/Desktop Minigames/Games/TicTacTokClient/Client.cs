@@ -50,8 +50,7 @@ namespace Desktop_Minigames
             turn.Tag = name;
             turn.Font = new Font("Arial", 14);
 
-            Thread thread = new Thread(GetFirstTurn);
-            thread.Start();
+            GetFirstTurn();
         }
 
         void GetFirstTurn()
