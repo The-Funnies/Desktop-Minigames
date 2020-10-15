@@ -61,7 +61,8 @@ namespace Desktop_Minigames
                 "MineSweeper",
                 "Connect4",
                 "Fifteen",
-                "Whist"
+                "Whist",
+                "TicTacTok online"
             };
             games = new Button[gamesNames.Count];
             ShowLayout(true);
@@ -204,6 +205,9 @@ namespace Desktop_Minigames
                     break;
                 case "Connect4":
                     GoToForm(new Connect4());
+                    break;
+                case "TicTacTok online":
+                    GoToForm(new Client());
                     break;
             }
         }
