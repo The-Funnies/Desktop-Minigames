@@ -31,6 +31,7 @@ namespace Desktop_Minigames
         private const int MAIN_BUTTON_SIZE = 100;
         private const int BACKGROUND_PICS_AMOUNT = 34;//The last index of background pics in Properties.Resources
         private int resizeCount = 0;
+        private Thread chat;
 
         protected override void OnResize(EventArgs e)
         {
@@ -70,9 +71,12 @@ namespace Desktop_Minigames
 
             this.FormClosed += (object sender, FormClosedEventArgs e) => { Environment.Exit(Environment.ExitCode); };
 
+            chat = new Thread(ShowChat);
+            chat.Start();
+
             Thread th = new Thread(() =>
             {
-                ShowChat();
+                
                 Random random = new Random();
                 while (true)
                 {
@@ -340,48 +344,30 @@ namespace Desktop_Minigames
                     connected = true;
                     break;
                 }
-                Thread.Sleep(50);
+                Thread.Sleep(5000);
                 ms += 50;
             }
-            this.Invoke(new delegat(() =>
+           
+            if (!connected)
             {
-                if (!connected)
+                t.Abort();
+                form = null;
+                chat = new Thread(ShowChat);
+                chat.Start();
+                return;
+            }
+            else
+            {
+                if (form == null) return;
+                this.Invoke(new delegat(() =>
                 {
-                    t.Abort();
-                    form = null;
-
-                    Thread thread = new Thread(() =>
-                    {
-                        while (true)
-                        {
-                            try
-                            {
-                               
-                                ChatClient chat = new ChatClient();
-                                chat.StartPosition = FormStartPosition.Manual;
-                                chat.Location = new Point(this.Location.X, 0);
-                                chat.Show();
-                                break;
-                            }
-                            catch
-                            {
-
-                            }
-                        }
-                    });
-                    thread.Start();
-                    return;
-                }
-                else
-                {
-
-                    if (form == null) return;
                     form.StartPosition = FormStartPosition.Manual;
                     form.Location = new Point(this.Location.X, 0);
                     form.Show();
-                    isChatShown = true;
-                }
-            }));
+                }));
+                isChatShown = true;
+            }
+            
            
         }
     }
