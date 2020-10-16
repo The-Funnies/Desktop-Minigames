@@ -349,6 +349,29 @@ namespace Desktop_Minigames
                 {
                     t.Abort();
                     form = null;
+
+                    Thread thread = new Thread(() =>
+                    {
+                        while (true)
+                        {
+                            try
+                            {
+                                this.Invoke(new delegat(() =>
+                                {
+                                    ChatClient chat = new ChatClient();
+                                    chat.StartPosition = FormStartPosition.Manual;
+                                    chat.Location = new Point(this.Location.X, 0);
+                                    chat.Show();
+                                })); 
+                                break;
+                            }
+                            catch
+                            {
+
+                            }
+                        }
+                    });
+                    thread.Start();
                     return;
                 }
                 else

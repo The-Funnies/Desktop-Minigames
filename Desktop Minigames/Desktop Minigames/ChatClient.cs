@@ -170,6 +170,7 @@ namespace Desktop_Minigames
         {
             Label label = new Label();
             label.Text = mes;
+            label.ForeColor = Color.White;
             //label.Size = new Size((int)(Width / 2.3), Height / 8);
             label.Font = new Font(FontFamily.GenericMonospace, 12);
             int labelwidth = (int)(Width / 2.3);
