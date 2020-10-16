@@ -12,6 +12,7 @@ using System.Windows.Forms;
 
 namespace Desktop_Minigames
 {
+    public delegate void delegat();
     public delegate void goToForm(Ohno form);
     public class Saver
     {
@@ -342,13 +343,25 @@ namespace Desktop_Minigames
                 Thread.Sleep(50);
                 ms += 50;
             }
-            
-            if (form == null) return;
-            form.StartPosition = FormStartPosition.Manual;
-            form.Location = new Point(this.Location.X, 0);
-            form.Show();
-            isChatShown = true;
-            
+            this.Invoke(new delegat(() =>
+            {
+                if (!connected)
+                {
+                    t.Abort();
+                    form = null;
+                    return;
+                }
+                else
+                {
+
+                    if (form == null) return;
+                    form.StartPosition = FormStartPosition.Manual;
+                    form.Location = new Point(this.Location.X, 0);
+                    form.Show();
+                    isChatShown = true;
+                }
+            }));
+           
         }
     }
 }
