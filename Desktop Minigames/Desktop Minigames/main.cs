@@ -329,6 +329,7 @@ namespace Desktop_Minigames
                 try
                 {
                     form = new ChatClient();
+                    
                 }
                 catch { }
 
@@ -344,7 +345,7 @@ namespace Desktop_Minigames
                     connected = true;
                     break;
                 }
-                Thread.Sleep(5000);
+                Thread.Sleep(50);
                 ms += 50;
             }
            
@@ -352,6 +353,7 @@ namespace Desktop_Minigames
             {
                 t.Abort();
                 form = null;
+                Thread.Sleep(5000);
                 chat = new Thread(ShowChat);
                 chat.Start();
                 return;
