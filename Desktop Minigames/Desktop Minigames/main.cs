@@ -318,7 +318,7 @@ namespace Desktop_Minigames
         }
         public static Image GenerateBackground()
         {
-            return Properties.Resources.ResourceManager.GetObject("_" + random.Next(0, BACKGROUND_PICS_AMOUNT)) as Image;
+            return Properties.Resources.ResourceManager.GetObject("background" + random.Next(0, BACKGROUND_PICS_AMOUNT)) as Image;
         }
         private void ShowChat(object sender, EventArgs e)
         {

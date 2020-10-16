@@ -914,5 +914,110 @@
   <ItemGroup>
     <None Include="Resources\TTTomer Online.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backgrounds\background31.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backgrounds\background32.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backgrounds\background33.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backgrounds\background34.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backgrounds\background35.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backgrounds\background1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backgrounds\background2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backgrounds\background3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backgrounds\background4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backgrounds\background5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backgrounds\background6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backgrounds\background7.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backgrounds\background8.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backgrounds\background9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backgrounds\background10.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backgrounds\background11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backgrounds\background12.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backgrounds\background13.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backgrounds\background14.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backgrounds\background15.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backgrounds\background16.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backgrounds\background17.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backgrounds\background18.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backgrounds\background19.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backgrounds\background20.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backgrounds\background21.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backgrounds\background22.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backgrounds\background23.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backgrounds\background24.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backgrounds\background25.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backgrounds\background26.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backgrounds\background27.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backgrounds\background28.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backgrounds\background29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backgrounds\background30.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
