@@ -902,6 +902,17 @@
   <ItemGroup>
     <None Include="Resources\Ult Ult TTT.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Whist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Connect 4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Minesweeper.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TTTomer Online.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

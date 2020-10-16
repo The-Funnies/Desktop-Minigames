@@ -56,9 +56,9 @@ namespace Desktop_Minigames
                 "Ultimate Ultimate Tic Tac Toe",
                 "Bullseye",
                 "Checkers",
-                "Tic Tac Toe",
+                "Tic Tac Toe online",
                 "Pong",
-                "MineSweeper",
+                "Minesweeper",
                 "Connect4",
                 "Fifteen",
                 "Whist",
@@ -101,7 +101,7 @@ namespace Desktop_Minigames
                     Thread.Sleep(1000);
                 }
             });
-           // th.Start();
+           th.Start();
         }
 
         private void ShowLayout(bool initialization)
@@ -170,7 +170,7 @@ namespace Desktop_Minigames
                 case "Fifteen":
                     GoToForm(new Fifteen());
                     break;
-                case "MineSweeper":
+                case "Minesweeper":
                     GoToForm(new MineSweeper.MineSweeper());
                     break;
                 case "Snake":
@@ -200,7 +200,7 @@ namespace Desktop_Minigames
                 case "Pong":
                     GoToForm(new Pong.HostOrConnect());
                     break;
-                case "Tic Tac Toe":
+                case "Tic Tac Toe online":
                     GoToForm(new TicTacToe.FirstForm());
                     break;
                 case "Connect4":
@@ -240,7 +240,8 @@ namespace Desktop_Minigames
         };
         public static List<String> noBackButton = new List<String>
         {
-            "FlappyBird"
+            "FlappyBird",
+            "Bullseye"
         };
         public static List<String> noFullWindow = new List<String>
         {

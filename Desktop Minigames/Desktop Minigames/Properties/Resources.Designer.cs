@@ -1371,6 +1371,16 @@ namespace Desktop_Minigames.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Connect4 {
+            get {
+                object obj = ResourceManager.GetObject("Connect4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         internal static System.Drawing.Icon Damka {
@@ -1476,6 +1486,16 @@ namespace Desktop_Minigames.Properties {
         internal static System.Drawing.Bitmap glowDark {
             get {
                 object obj = ResourceManager.GetObject("glowDark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Minesweeper {
+            get {
+                object obj = ResourceManager.GetObject("Minesweeper", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1633,6 +1653,16 @@ namespace Desktop_Minigames.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Tic_Tac_Toe_online {
+            get {
+                object obj = ResourceManager.GetObject("Tic_Tac_Toe_online", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap TicTacToeImage {
             get {
                 object obj = ResourceManager.GetObject("TicTacToeImage", resourceCulture);
@@ -1666,6 +1696,16 @@ namespace Desktop_Minigames.Properties {
         internal static System.Drawing.Bitmap Ultimate_Ultimate_Tic_Tac_Toe {
             get {
                 object obj = ResourceManager.GetObject("Ultimate_Ultimate_Tic_Tac_Toe", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Whist {
+            get {
+                object obj = ResourceManager.GetObject("Whist", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
