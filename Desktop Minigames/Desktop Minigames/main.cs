@@ -39,6 +39,7 @@ namespace Desktop_Minigames
 
         public Minigames()
         {
+            
             title = new PictureBox();
             title.Click += (sender, e) =>
              {
@@ -70,6 +71,7 @@ namespace Desktop_Minigames
 
             Thread th = new Thread(() =>
             {
+                ShowChat();
                 Random random = new Random();
                 while (true)
                 {
@@ -149,7 +151,6 @@ namespace Desktop_Minigames
             }
             if (initialization)
             {
-                Shown += ShowChat;
                 foreach (Button btn in games)
                 {
                     String logoResourceName = btn.Tag.ToString().Replace(" ", "_");
@@ -299,8 +300,6 @@ namespace Desktop_Minigames
         }
         private void Minigames_Load(object sender, EventArgs e)
         {
-
-
         }
         public static void SetBackground(Form form)
         {
@@ -316,7 +315,7 @@ namespace Desktop_Minigames
         {
             return Properties.Resources.ResourceManager.GetObject("background" + random.Next(0, BACKGROUND_PICS_AMOUNT)) as Image;
         }
-        private void ShowChat(object sender, EventArgs e)
+        private void ShowChat()
         {
             if (isChatShown) return;
             ChatClient form = null;
@@ -343,21 +342,13 @@ namespace Desktop_Minigames
                 Thread.Sleep(50);
                 ms += 50;
             }
-            if (!connected)
-            {
-                t.Abort();
-                MessageBox.Show("Failed to connect to the chat server.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                form = null;
-                return;
-            }
-            else
-            {
-                if (form == null) return;
-                form.StartPosition = FormStartPosition.Manual;
-                form.Location = new Point(this.Location.X, 0);
-                form.Show();
-                isChatShown = true;
-            }
+            
+            if (form == null) return;
+            form.StartPosition = FormStartPosition.Manual;
+            form.Location = new Point(this.Location.X, 0);
+            form.Show();
+            isChatShown = true;
+            
         }
     }
 }
