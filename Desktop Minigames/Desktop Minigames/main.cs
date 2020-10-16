@@ -356,13 +356,11 @@ namespace Desktop_Minigames
                         {
                             try
                             {
-                                this.Invoke(new delegat(() =>
-                                {
-                                    ChatClient chat = new ChatClient();
-                                    chat.StartPosition = FormStartPosition.Manual;
-                                    chat.Location = new Point(this.Location.X, 0);
-                                    chat.Show();
-                                })); 
+                               
+                                ChatClient chat = new ChatClient();
+                                chat.StartPosition = FormStartPosition.Manual;
+                                chat.Location = new Point(this.Location.X, 0);
+                                chat.Show();
                                 break;
                             }
                             catch
