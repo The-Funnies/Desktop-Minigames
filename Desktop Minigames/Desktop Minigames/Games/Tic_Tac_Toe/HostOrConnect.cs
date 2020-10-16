@@ -54,5 +54,10 @@ namespace TicTacToe
         {
             Application.Exit();
         }
+
+        private void HostOrConnect_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -52,7 +52,6 @@ namespace Desktop_Minigames
                 "Snake",
                 "Solitaire",
                 "Flappy Bird",
-                "Ultimate Tic Tac Toe",
                 "Ultimate Ultimate Tic Tac Toe",
                 "Bullseye",
                 "Checkers",
@@ -185,9 +184,6 @@ namespace Desktop_Minigames
                 case "Whist":
                     GoToForm(new WhistClient());
                     break;
-                case "Ultimate Tic Tac Toe":
-                    GoToForm(new UltimateTicTacToe());
-                    break;
                 case "Ultimate Ultimate Tic Tac Toe":
                     GoToForm(new UltimateUltimateTicTacToe());
                     break;
@@ -207,7 +203,7 @@ namespace Desktop_Minigames
                     GoToForm(new Connect4());
                     break;
                 case "TicTacTok online":
-                    GoToForm(new Client());
+                    GoToForm(new LocalOrOnline());
                     break;
             }
         }

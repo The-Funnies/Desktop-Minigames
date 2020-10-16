@@ -66,6 +66,7 @@
             this.Name = "HostOrConnect";
             this.Text = "HostOrConnect";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.HostOrConnect_FormClosing);
+            this.Load += new System.EventHandler(this.HostOrConnect_Load);
             this.ResumeLayout(false);
 
         }
