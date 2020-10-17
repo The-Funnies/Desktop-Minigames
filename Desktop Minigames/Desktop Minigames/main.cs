@@ -249,7 +249,9 @@ namespace Desktop_Minigames
             "Solitaire"
             ,"Damka",
             "FlappyBird",
-            "WhistClient"
+            "WhistClient",
+            
+
         };
         public static List<String> noBackButton = new List<String>
         {
@@ -260,7 +262,11 @@ namespace Desktop_Minigames
         {
             "FlappyBird",
             "Minigames",
-            "MineSweeper"
+            "MineSweeper",
+            "Connect4",
+            "Fifteen",
+            "FirstForm",
+            "Snake"
         };
 
         public void GoToForm<T>(T form) where T : Form
