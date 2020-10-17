@@ -231,6 +231,8 @@ namespace Desktop_Minigames
             selectedGlow.Location = slots[0].Location;
             selectedGlow.Tag = 0;
             movesCounter++;
+            //
+            movesCounterL.Text = $"Moves Played:\n {movesCounter}/{maxT}";
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -428,15 +430,20 @@ namespace Desktop_Minigames
                     startMenu();
                     break;
                 case DialogResult.No:
-                    Environment.Exit(Environment.ExitCode);
+                    Minigames form = new Minigames();
+                    form.StartPosition = FormStartPosition.Manual;
+                    form.Location = new Point(this.Location.X, 0);
+                    form.FormClosed += (object sender, FormClosedEventArgs e) => { Environment.Exit(Environment.ExitCode); };
+                    form.Show();
+                    this.Hide();
                     break;
 
             }
         }
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            movesCounterL.Text = $"Moves Played:\n {movesCounter}/{maxT}";
-        }
+        //private void timer1_Tick(object sender, EventArgs e)
+        //{
+        //    movesCounterL.Text = $"Moves Played:\n {movesCounter}/{maxT}";
+        //}
         public void isGameLost()
         {
             int maxT = 0;
