@@ -334,55 +334,26 @@ namespace Desktop_Minigames
         }
         private void ShowChat()
         {
-            if (isChatShown) return;
-            ChatClient form = null;
-            Thread t = new Thread(() =>
+            if (!isChatShown)
             {
                 try
                 {
-                    form = new ChatClient();
-                    
-                }
-                catch { }
+                    ChatClient form = new ChatClient();
 
-            });
-            t.Start();
+                    this.Invoke(new delegat(() =>
+                    {
+                        form.StartPosition = FormStartPosition.Manual;
+                        form.Location = new Point(this.Location.X, 0);
+                        form.Show();
+                    }));
 
-            int ms = 0;
-            bool connected = false;
-            while (ms < 1000)
-            {
-                if (t.ThreadState == ThreadState.Stopped)
-                {
-                    connected = true;
-                    break;
                 }
-                Thread.Sleep(50);
-                ms += 50;
-            }
-           
-            if (!connected)
-            {
-                t.Abort();
-                form = null;
-                Thread.Sleep(5000);
-                chat = new Thread(ShowChat);
-                chat.Start();
-                return;
-            }
-            else
-            {
-                if (form == null) return;
-                this.Invoke(new delegat(() =>
+                catch
                 {
-                    form.StartPosition = FormStartPosition.Manual;
-                    form.Location = new Point(this.Location.X, 0);
-                    form.Show();
-                }));
-                isChatShown = true;
+                    Thread.Sleep(5000);
+                    ShowChat();
+                }
             }
-            
-           
         }
     }
 }

@@ -96,26 +96,28 @@ namespace Desktop_Minigames
                     label.Location = new Point((int)(Width / 3.5), (int)(Height / 1.33));
                     label.Tag = 2;
                     label.BackColor = Color.Transparent;
-                    this.Load += (sender,e) =>
+                    Thread thread =new  Thread(()=>
                     {
                         this.Invoke(new Delegate(() =>
                         {
 
                             foreach (Label label1 in messages)
                             {
-                                label1.Location = new Point(label1.Location.X, label1.Location.Y - (int)(label.Size.Height * 1.1));
-                                //  label1.Location = new Point(label1.Location.X,(int)(label1.Tag)==2? label1.Location.Y - (int)(label.Size.Height*1.03 ):(int)messages[messages.Count - 1].Tag == 0 ? label1.Location.Y - (int)(label.Size.Height * 0.6) : label1.Location.Y - (int)(label.Size.Height * 1.1)) ;
+                                label1.Location = new Point(label1.Location.X, label1.Location.Y - (int)(label.Size.Height * 1.3));
                                 if (((int)(messages[messages.Count - 1].Tag) == 0 && label1.Location.Y - (int)(label.Size.Height * 0.6) < 70) || ((int)(messages[messages.Count - 1].Tag) != 0 && (label1.Location.Y - (int)(label.Size.Height * 1.1) < 70)))
                                 {
                                     Controls.Remove(label1);
                                 }
                             }
                             Controls.Add(label);
+                            label.BringToFront();
                             changed = true;
 
-                        }));
-                    };
-                    messages.Add(label);
+                        })); 
+                        messages.Add(label);
+                    });
+                    thread.Start();
+                    
                 }
                 else
                 {
