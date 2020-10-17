@@ -139,7 +139,6 @@ namespace Desktop_Minigames
         }
         void GetTrump(bool isafterfrish)
         {
-
             choosetrump = new Button[6];
 
             for (int i = 0; i < 6; i++)

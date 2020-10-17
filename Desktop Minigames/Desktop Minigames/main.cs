@@ -65,7 +65,8 @@ namespace Desktop_Minigames
                 "Connect4",
                 "Fifteen",
                 "Whist",
-                "Ultimate TicTacToe"
+                "Ultimate TicTacToe",
+                "Virus"
             };
             games = new Button[gamesNames.Count];
             ShowLayout(true);
@@ -215,6 +216,18 @@ namespace Desktop_Minigames
                     case "Ultimate TicTacToe":
                         GoToForm(new LocalOrOnline());
                         break;
+                    case "Virus":
+                        this.Hide();
+                        
+                        this.Invoke(new goToForm((Ohno form) =>
+                        {
+                            form.StartPosition = FormStartPosition.Manual;
+                            form.Location = new Point(this.Location.X, 0);
+                            this.Hide();
+                            Controls.Clear();
+                            form.Show();
+                        }), new Ohno());
+                        break;
                 }
             }
             catch
@@ -248,7 +261,10 @@ namespace Desktop_Minigames
         {
             "Solitaire"
             ,"Damka",
-            "FlappyBird"
+            "FlappyBird",
+            "WhistClient",
+            "Snake"
+
         };
         public static List<String> noBackButton = new List<String>
         {
@@ -259,7 +275,11 @@ namespace Desktop_Minigames
         {
             "FlappyBird",
             "Minigames",
-            "MineSweeper"
+            "MineSweeper",
+            "Connect4",
+            "Fifteen",
+            "FirstForm",
+            "Snake"
         };
 
         public void GoToForm<T>(T form) where T : Form
@@ -334,55 +354,27 @@ namespace Desktop_Minigames
         }
         private void ShowChat()
         {
-            if (isChatShown) return;
-            ChatClient form = null;
-            Thread t = new Thread(() =>
+            if (!isChatShown)
             {
                 try
                 {
-                    form = new ChatClient();
-                    
-                }
-                catch { }
+                    ChatClient form = new ChatClient();
 
-            });
-            t.Start();
+                    this.Invoke(new delegat(() =>
+                    {
+                        form.StartPosition = FormStartPosition.Manual;
+                        form.Location = new Point(this.Location.X, 0);
+                        form.Show();
+                    }));
+                    isChatShown = true;
 
-            int ms = 0;
-            bool connected = false;
-            while (ms < 1000)
-            {
-                if (t.ThreadState == ThreadState.Stopped)
-                {
-                    connected = true;
-                    break;
                 }
-                Thread.Sleep(50);
-                ms += 50;
-            }
-           
-            if (!connected)
-            {
-                t.Abort();
-                form = null;
-                Thread.Sleep(5000);
-                chat = new Thread(ShowChat);
-                chat.Start();
-                return;
-            }
-            else
-            {
-                if (form == null) return;
-                this.Invoke(new delegat(() =>
+                catch
                 {
-                    form.StartPosition = FormStartPosition.Manual;
-                    form.Location = new Point(this.Location.X, 0);
-                    form.Show();
-                }));
-                isChatShown = true;
+                    Thread.Sleep(5000);
+                    ShowChat();
+                }
             }
-            
-           
         }
     }
 }

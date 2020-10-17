@@ -41,7 +41,7 @@ namespace Desktop_Minigames
             this.components = new System.ComponentModel.Container();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer1.Enabled = true;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            //this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             this.ClientSize = new System.Drawing.Size(284, 461);
             this.MaximumSize = new System.Drawing.Size(300, 500);
             this.MinimumSize = new System.Drawing.Size(300, 500);
