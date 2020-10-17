@@ -158,11 +158,8 @@ namespace Desktop_Minigames
             return true;
         }
 
-
-
         void CloseWindow(object sender, EventArgs args)
         {
-
             stream.Close();
             client.Close();
         }
@@ -241,31 +238,6 @@ namespace Desktop_Minigames
             }
             return false;
         }
-
-
-        void Language()
-        {
-
-            while (true)
-            {
-                if (InputLanguage.CurrentInputLanguage.Culture.Name == "he -IL")
-                {
-                    this.Invoke(new Delegate(() =>
-                    {
-                        text.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-                    }));
-                }
-                else
-                {
-                    this.Invoke(new Delegate(() =>
-                    {
-                        text.RightToLeft = System.Windows.Forms.RightToLeft.No;
-                    }));
-                }
-                Thread.Sleep(100);
-            }
-
-
-        }
+     
     }
 }

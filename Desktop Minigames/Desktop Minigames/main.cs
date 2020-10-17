@@ -41,15 +41,16 @@ namespace Desktop_Minigames
 
         public Minigames()
         {
-            
             title = new PictureBox();
             title.Click += (sender, e) =>
-             {
-                 GoToGame(games[random.Next(0, games.Length)], e);
-             };
+            {
+                GoToGame(games[random.Next(0, games.Length)], e);
+            };
             Saver.Minigames = this;
+
             Width = (int)(Screen.PrimaryScreen.WorkingArea.Size.Width / 2.7);
             Height = (int)(Screen.PrimaryScreen.WorkingArea.Size.Height / 1.25);
+
             gamesNames = new List<string>
             {
                 "Snake",
@@ -64,7 +65,7 @@ namespace Desktop_Minigames
                 "Connect4",
                 "Fifteen",
                 "Whist",
-                "TicTacTok online"
+                "Ultimate TicTacToe"
             };
             games = new Button[gamesNames.Count];
             ShowLayout(true);
@@ -170,48 +171,57 @@ namespace Desktop_Minigames
         public void GoToGame(object sender, EventArgs args)
         {
             Button btn = (Button)sender;
-            switch (btn.Tag.ToString())
+            try
             {
-                case "Fifteen":
-                    GoToForm(new Fifteen());
-                    break;
-                case "Minesweeper":
-                    GoToForm(new MineSweeper.MineSweeper());
-                    break;
-                case "Snake":
-                    GoToForm(new Snake());
-                    break;
-                case "Solitaire":
-                    GoToForm(new Solitaire());
-                    break;
-                case "Flappy Bird":
-                    GoToForm(new FlappyBird());
-                    break;
-                case "Whist":
-                    GoToForm(new WhistClient());
-                    break;
-                case "Ultimate Ultimate Tic Tac Toe":
-                    GoToForm(new UltimateUltimateTicTacToe());
-                    break;
-                case "Bullseye":
-                    GoToForm(new Bullseye());
-                    break;
-                case "Checkers":
-                    GoToForm(new Damka.Damka());
-                    break;
-                case "Pong":
-                    GoToForm(new Pong.HostOrConnect());
-                    break;
-                case "Tic Tac Toe online":
-                    GoToForm(new TicTacToe.FirstForm());
-                    break;
-                case "Connect4":
-                    GoToForm(new Connect4());
-                    break;
-                case "TicTacTok online":
-                    GoToForm(new LocalOrOnline());
-                    break;
+                switch (btn.Tag.ToString())
+                {
+
+                    case "Fifteen":
+                        GoToForm(new Fifteen());
+                        break;
+                    case "Minesweeper":
+                        GoToForm(new MineSweeper.MineSweeper());
+                        break;
+                    case "Snake":
+                        GoToForm(new Snake());
+                        break;
+                    case "Solitaire":
+                        GoToForm(new Solitaire());
+                        break;
+                    case "Flappy Bird":
+                        GoToForm(new FlappyBird());
+                        break;
+                    case "Whist":
+                        GoToForm(new WhistClient());
+                        break;
+                    case "Ultimate Ultimate Tic Tac Toe":
+                        GoToForm(new UltimateUltimateTicTacToe());
+                        break;
+                    case "Bullseye":
+                        GoToForm(new Bullseye());
+                        break;
+                    case "Checkers":
+                        GoToForm(new Damka.Damka());
+                        break;
+                    case "Pong":
+                        GoToForm(new Pong.HostOrConnect());
+                        break;
+                    case "Tic Tac Toe online":
+                        GoToForm(new TicTacToe.FirstForm());
+                        break;
+                    case "Connect4":
+                        GoToForm(new Connect4());
+                        break;
+                    case "Ultimate TicTacToe":
+                        GoToForm(new LocalOrOnline());
+                        break;
+                }
             }
+            catch
+            {
+                MessageBox.Show("Server is offline");
+            }
+           
         }
         private void ChangeMainLabelText(object sender, EventArgs e, bool onSenderEntry = true, Control displayOn = null)
         {
@@ -247,7 +257,9 @@ namespace Desktop_Minigames
         };
         public static List<String> noFullWindow = new List<String>
         {
-            "FlappyBird"
+            "FlappyBird",
+            "Minigames",
+            "MineSweeper"
         };
 
         public void GoToForm<T>(T form) where T : Form
@@ -276,7 +288,7 @@ namespace Desktop_Minigames
             {
                 form.WindowState = FormWindowState.Maximized;
             }
-            
+
             if (!noBackButton.Contains(form.Text) & !form.Text.Equals("Minigames"))
             {
                 Button backBtn = new Button();

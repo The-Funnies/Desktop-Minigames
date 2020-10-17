@@ -68,7 +68,7 @@ namespace Desktop_Minigames
             Height = Screen.PrimaryScreen.Bounds.Height;
 
             this.ImageBox.BackColor = System.Drawing.Color.Transparent;
-            this.ImageBox.Image = Minigames.Resize(Desktop_Minigames.Properties.Resources.Ultimate_Tic_Tac_Toe, 5 * Width / 64, 5 * Height / 36);
+            this.ImageBox.Image = Minigames.Resize(Desktop_Minigames.Properties.Resources.Ultimate_TicTacToe, 5 * Width / 64, 5 * Height / 36);
             this.ImageBox.Location = new System.Drawing.Point(135, 25);
             this.ImageBox.Name = "ImageBox";
             this.ImageBox.Size = new System.Drawing.Size(158, 143);

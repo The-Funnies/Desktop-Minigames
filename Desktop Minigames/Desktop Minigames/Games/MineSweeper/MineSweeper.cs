@@ -13,7 +13,7 @@ namespace MineSweeper
 {
     public partial class MineSweeper : Form
     {
-        System.Windows.Forms.Button flag;
+        Button flag;
         int btnSize;
         int turns;
         bool flagon;
@@ -34,6 +34,7 @@ namespace MineSweeper
 
         public MineSweeper()
         {
+            
             InitializeComponent();
 
             SetStyle(ControlStyles.Selectable, false);
@@ -54,9 +55,6 @@ namespace MineSweeper
         private void Form1_Load(object sender, EventArgs e)
         {
         }
-
-
-
         private void Place(object sender, EventArgs e)
         {
 
