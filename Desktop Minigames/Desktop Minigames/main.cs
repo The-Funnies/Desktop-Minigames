@@ -250,7 +250,7 @@ namespace Desktop_Minigames
             ,"Damka",
             "FlappyBird",
             "WhistClient",
-            
+            "Snake"
 
         };
         public static List<String> noBackButton = new List<String>
