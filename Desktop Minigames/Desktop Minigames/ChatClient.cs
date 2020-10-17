@@ -92,7 +92,7 @@ namespace Desktop_Minigames
                     Label label = new Label();
                     label.Text = mes.Substring(0, BackSlash0(mes)) + " is inda chat boys";
                     label.Size = new Size((int)(Width / 2.5), Height / 40);
-                    label.Font = new Font("Ariel", 8);
+                    label.Font = new Font("Ariel", Width / 50);
                     label.Location = new Point((int)(Width / 3.5), (int)(Height / 1.33));
                     label.Tag = 2;
                     label.BackColor = Color.Transparent;
@@ -112,7 +112,6 @@ namespace Desktop_Minigames
                             Controls.Add(label);
                             label.BringToFront();
                             changed = true;
-
                         })); 
                         messages.Add(label);
                     });

@@ -248,7 +248,8 @@ namespace Desktop_Minigames
         {
             "Solitaire"
             ,"Damka",
-            "FlappyBird"
+            "FlappyBird",
+            "WhistClient"
         };
         public static List<String> noBackButton = new List<String>
         {
