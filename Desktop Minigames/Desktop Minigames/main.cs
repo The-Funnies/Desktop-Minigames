@@ -347,6 +347,7 @@ namespace Desktop_Minigames
                         form.Location = new Point(this.Location.X, 0);
                         form.Show();
                     }));
+                    isChatShown = true;
 
                 }
                 catch
