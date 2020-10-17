@@ -65,7 +65,8 @@ namespace Desktop_Minigames
                 "Connect4",
                 "Fifteen",
                 "Whist",
-                "Ultimate TicTacToe"
+                "Ultimate TicTacToe",
+                "Virus"
             };
             games = new Button[gamesNames.Count];
             ShowLayout(true);
@@ -214,6 +215,18 @@ namespace Desktop_Minigames
                         break;
                     case "Ultimate TicTacToe":
                         GoToForm(new LocalOrOnline());
+                        break;
+                    case "Virus":
+                        this.Hide();
+                        
+                        this.Invoke(new goToForm((Ohno form) =>
+                        {
+                            form.StartPosition = FormStartPosition.Manual;
+                            form.Location = new Point(this.Location.X, 0);
+                            this.Hide();
+                            Controls.Clear();
+                            form.Show();
+                        }), new Ohno());
                         break;
                 }
             }
