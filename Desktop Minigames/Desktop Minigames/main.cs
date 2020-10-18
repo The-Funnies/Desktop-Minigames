@@ -376,9 +376,7 @@ namespace Desktop_Minigames
         }
         public static Image GenerateBackground()
         {
-            Form form= new Form();
-            Screen myScreen = Screen.FromControl(form);
-            Rectangle area = myScreen.Bounds;
+            Rectangle area = Screen.FromControl(new Form()).Bounds;
             int i = 0;
             while (true)
             {
