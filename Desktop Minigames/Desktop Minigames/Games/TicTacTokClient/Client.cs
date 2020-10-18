@@ -255,7 +255,7 @@ namespace Desktop_Minigames
         {
             Button btn = (Button)sender;
 
-            if (true)
+            if (btn.BackColor==Color.Gray)
             {
                 if (enabled != 10)
                 {

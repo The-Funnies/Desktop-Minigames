@@ -176,7 +176,6 @@ namespace Desktop_Minigames
             {
                 switch (btn.Tag.ToString())
                 {
-
                     case "Fifteen":
                         GoToForm(new Fifteen());
                         break;
@@ -234,7 +233,6 @@ namespace Desktop_Minigames
             {
                 MessageBox.Show("Server is offline");
             }
-           
         }
         private void ChangeMainLabelText(object sender, EventArgs e, bool onSenderEntry = true, Control displayOn = null)
         {
