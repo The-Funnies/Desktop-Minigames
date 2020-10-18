@@ -29,10 +29,18 @@ namespace Desktop_Minigames
         private static bool isChatShown = false;
         private Image background_img = GenerateBackground();
         private const int MAIN_BUTTON_SIZE = 100;
-        private const int BACKGROUND_PICS_AMOUNT = 34;//The last index of background pics in Properties.Resources
+        private const int BACKGROUND_PICS_AMOUNT = 4;//The last index of background pics in Properties.Resources
         private int resizeCount = 0;
         private Thread chat;
-
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                var cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;    // Turn on WS_EX_COMPOSITED
+                return cp;
+            }
+        }
         protected override void OnResize(EventArgs e)
         {
             if (resizeCount++ > 1)
@@ -109,11 +117,13 @@ namespace Desktop_Minigames
                     Thread.Sleep(1000);
                 }
             });
-           th.Start();
+        //   th.Start();
         }
+        
 
         private void ShowLayout(bool initialization)
         {
+            Saver.Minigames = this;
             SetBackground(this, background_img);
 
             int imgsize = Properties.Resources.minigames_title.Width;
@@ -123,12 +133,15 @@ namespace Desktop_Minigames
             while ((imgsize / (maxsize + i++ * 0.1)) > Width) ;
             multiplier = (maxsize + (i - 1) * 0.1);
             titleimg = Resize(Properties.Resources.minigames_title, (int)(imgsize / multiplier), (int)(Properties.Resources.minigames_title.Height / multiplier));
-
-            title.Image = titleimg;
-            title.BackColor = Color.Transparent;
+            if (initialization)
+            {
+                title.BackColor = Color.Transparent;
+                title.Image = titleimg;
+                Controls.Add(title);
+            }
             title.Size = new Size(titleimg.Width, titleimg.Height);
             title.Location = new Point(Width / 2 - title.Size.Width / 2, 0);
-            Controls.Add(title);
+            
 
             int offsetY = title.Location.Y + title.Height;
             int spacePerOne = 3 * (this.Height - offsetY) / (games.Length + 3);
@@ -291,9 +304,15 @@ namespace Desktop_Minigames
             {
                 SetBackground(form);
             }
-
+            form.KeyPress += (sender,e) =>
+            {
+                if(e.KeyChar == Convert.ToChar(102))
+                {
+                    GoToForm(new Minigames());
+                    form.Close();
+                }
+            };
             this.Hide();
-
             Controls.Clear();
             try
             {
@@ -323,7 +342,14 @@ namespace Desktop_Minigames
             }
 
 
+
         }
+
+        private void Form_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         public static Image Resize(Image image, int w, int h)
         {
             Bitmap bmp = new Bitmap(w, h);
@@ -348,7 +374,18 @@ namespace Desktop_Minigames
         }
         public static Image GenerateBackground()
         {
-            return Properties.Resources.ResourceManager.GetObject("background" + random.Next(0, BACKGROUND_PICS_AMOUNT)) as Image;
+            Rectangle area = Screen.FromControl(new Form()).Bounds;
+            int i = 0;
+            while (true)
+            {
+                Image img = Properties.Resources.ResourceManager.GetObject("background" + random.Next(0, BACKGROUND_PICS_AMOUNT)) as Image;
+                if (img.Width / img.Height == area.Width / area.Height)
+                {
+                    return img;
+                }
+                if (i++ >= BACKGROUND_PICS_AMOUNT * 1.5) break;
+            }
+            return null;
         }
         private void ShowChat()
         {
