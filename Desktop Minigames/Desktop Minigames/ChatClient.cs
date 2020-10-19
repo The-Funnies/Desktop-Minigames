@@ -180,6 +180,10 @@ namespace Desktop_Minigames
             label.Location = new Point((int)(Width / 50), (int)(Height / 1.28) - label.Size.Height);
             label.BackColor = Color.Gray;
             label.Tag = 1;
+            label.Click += (object sender, EventArgs e) =>
+            {
+                Clipboard.SetText(mes.Split('\n')[1]);
+            };
 
             this.Invoke(new Delegate(() =>
             {
@@ -198,6 +202,7 @@ namespace Desktop_Minigames
 
             messages.Add(label);
         }
+
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             if (keyData == Keys.Enter)
@@ -216,6 +221,10 @@ namespace Desktop_Minigames
                     label.Location = new Point((int)(Width / 1.95), (int)(Height / 1.28) - label.Size.Height);
                     label.BackColor = Color.Aquamarine;
                     label.Tag = 0;
+                    label.Click += (object sender, EventArgs e) =>
+                    {
+                        Clipboard.SetText(label.Text);
+                    };
 
                     Controls.Add(label);
                     changed = true;

@@ -29,7 +29,7 @@ namespace Desktop_Minigames
         private static bool isChatShown = false;
         private Image background_img = GenerateBackground();
         private const int MAIN_BUTTON_SIZE = 100;
-        private const int BACKGROUND_PICS_AMOUNT = 4;//The last index of background pics in Properties.Resources
+        private const int BACKGROUND_PICS_AMOUNT = 5;//The last index of background pics in Properties.Resources
         private int resizeCount = 0;
         private Thread chat;
         protected override CreateParams CreateParams
@@ -73,8 +73,7 @@ namespace Desktop_Minigames
                 "Connect4",
                 "Fifteen",
                 "Whist",
-                "Ultimate TicTacToe",
-                "Virus"
+                "Ultimate TicTacToe"
             };
             games = new Button[gamesNames.Count];
             ShowLayout(true);
@@ -117,7 +116,7 @@ namespace Desktop_Minigames
                     Thread.Sleep(1000);
                 }
             });
-        //   th.Start();
+            th.Start();
         }
         
 
@@ -228,18 +227,6 @@ namespace Desktop_Minigames
                     case "Ultimate TicTacToe":
                         GoToForm(new LocalOrOnline());
                         break;
-                    case "Virus":
-                        this.Hide();
-                        
-                        this.Invoke(new goToForm((Ohno form) =>
-                        {
-                            form.StartPosition = FormStartPosition.Manual;
-                            form.Location = new Point(this.Location.X, 0);
-                            this.Hide();
-                            Controls.Clear();
-                            form.Show();
-                        }), new Ohno());
-                        break;
                 }
             }
             catch
@@ -340,9 +327,6 @@ namespace Desktop_Minigames
 
                 form.Controls.Add(backBtn);
             }
-
-
-
         }
 
         private void Form_KeyPress(object sender, KeyPressEventArgs e)
@@ -378,7 +362,7 @@ namespace Desktop_Minigames
             int i = 0;
             while (true)
             {
-                Image img = Properties.Resources.ResourceManager.GetObject("background" + random.Next(0, BACKGROUND_PICS_AMOUNT)) as Image;
+                Image img = Properties.Resources.ResourceManager.GetObject("background" + random.Next(1, BACKGROUND_PICS_AMOUNT + 1)) as Image;
                 if (img.Width / img.Height == area.Width / area.Height)
                 {
                     return img;
