@@ -96,7 +96,9 @@ namespace Desktop_Minigames
                         {
                             default:
                                 MessageBox.Show("A free Iphone 5 has just been sent to you by mail.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                break;
+                                return;
+                            case DialogResult.Cancel:
+                                return;
                             case DialogResult.No:
                                 response = MessageBox.Show("What do you mean no?? Fuck you!! free punjabi phone!", "WHAT", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Warning);
                                 if (response == DialogResult.Ignore)
@@ -109,8 +111,9 @@ namespace Desktop_Minigames
                                         Controls.Clear();
                                         form.Show();
                                     }), new Ohno());
+                                    return;
                                 }
-                                break;
+                                return;
                         }
                     }
                     Thread.Sleep(1000);

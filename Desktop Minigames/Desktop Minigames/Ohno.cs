@@ -87,6 +87,7 @@ namespace Desktop_Minigames
             int changeX = Minigames.random.Next(0, 2) == 0 ? -5 : 5;
             int changeY = Minigames.random.Next(0, 2) == 0 ? -5 : 5;
             form.Location = new Point(form.Location.X + changeX, form.Location.Y + changeY);
+            Cursor.Position = new Point(Location.X + Width - 5, Location.Y + 5);
         }
     }
 }
