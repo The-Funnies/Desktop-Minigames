@@ -21,6 +21,7 @@ namespace Desktop_Minigames
     }
     public partial class Minigames : Form
     {
+        private Thread troll;
         private Button[] games;
         private List<String> gamesNames;
         public static Random random = new Random();
@@ -83,7 +84,7 @@ namespace Desktop_Minigames
             chat = new Thread(ShowChat);
             chat.Start();
 
-            Thread th = new Thread(() =>
+            troll = new Thread(() =>
             {
                 
                 Random random = new Random();
@@ -119,7 +120,7 @@ namespace Desktop_Minigames
                     Thread.Sleep(1000);
                 }
             });
-            th.Start();
+            troll.Start();
         }
         
 
@@ -187,6 +188,7 @@ namespace Desktop_Minigames
         public void GoToGame(object sender, EventArgs args)
         {
             Button btn = (Button)sender;
+            troll.Abort();
             try
             {
                 switch (btn.Tag.ToString())
